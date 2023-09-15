@@ -27,6 +27,7 @@
         <module>api-gateway</module>
         <module>product-webapp</module>
         <module>Salon-Owner-Service</module>
+        <module> Email-Service</module>
 
     </modules>
 
