@@ -26,7 +26,6 @@
         <module>eureka-server</module>
         <module>api-gateway</module>
         <module>product-webapp</module>
-        <module>User-Profile-Service</module>
 
     </modules>
 
