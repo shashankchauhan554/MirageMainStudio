@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-
 @RestController
 @RequestMapping("/salon")
 public class SalonController {
@@ -23,18 +22,15 @@ public class SalonController {
 
         salonService.save(salon);
     }
-
     @GetMapping("/{id}")
     public ResponseEntity<Salon> getSalonById(@PathVariable String id) {
         Optional<Salon> salon = salonService.getById(id);
         return salon.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
-
     @GetMapping
     public List<Salon> getAllSalons() {
         return salonService.getAll();
     }
-
     @DeleteMapping("/{id}")
     public void deleteSalon(@PathVariable String id) {
 

@@ -28,6 +28,8 @@
         <module>product-webapp</module>
         <module>Salon-Owner-Service</module>
         <module> Email-Service</module>
+        <module>User-Service</module>
+        <module>Booking-Service</module>
 
     </modules>
 
