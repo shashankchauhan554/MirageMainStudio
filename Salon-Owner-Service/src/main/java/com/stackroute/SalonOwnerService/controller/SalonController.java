@@ -12,13 +12,15 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/apis")
+@RequestMapping("/salon")
 public class SalonController {
+
     @Autowired
     private SalonService salonService;
 
     @PostMapping
     public void createSalon(@RequestBody Salon salon) {
+
         salonService.save(salon);
     }
 
@@ -35,6 +37,7 @@ public class SalonController {
 
     @DeleteMapping("/{id}")
     public void deleteSalon(@PathVariable String id) {
+
         salonService.delete(id);
     }
 }
