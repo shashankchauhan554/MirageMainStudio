@@ -9,7 +9,7 @@
         <relativePath>../pom.xml</relativePath><!-- lookup parent from repository -->
     </parent>
     <groupId>com.stackroute</groupId>
-    <artifactId>User-Profile-Service</artifactId>
+    <artifactId>User-Service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>User-Profile-Service</name>
     <description>Demo project for Spring Boot</description>
