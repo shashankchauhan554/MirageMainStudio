@@ -13,8 +13,6 @@ import org.springframework.data.elasticsearch.annotations.Document;
 @NoArgsConstructor
 @Document(indexName = "salon")
 public class Salon {
-
-
     @Id
     private String id;
     private String name;
