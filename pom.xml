@@ -28,7 +28,12 @@
         <module>product-webapp</module>
         <module>Salon-Owner-Service</module>
         <module> Email-Service</module>
+<<<<<<< HEAD
         <module>Payment-service</module>
+=======
+        <module>User-Service</module>
+
+>>>>>>> c8b83824b4fab86d46477379f848e86fd3f02466
     </modules>
 
     <dependencies>
