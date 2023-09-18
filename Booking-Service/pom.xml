@@ -9,9 +9,9 @@
 		<relativePath>../pom.xml</relativePath><!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.stackroute</groupId>
-	<artifactId>User-Profile-Service</artifactId>
+	<artifactId>Booking-Service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>User-Profile-Service</name>
+	<name>Booking-Service</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
