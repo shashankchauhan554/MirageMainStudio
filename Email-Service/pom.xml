@@ -30,12 +30,6 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>jakarta.platform</groupId>
-			<artifactId>jakarta.jakartaee-api</artifactId>
-			<version>9.1.0</version> <!-- Use the appropriate version -->
-			<scope>provided</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
