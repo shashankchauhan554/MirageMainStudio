@@ -30,7 +30,7 @@ public class EmailConfirmationController {
         String confirmationToken = generateConfirmationToken();
 
         // Send the confirmation email
-        String confirmationLink = "http://your-app.com/confirm?token=" + confirmationToken;
+        String confirmationLink = "http://miragemanestudio.com/confirm?token=" + confirmationToken;
         emailService.sendConfirmationEmail(email, confirmationLink);
 
         // Update the user's confirmation status and save to the database
