@@ -28,7 +28,7 @@
         <module>product-webapp</module>
         <module>Salon-Owner-Service</module>
         <module> Email-Service</module>
-
+        <module>Payment-service</module>
     </modules>
 
     <dependencies>
