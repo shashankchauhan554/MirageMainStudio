@@ -30,11 +30,10 @@
         <module> Email-Service</module>
         <module>Payment-service</module>
         <module>User-Service</module>
-<<<<<<< HEAD
-=======
+
         <module>Booking-Service</module>
 
->>>>>>> 97392280c08c028815784d403936d3e286e27f53
+
     </modules>
 
     <dependencies>

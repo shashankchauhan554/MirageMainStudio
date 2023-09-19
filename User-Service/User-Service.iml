@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
     <output url="file://$MODULE_DIR$/target/classes" />
@@ -7,6 +6,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -25,6 +25,15 @@
     <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.30" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-sync:4.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:bson:4.6.1" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-core:4.6.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.mongodb:bson-record-codec:4.6.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-mongodb:3.4.15" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.29" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.29" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.29" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.29" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.7.15" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.36" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:2.7.15" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-json:2.7.15" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.13.5" level="project" />
@@ -115,15 +124,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.3.29" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:5.3.29" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.9.1" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-mongodb:4.1.3" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.29" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.29" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.29" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.29" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.7.15" level="project" />
-    <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-core:4.6.1" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.mongodb:bson-record-codec:4.6.1" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.36" level="project" />
     <orderEntry type="library" name="Maven: org.jacoco:jacoco-maven-plugin:0.8.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven:maven-plugin-api:3.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven:maven-model:3.0" level="project" />
@@ -191,15 +191,5 @@
     <orderEntry type="library" name="Maven: com.sun.xml.bind:jaxb-core:2.3.0" level="project" />
     <orderEntry type="library" name="Maven: com.sun.xml.bind:jaxb-impl:2.3.2" level="project" />
     <orderEntry type="library" name="Maven: javax.activation:activation:1.1.1" level="project" />
-=======
-<module type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src/main/java/com/stackroute" isTestSource="false" packagePrefix="com.stackroute.UserProfileService" />
-    </content>
-    <orderEntry type="inheritedJdk" />
-    <orderEntry type="sourceFolder" forTests="false" />
->>>>>>> origin/v1.0.0
   </component>
 </module>
