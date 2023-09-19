@@ -30,6 +30,7 @@
         <module> Email-Service</module>
         <module>Payment-service</module>
         <module>User-Service</module>
+        <module>Authentication-Service</module>
 
         <module>Booking-Service</module>
 
