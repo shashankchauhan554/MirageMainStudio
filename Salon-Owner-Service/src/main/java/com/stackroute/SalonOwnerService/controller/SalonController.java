@@ -11,28 +11,35 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/salon")
+@RequestMapping("/api/salon/bookings")
 public class SalonController {
 
     @Autowired
     private SalonService salonService;
 
-    @PostMapping
-    public void createSalon(@RequestBody Salon salon) {
-
-        salonService.save(salon);
-    }
-    @GetMapping("/{id}")
-    public ResponseEntity<Salon> getSalonById(@PathVariable String id) {
-        Optional<Salon> salon = salonService.getById(id);
-        return salon.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
-    }
     @GetMapping
-    public Iterable<Salon> getAllSalons() {
-        return salonService.getAll();
+    public Iterable<Salon> getAllBookings() {
+        return salonService.getAllBookings();
     }
+
+    @GetMapping("/{id}")
+    public Salon getBookingById(@PathVariable String id) {
+        return salonService.getBookingById(id);
+    }
+
+    @PostMapping
+    public Salon createBooking(@RequestBody Salon booking) {
+        return salonService.createBooking(booking);
+    }
+
+    @PutMapping("/{id}")
+    public Salon updateBooking(@PathVariable String id, @RequestBody Salon booking) {
+        return salonService.updateBooking(id, booking);
+    }
+
     @DeleteMapping("/{id}")
-    public void deleteSalon(@PathVariable String id) {
-        salonService.delete(id);
+    public ResponseEntity<String> deleteBooking(@PathVariable String id) {
+        salonService.deleteBooking(id);
+        return ResponseEntity.ok("Booking deleted successfully");
     }
 }
