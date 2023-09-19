@@ -7,13 +7,13 @@ import javax.mail.MessagingException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-
+@RequestMapping("/email")
 public class EmailConfirmationController {
 
     @Autowired
     private EmailService emailService;
 
-    @PostMapping("/api/email")
+    @PostMapping("/confirm")
     public void sendConfirmationEmail(@RequestBody User confirmationEmail) throws MessagingException {
         emailService.sendConfirmationEmail(confirmationEmail);
     }
