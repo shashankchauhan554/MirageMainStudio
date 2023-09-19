@@ -28,12 +28,11 @@ public class SalonController {
         return salon.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
     @GetMapping
-    public List<Salon> getAllSalons() {
+    public Iterable<Salon> getAllSalons() {
         return salonService.getAll();
     }
     @DeleteMapping("/{id}")
     public void deleteSalon(@PathVariable String id) {
-
         salonService.delete(id);
     }
 }

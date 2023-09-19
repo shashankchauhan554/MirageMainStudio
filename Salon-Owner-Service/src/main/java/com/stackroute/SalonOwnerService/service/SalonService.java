@@ -18,8 +18,8 @@ public class SalonService {
     public Optional<Salon> getById(String id) {
         return salonRepository.findById(id);
     }
-    public List<Salon> getAll() {
-        return (List<Salon>) salonRepository.findAll();
+    public Iterable<Salon> getAll() {
+        return  salonRepository.findAll();
     }
     public void delete(String id) {
         salonRepository.deleteById(id);
