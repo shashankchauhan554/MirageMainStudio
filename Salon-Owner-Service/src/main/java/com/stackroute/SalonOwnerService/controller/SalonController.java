@@ -24,6 +24,7 @@ public class SalonController {
 
     @GetMapping("/{id}")
     public Salon getBookingById(@PathVariable String id) {
+
         return salonService.getBookingById(id);
     }
 
