@@ -3,9 +3,10 @@ package com.stackroute.SalonOwnerService.repository;
 import com.stackroute.SalonOwnerService.model.SalonOwner;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
+import java.util.List;
 
 @Repository
-public interface SalonOwnerRepo extends ElasticsearchRepository<SalonOwner,String> {
-    //    List<HotelOwner> findByAddr(String addr);
+public interface SalonOwnerRepository extends ElasticsearchRepository<SalonOwner,String> {
+//       List<SalonOwner> findByAddr(String addr);
 
 }
