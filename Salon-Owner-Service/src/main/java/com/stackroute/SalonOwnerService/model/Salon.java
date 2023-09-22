@@ -1,21 +1,37 @@
 package com.stackroute.SalonOwnerService.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+import java.util.List;
+
+@Data
 @Document(indexName = "salon")
 public class Salon {
 
-
     @Id
-    private String id;
-    private String name;
+    String salonId;
+    String salonName;
+    String salonAddress;
+    String location;
+    String referalCode;
+    String gstNumber;
+    String availability;
+    String acNonAc;
+    String NearbyTransportation;
+    String wifi;
+    String maintanance;
+    int price;
+    List<Category> categoryList;
+//    byte [] salonImage;
+
+    public List<Category> getCategoryList() {
+        return categoryList;
+    }
+
+    public void setCategoryList(List<Category> categoryList) {
+        this.categoryList = categoryList;
+    }
+
 }

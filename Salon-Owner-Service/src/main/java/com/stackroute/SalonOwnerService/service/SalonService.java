@@ -1,35 +1,35 @@
 package com.stackroute.SalonOwnerService.service;
 
+import com.stackroute.SalonOwnerService.exception.*;
 import com.stackroute.SalonOwnerService.model.Salon;
-import com.stackroute.SalonOwnerService.repository.SalonRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import java.util.Optional;
+import com.stackroute.SalonOwnerService.model.Category;
 import java.util.List;
+import java.util.Optional;
 
-@Service
-public class SalonService {
+public interface SalonService {
 
-    @Autowired
-    private SalonRepo salonRepository;
+    // adding new Salon
+    public Salon addSalon(Salon salon) throws SalonIdAlreadyExistException;
 
-    public void save(Salon salon) {
+    // fetch the all salon
+    public Iterable<Salon> viewAllSalons();
 
-        salonRepository.save(salon);
-    }
+    //delete the Salon using SalonId
+    boolean deleteSalonbySalonId(String hotelId) throws SalonIdDoesNotExistException;
 
-    public Optional<Salon> getById(String id) {
+    // update the salon data
+    public Salon updateSalon(Salon salon) throws SalonIdDoesNotExistException;
 
-        return salonRepository.findById(id);
-    }
+    // getting the salon data using salonId
+    public Optional<Salon> getSalonBySalonId(String salonId);
 
-    public List<Salon> getAll() {
+    Salon addCategory(String salonId, Category category) throws SalonIdDoesNotExistException;
 
-        return (List<Salon>) salonRepository.findAll();
-    }
+    List<Salon> getSalonByLocation(String location);
 
-    public void delete(String id) {
+    Salon getSalonByName(String name);
 
-        salonRepository.deleteById(id);
-    }
+    boolean deleteCategory(String hotelId, String category) throws SalonIdDoesNotExistException, CategoryDoesNotExistException;
+
+    List<Salon> getSalonBasedOnCost(int price);
 }

@@ -28,9 +28,11 @@
         <module>product-webapp</module>
         <module>Salon-Owner-Service</module>
         <module> Email-Service</module>
-        <module>User-Service</module>
+        <module>Payment-service</module>
+        <module>UserService</module>
+        <module>Feedback-Service</module>
         <module>Booking-Service</module>
-
+        <module>Authentication-Service</module>
     </modules>
 
     <dependencies>
