@@ -29,7 +29,11 @@
         <module>Salon-Owner-Service</module>
         <module> Email-Service</module>
         <module>Payment-service</module>
+<<<<<<< HEAD
         <module>UserService</module>
+=======
+        <module>Feedback-Service</module>
+>>>>>>> b665ecacfc35019c25fa317d14129c86033f006c
         <module>Booking-Service</module>
         <module>Authentication-Service</module>
     </modules>
