@@ -29,7 +29,7 @@
         <module>Salon-Owner-Service</module>
         <module> Email-Service</module>
         <module>Payment-service</module>
-        <module>User-Service</module>
+        <module>UserService</module>
         <module>Booking-Service</module>
         <module>Authentication-Service</module>
     </modules>
