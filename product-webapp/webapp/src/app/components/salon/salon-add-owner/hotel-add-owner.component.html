@@ -1,0 +1,91 @@
+<div class="body">
+  <div class="example-form">
+    <h2 class="heading">Salon Owner Details</h2>
+    <form
+      (ngSubmit)="submitForm()"
+      enctype="multipart/form-data"
+      class="example-form"
+    >
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Owner Id"
+        name="ownerId"
+        [(ngModel)]="ownerId"
+        pattern="[A-Za-z0-9]+"
+      />
+
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter email."
+        name="email"
+        [(ngModel)]="email"
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+      />
+
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Name"
+        name="name"
+        [(ngModel)]="name"
+        pattern="[A-Za-z ]+"
+      />
+
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Mobile Number"
+        name="mobileNo"
+        [(ngModel)]="mobileNo"
+        pattern="[0-9]{10}"
+      />
+
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Referal"
+        name="referalcode"
+        [(ngModel)]="referalCode"
+      />
+
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Address"
+        name="addr"
+        [(ngModel)]="addr"
+      />
+
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Date Of birth"
+        name="dob"
+        [(ngModel)]="dob"
+        pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
+      />
+
+      <div class="form-group col-md-20">
+        <input
+          type="file"
+          class="form-control"
+          name="photo"
+          (change)="imageUpload($event)"
+          required
+        />
+      </div>
+      <br /><br />
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>

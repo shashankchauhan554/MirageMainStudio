@@ -1,0 +1,47 @@
+<br><br><br><div class="container mt-10 bg-light p-3">
+  <div class="container border">
+    <div class="container mt-3">
+      <h2 class="text-center mt-2 p-3 bg-dark text-white">
+        Enter Salon Data
+      </h2>
+
+      <div class="main">
+        <form class="example-form"  (ngSubmit)="getbyid(box.value)">
+          <mat-form-field class="example-full-width">
+            <mat-label>hotel Id</mat-label>
+            <input matInput placeholder="Enter salon Id" required #box >
+          </mat-form-field>
+          <br>
+          <button type="submit" mat-raised-button color="primary">Enter</button>
+        </form>
+      </div>
+    </div></div></div>
+
+<div class="container mt-4">
+  <div class="warp">
+    <mat-card class="example-card m-3">
+
+      <mat-card-content>
+        <img class="image" src ="data:image/jpeg;base64,{{getJsonValue.hotelImage}}">
+
+        <h2>Salon Number:{{getJsonValue.salonId}}</h2>
+        <h2>Salon Name:{{getJsonValue.salonName}}</h2>
+        <h2>Salon Address:{{getJsonValue.salonAddress}}</h2>
+        <h2>Location:{{getJsonValue.location}}</h2>
+        <h2>Referal Code:{{getJsonValue.referalCode}}</h2>
+        <!-- <h2>Gst Number:{{getJsonValue.gstNumber}}</h2> -->
+        <!-- <h2>Availability:{{getJsonValue.availability}}</h2> -->
+        <h2>AC Or Non AC:{{getJsonValue.acNonAc}}</h2>
+        <h2>WIFI:{{getJsonValue.wifi}}</h2>
+        <!-- <h2>Maintanance:{{getJsonValue.maintanance}}</h2> -->
+        <h2>Price:{{getJsonValue.price}}</h2>
+
+
+      </mat-card-content>
+      <mat-card-actions>
+        <!-- <button mat-button>Edit</button> -->
+        <!-- <button mat-raised-button (click)="deletesalon(item.salonId)" color="accent">Delete</button> -->
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

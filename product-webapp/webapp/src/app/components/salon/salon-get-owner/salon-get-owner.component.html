@@ -1,0 +1,13 @@
+<div class="top">
+  <div class="warp">
+    <div class="example-card" *ngFor="let item of getJsonValue">
+      <img class="image" src ="data:image/jpeg;base64,{{item.ownerImage}}">
+      <h1>OwnerId: {{ item.ownerId }}</h1>
+      <h2>Owner Name: {{ item.name }}</h2>
+      <h2>Address: {{ item.addr }}</h2>
+      <h2>Email: {{ item.email }}</h2>
+      <h2>Mobile Number: {{ item.mobileNo }}</h2>
+      <h2>Date Of Birth: {{ item.dob }}</h2>
+    </div>
+  </div>
+</div>

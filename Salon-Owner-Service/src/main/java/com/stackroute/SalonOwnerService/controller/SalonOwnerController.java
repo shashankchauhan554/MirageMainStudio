@@ -15,7 +15,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("api/v1")
 @CrossOrigin("*")
-public class SalonOwnerController {
+public class SalonOwnerController{
     @Autowired
     SalonOwnerServiceImpl service;
 

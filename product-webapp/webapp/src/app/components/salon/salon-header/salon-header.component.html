@@ -1,0 +1,56 @@
+<div style="position: fixed; width : 100vw;">
+  <mat-toolbar color="primary">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" class="matMenulist">
+      <button mat-menu-item class="custom-menu-item">
+        <a routerLink="salon-register">Register</a>
+      </button>
+      <button mat-menu-item  class="custom-menu-item">
+        <a routerLink=salon-login">Login</a>
+      </button>
+      <button mat-menu-item class="custom-menu-item">
+        <a routerLink="salon-homepage">Go to HomePage</a>
+      </button>
+      <button mat-menu-item class="custom-menu-item">
+        <a routerLink="salon-add-owner">Add Your details</a>
+      </button>
+      <button mat-menu-item class="custom-menu-item">
+        <a routerLink="salon-addbyownerid-salon">Add your Salon</a>
+      </button>
+      <button mat-menu-item class="custom-menu-item">
+        <a routerLink="salon-addbysalonid-salon">Add Categorys</a>
+      </button>
+
+      <button mat-menu-item class="custom-menu-item">
+        <a routerLink="salon1-get-owner">List of Owners</a>
+      </button>
+      <button mat-menu-item class="custom-menu-item">
+        <a routerLink="salon-get-salon">List of Salons</a>
+      </button>
+      <button mat-menu-item class="custom-menu-item">
+        <a routerLink="salon-get-category">List of Categorys</a>
+      </button>
+
+      <button mat-menu-item class="custom-menu-item">
+        <a routerLink="salon-update-salon">Update your Salon</a>
+      </button>
+
+      <button mat-menu-item class="custom-menu-item">
+        <a (click)="onlogout()">Salon-Owner-Logout</a>
+      </button>
+    </mat-menu>
+    <span>Stay-Planner</span>
+    <span class="example-spacer"></span>
+
+
+    <button class="btn btn-warning m-2" (click)="navigateToAdmin()">Admin</button>
+    <button class="btn btn-warning m-2"  (click)="navigateToCustomer()">Customer</button>
+
+  </mat-toolbar>
+</div>
