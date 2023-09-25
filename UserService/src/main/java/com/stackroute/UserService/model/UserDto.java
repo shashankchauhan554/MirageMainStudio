@@ -1,60 +1,122 @@
 package com.stackroute.UserService.model;
+
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collation = "UserRegistration")
+@Document(collection = "user")
 public class UserDto {
     @Id
-    private String FullName;
-    private String Emailid;
-    private String password;
-    private String Gender;
-    private Integer Age;
-    private Integer phonenumber;
-    private String Role;
+    private int id;
 
-    //getters
+    private String FullName;
+
+    public UserDto() {
+    }
+
+    public UserDto(int id, String fullName, String emailid, String password, Ugender gender, Urole role, Integer age, long phonenumber) {
+        this.id = id;
+        FullName = fullName;
+        Emailid = emailid;
+        this.password = password;
+        Gender = gender;
+        this.role = role;
+        Age = age;
+        this.phonenumber = phonenumber;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "id=" + id +
+                ", FullName='" + FullName + '\'' +
+                ", Emailid='" + Emailid + '\'' +
+                ", password='" + password + '\'' +
+                ", Gender=" + Gender +
+                ", role=" + role +
+                ", Age=" + Age +
+                ", phonenumber=" + phonenumber +
+                '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getFullName() {
         return FullName;
     }
-    public String getEmailid(){
+
+    public void setFullName(String fullName) {
+        FullName = fullName;
+    }
+
+    public String getEmailid() {
         return Emailid;
     }
-    public String getGender(){
-        return Gender;
+
+    public void setEmailid(String emailid) {
+        Emailid = emailid;
     }
-    public  Integer getAge(){
-        return Age;
-    }
-    public Integer getPhonenumber(){
-        return phonenumber;
-    }
+
     public String getPassword() {
         return password;
     }
-    public String getRole(){
-        return Role;
-    }
-    //setters
-    public void setFullname(String Fullname){
-        this.FullName = Fullname;
-    }
-    public void setEmailid(String Emailid){
-        this.Emailid = Emailid;
-    }
-    public void setGender(String Gender){
-        this.Gender = Gender;
-    }
-    public void setAge(Integer Age){
-        this.Age = Age;
-    }
-    public void setPhonenumber(Integer phonenumber){
-        this.phonenumber = phonenumber;
-    }
-    public void setPassword(String password){
+
+    public void setPassword(String password) {
         this.password = password;
     }
-    public void setRole(String Role){
-        this.Role = Role;
+
+    public Ugender getGender() {
+        return Gender;
     }
+
+    public void setGender(Ugender gender) {
+        Gender = gender;
+    }
+
+    public Urole getRole() {
+        return role;
+    }
+
+    public void setRole(Urole role) {
+        this.role = role;
+    }
+
+    public Integer getAge() {
+        return Age;
+    }
+
+    public void setAge(Integer age) {
+        Age = age;
+    }
+
+    public long getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(long phonenumber) {
+        this.phonenumber = phonenumber;
+    }
+
+    private String Emailid;
+    private String password;
+    private Ugender Gender;
+    private Urole role;
+    private Integer Age;
+    private long phonenumber;
+
+
+
+
+
+
+
+
+
+
 }
