@@ -7,12 +7,13 @@ import org.springframework.stereotype.Service;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import org.springframework.mail.javamail.MimeMessageHelper;
-
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 @Service
 public class EmailService {
     @Autowired
     private JavaMailSender javaMailSender;
 
+    @RabbitListener(queues = "user-registration-queue")
     public void sendConfirmationEmail(User confirmationEmail) throws MessagingException {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
