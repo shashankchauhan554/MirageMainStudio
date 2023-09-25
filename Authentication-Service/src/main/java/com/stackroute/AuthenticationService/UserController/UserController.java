@@ -21,12 +21,15 @@ public class UserController {
     public String getmovie(){
         return "KGF";
     }
+
+    @CrossOrigin(origins = "*")
     @PostMapping("/user")
     public ResponseEntity<?> addUser(@RequestBody UserModel u)
     {
         UserModel u1=userv.addUser(u);
         return new ResponseEntity<>(u1, HttpStatus.CREATED);
     }
+    @CrossOrigin(origins = "*")
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserModel u) throws EntityNotFoundException
     {
