@@ -24,7 +24,12 @@ public class Userservice implements Iservice{
     public UserDto addUser(UserDto u) throws UserAlreadyExist {
         UserDto savedUser=userServiceiml.registerUser(u);
         return savedUser;
-    }
+   }
+//@Override
+//public UserDto addUser(UserDto u) {
+//    UserDto user=urepo.save(u);
+//    return user;
+
 
     @Override
     public List<UserDto> getAllUsers() {

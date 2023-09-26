@@ -1,12 +1,13 @@
 package com.stackroute.UserService.exception;
 
 
-import javax.naming.AuthenticationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+@ResponseStatus(code = HttpStatus.CONFLICT,reason = "User already exist")
+public class UserAlreadyExist extends Exception {
 
-public class UserAlreadyExist extends AuthenticationException {
-
-    public UserAlreadyExist(final String msg) {
-        super(msg);
-    }
+//    public UserAlreadyExist(final String msg) {
+//        super(msg);
+//    }
 
 }

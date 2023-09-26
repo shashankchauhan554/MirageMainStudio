@@ -23,7 +23,6 @@ public class UserRegistrationController {
         return "KGF";
     }
     @CrossOrigin(origins = "*")
-
     @PostMapping("/user")
     public ResponseEntity<?>addUser(@RequestBody UserDto u) throws UserAlreadyExist {
         UserDto user=userv.addUser(u);
