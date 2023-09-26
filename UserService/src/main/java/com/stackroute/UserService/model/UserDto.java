@@ -13,15 +13,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "user")
 public class UserDto {
 
-<<<<<<< HEAD
-    private String FullName;
-    private String Email;
-=======
-
 
     private String fullName;
     private String email;
->>>>>>> 26fe9863a33f664bd484da1051d7e7c810c6e828
     private String password;
     private Ugender gender;
     private Urole role;
@@ -30,7 +24,18 @@ public class UserDto {
 
 
     public UserDto(JSONObject authobj){
-
     }
 
+    public UserDto(String fullName, String email, String password) {
+        this.email = email;
+        this.password = password;
+        this.fullName = fullName;
+    }
+
+    public UserDto(String fullName, String email) {
+        this.fullName = fullName;
+        this.email = email;
+    }
 }
+
+
