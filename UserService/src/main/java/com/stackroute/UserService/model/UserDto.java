@@ -13,12 +13,19 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "user")
 public class UserDto {
 
+<<<<<<< HEAD
     private String FullName;
     private String Email;
+=======
+
+
+    private String fullName;
+    private String email;
+>>>>>>> 26fe9863a33f664bd484da1051d7e7c810c6e828
     private String password;
-    private Ugender Gender;
+    private Ugender gender;
     private Urole role;
-    private Integer Age;
+    private Integer age;
     private long phonenumber;
 
 

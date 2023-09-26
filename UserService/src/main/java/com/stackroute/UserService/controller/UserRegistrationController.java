@@ -22,6 +22,7 @@ public class UserRegistrationController {
     public String movie(){
         return "KGF";
     }
+    @CrossOrigin(origins = "*")
 
     @PostMapping("/user")
     public ResponseEntity<?>addUser(@RequestBody UserDto u) throws UserAlreadyExist {
