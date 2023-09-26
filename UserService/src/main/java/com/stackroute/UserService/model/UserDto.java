@@ -13,12 +13,12 @@ public class UserDto {
 
 
 
-    private String FullName;
-    private String Email;
+    private String fullName;
+    private String email;
     private String password;
-    private Ugender Gender;
+    private Ugender gender;
     private Urole role;
-    private Integer Age;
+    private Integer age;
     private long phonenumber;
 
 
