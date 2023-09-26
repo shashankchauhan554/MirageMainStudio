@@ -1,5 +1,6 @@
 package com.stackroute.UserService.controller;
 
+import com.stackroute.UserService.exception.UserAlreadyExist;
 import com.stackroute.UserService.model.UserDto;
 import com.stackroute.UserService.service.Userservice;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,7 @@ public class UserRegistrationController {
     }
 
     @PostMapping("/user")
-    public ResponseEntity<?>addUser(@RequestBody UserDto u)
-    {
+    public ResponseEntity<?>addUser(@RequestBody UserDto u) throws UserAlreadyExist {
         UserDto user=userv.addUser(u);
         return  new ResponseEntity<>(user, HttpStatus.CREATED);
     }
