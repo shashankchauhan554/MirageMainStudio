@@ -1,8 +1,6 @@
 package com.stackroute.SalonOwnerService.repository;
 
 import com.stackroute.SalonOwnerService.model.Salon;
-import com.stackroute.SalonOwnerService.model.SalonOwner;
-import com.stackroute.SalonOwnerService.model.Category;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
 

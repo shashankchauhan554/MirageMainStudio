@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -22,21 +22,9 @@ public class CategoryController {
     CategoryServiceImpl service;
 
     @PostMapping("/addcategory")
-    public  ResponseEntity<?> addCategory(@RequestParam("categoryId")String categoryId,
-                                      @RequestParam("categoryType")String categoryType,
-                                      @RequestParam("price")int price,
-                                      @RequestParam("acNonAc")String acNonAc,
-                                      @RequestParam("wifi")String wifi,
-                                      @RequestParam("maintanance")String maintanance) throws CategoryAlreadyExistException, IOException {
-        Category category= new Category();
-        category.setCategoryId(categoryId);
-        category.setCategoryType(categoryType);
-        category.setPrice(price);
-        category.setAcNonAc(acNonAc);
-        category.setWifi(wifi);
-        category.setMaintanance(maintanance);
+    public ResponseEntity<?> addCategory(@RequestBody  Category category) throws CategoryAlreadyExistException, IOException {
         Category category1 = service.addCategory(category);
-        return new ResponseEntity<Category>(category1, HttpStatus.CREATED);
+        return new ResponseEntity<>(category1, HttpStatus.CREATED);
 
     }
     @GetMapping("viewallcategory")
@@ -63,8 +51,8 @@ public class CategoryController {
         }
     }
     @GetMapping("viewbycategory/{categoryNo}")
-    public Optional<Category> viewByCategory(@PathVariable String category){
-        return service.getSalonCategoryByCategory(category);
+    public Optional<Category> viewByCategory(@PathVariable String categoryNo){
+        return service.getSalonCategoryByCategory(categoryNo);
     }
 
     @GetMapping("viewbyprice/{maxprice}")
