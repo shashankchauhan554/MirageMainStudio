@@ -24,13 +24,10 @@ public class Salon {
     String maintanance;
     int price;
     List<Category> categoryList;
-//    byte [] salonImage;
 
-    public List<Category> getCategoryList() {
-        return categoryList;
-    }
+    public List<Category> getCategoryList() {return categoryList;}
 
-    public void setCategoryList(List<Category> categoryList) {
+    public void setCategoryList(List<Category> roomList) {
         this.categoryList = categoryList;
     }
 

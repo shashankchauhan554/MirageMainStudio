@@ -6,7 +6,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.util.List;
 @Data
-@Document(indexName= "SalonOwner")
+@Document(indexName= "salonowner")
 public class SalonOwner {
     // Salon Owner Properties
     @Id
