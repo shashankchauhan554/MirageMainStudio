@@ -31,7 +31,7 @@ public class UserServiceiml {
         Optional<UserDto> userDtoOptional = userRepository.findById(user.getEmail());
         if (!userDtoOptional.isEmpty()) {
             System.out.println(userDtoOptional.get());
-            throw new UserAlreadyExist ();
+            throw new UserAlreadyExist ("User Already Exists");
         } else {
 
             UserDto saveduser = userRepository.save(user);
@@ -53,10 +53,10 @@ public class UserServiceiml {
 //            rabbitTemplate.convertAndSend(directExchange.getName(), "thisisEmailkey", emailDto);
 //            return saveduser;
             UserDto userdata = new UserDto(user.getFullName(),user.getEmail(),user.getPassword());
-            rabbitTemplate.convertAndSend(exchange.getName(),"user_routing", userdata);
+            rabbitTemplate.convertAndSend(exchange.getName(),"thisisAuthkey", userdata);
 
             UserDto useremaildata = new UserDto(user.getFullName(),user.getEmail());
-            rabbitTemplate.convertAndSend(exchange.getName(),"user_routing", useremaildata);
+            rabbitTemplate.convertAndSend(exchange.getName(),"thisisemailkey", useremaildata);
             return saveduser;
         }
     }
