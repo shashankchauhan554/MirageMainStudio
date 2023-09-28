@@ -12,24 +12,24 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class rabbitmq {
-    private String exchangeName = "SaloonExchange";
-    private String queue1 = "auth_Queue";
-    private String queue2 = "email_Queue2";
+    private String exchange = "SaloonExchange";
+    private String Auth_Queue = "auth_Queue";
+    private String Email_Queue = "email_Queue";
 
 
     @Bean
     public DirectExchange getDirectExchange() {
-        return new DirectExchange(exchangeName);
+        return new DirectExchange(exchange);
     }
 
     @Bean
-    public Queue getQueue1() {
-        return new Queue(queue1);
+    public Queue getAuthQueue() {
+        return new Queue(Auth_Queue);
     }
 
     @Bean
-    public Queue getQueue2() {
-        return new Queue(queue2);
+    public Queue getEmailQueue() {
+        return new Queue(Email_Queue);
     }
 
 
@@ -48,12 +48,12 @@ public class rabbitmq {
 
     @Bean
     public Binding getBinding1() {
-        return BindingBuilder.bind(getQueue1()).to(getDirectExchange()).with("thisIsAuthKey");
+        return BindingBuilder.bind(getAuthQueue()).to(getDirectExchange()).with("thisIsAuthKey");
     }
 
     @Bean
     public Binding getBinding2() {
-        return BindingBuilder.bind(getQueue2()).to(getDirectExchange()).with("thisIsEmailKey");
+        return BindingBuilder.bind(getEmailQueue()).to(getDirectExchange()).with("thisIsEmailKey");
     }
 
 

@@ -56,23 +56,18 @@ public class JwtUtils {
     }
 
     public Map<String, String> newgenerateToken(User user) {
-        System.out.println(user);//creates a new HashMap called result, which will be
-        // used to store the generated token
-        Map<String, String> result = new HashMap<>();//creates a new HashMap called userdata, which will be used to store
-        // the user data that will be included in the token.
+        System.out.println(user);
+        Map<String, String> result = new HashMap<>();
         Map<String, Object> userdata = new HashMap<>();
-        //add properties into userdata
         userdata.put("userEmail", user.getUserEmail());
         userdata.put("userRole", user.getUserRole());
 
 
 
-        //The Jwts.builder() method starts building the token
+
         String myToken = Jwts.builder().setClaims(userdata)
-                //setIssuedAt sets the issue time of the token to the current time.
                 .setIssuedAt(new Date())
                 .signWith(SignatureAlgorithm.HS512, "secure")
-                // used to generate the final token as a compact string.
                 .compact();
         result.put("Token", myToken);
         result.put("userEmail", user.getUserEmail());

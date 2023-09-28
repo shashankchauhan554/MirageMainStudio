@@ -16,7 +16,7 @@ import com.stackroute.AuthenticationService.services.UserService;
 import com.stackroute.AuthenticationService.util.JwtUtils;
 
 @RestController
-@RequestMapping("api/v1/user")
+@RequestMapping("v1/user")
 public class UserController {
 
     @Autowired
@@ -28,16 +28,8 @@ public class UserController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-//    @PostMapping("/na/register")
-//    public ResponseEntity<?> registerUser(@RequestBody User user) {
-//
-//        User user1 = this.UserService.registerUser(user);
-//
-//        return ResponseEntity.status(HttpStatus.CREATED).body(user1);
-//
-//    }
 
-    @PostMapping("/na/login")
+    @PostMapping("/api/login")
     public ResponseEntity<?> generateToken(@RequestBody User user) throws Exception {
         try {
             authenticationManager.authenticate(

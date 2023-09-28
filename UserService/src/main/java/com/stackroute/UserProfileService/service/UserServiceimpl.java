@@ -6,17 +6,13 @@ import java.util.Optional;
 import com.stackroute.UserProfileService.exception.UserNotFoundException;
 import com.stackroute.UserProfileService.producer.UserDTO;
 import org.json.simple.JSONObject;
-import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.stackroute.UserProfileService.controller.UserController;
 import com.stackroute.UserProfileService.exception.UserAlreadyExistsException;
 import com.stackroute.UserProfileService.model.*;
 import com.stackroute.UserProfileService.repository.UserRepository;
-import com.stackroute.UserProfileService.repository.UserRepository.*;
 
 
 @Service
@@ -35,19 +31,16 @@ public class UserServiceimpl implements UserService{
 	
 	@Override
 	public User saveUser(User user) {
-		// TODO Auto-generated method stub
 		return userRepository.save(user);
 	}
 
 	@Override
 	public List<User> getUser() {
-		// TODO Auto-generated method stub
 		return userRepository.findAll();
 	}
 
 	@Override
 	public String deleteUser(String email) {
-		// TODO Auto-generated method stub
 		User del = userRepository.findById(email).get();
 		userRepository.delete(del);
 		return "Deleted";
@@ -55,15 +48,11 @@ public class UserServiceimpl implements UserService{
 
 	@Override
 	public User updateUser(User user) {
-		// TODO Auto-generated method stub
 		return userRepository.save(user);
 	}
-//	@Autowired
-//	UserRepository userRepository;
 
 	@Override
 	public User getByEmail(String email) throws UserNotFoundException {
-//		return userRepository.findById(email).get();
 		Optional<User> userOptional = Optional.ofNullable(userRepository.findByEmail(email));
 		if (userOptional.isPresent()) {
 			return userOptional.get();
@@ -81,6 +70,8 @@ public class UserServiceimpl implements UserService{
 			 System.out.println(userOptional.get());
 	         throw new UserAlreadyExistsException("User Already Exists!");
 	     } else {
+			 User savedUser = userRepository.save(user);
+
 	         JSONObject authobj = new JSONObject();
 	 
 	         authobj.put("userEmail", user.getEmail());
@@ -97,25 +88,11 @@ public class UserServiceimpl implements UserService{
 
 	         UserDTO emailDTO = new UserDTO(emailObj);
 	         rabbitTemplate.convertAndSend(directExchange.getName(),"thisIsEmailKey",emailDTO);
-//	 
-	         User savedUser = userRepository.save(user);
 	       return savedUser;
 	     }
 
 	 }
 
-//	@Override
-//	public updateUser (User user) {
-//		return userRepository.save(user);
-//	}
-
-	
-	
-	
-////	public User findByEmailAndSecQuestionAndSecAnswer(String email,String secQuestion,String secAnswer) {
-////	
-////		return userRepository.findByEmailAndSecQuestionAndSecAnswer(email, secQuestion, secAnswer);
-////	} }
 }
 
 
