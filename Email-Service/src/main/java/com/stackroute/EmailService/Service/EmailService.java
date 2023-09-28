@@ -1,5 +1,8 @@
 package com.stackroute.EmailService.Service;
+import com.stackroute.EmailService.EmailServiceApplication;
+import com.stackroute.EmailService.dto.EmailRequestDTO;
 import com.stackroute.EmailService.model.User;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
@@ -13,34 +16,35 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 @EnableRabbit
 @Service
+
+
 public class EmailService {
+
+
+    private  final JavaMailSender emailSender ;
     @Autowired
+    public EmailService(JavaMailSender emailSender) {
+        this.emailSender = emailSender;
+    }
 
-    private JavaMailSender emailSender ;
-    @Autowired
-    private ObjectMapper objectMapper ;
+        @RabbitListener(queues = "user_email_queue")
+        public void sendConfirmationEmail(User user) {
+            SimpleMailMessage message = new SimpleMailMessage();
 
-
-        @RabbitListener(queues = "user_queue")
-        public void sendConfirmationEmail(String jsonUser) {
+            message.setTo(user.getTo());
+            message.setSubject(user.getSubject());
+            message.setText(user.getBody());
             try {
-                // Deserialize JSON to a User object
-                User user = objectMapper.readValue(jsonUser, User.class);
-
-                // Extract relevant information from the User object
-                String to = user.getTo();
-                String subject = user.getSubject();
-                String body = user.getBody();
-
-                // Send confirmation email
-                SimpleMailMessage message = new SimpleMailMessage();
-                message.setTo(to);
-                message.setSubject(subject);
-                message.setText(body);
                 emailSender.send(message);
+                System.out.println("Email sent successfully.");
             } catch (Exception e) {
                 // Handle exceptions and logging
+                System.err.println("Error sending email: " + e.getMessage());
             }
         }
+
+
+
+
 
 }

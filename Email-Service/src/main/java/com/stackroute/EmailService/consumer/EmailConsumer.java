@@ -17,16 +17,15 @@ public class EmailConsumer {
     }
 
     @RabbitListener(queues = "user_email_queue")
-    public void receiveMessage(String jsonMessage) {
+    public void receiveMessage(String jsonUser) {
         try {
-            // Deserialize the JSON message into a Java object
-           User registrationRequest = objectMapper.readValue(jsonMessage, User.class);
+            // Deserialize JSON to User object
+            User user = objectMapper.readValue(jsonUser,User.class);
 
-            // Process the registration request and send confirmation email
-            emailService.sendConfirmationEmail(String.valueOf(registrationRequest));
+            // Process and send email using user data
+            emailService.sendConfirmationEmail(user);
         } catch (Exception e) {
-            // Handle exceptions and logging
-            e.printStackTrace();
+            System.err.println("Error processing message: " + e.getMessage());
         }
     }
 }
