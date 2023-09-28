@@ -12,20 +12,13 @@ export class LoginComponent {
   private scall=inject(UserServiceService);
   private fb = inject(FormBuilder);
   loginForm = this.fb.group({
-    
+
 
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
-   
-   
+
+
   });
-
-
-
-
-
-  
-
   onSubmit() {
     if (this.loginForm.valid && this.loginForm.dirty) {
     this.scall.loginUser(this.loginForm.value).subscribe((data:any)=>{
@@ -33,7 +26,7 @@ export class LoginComponent {
         alert('User logged in Successful!');
         // this.router.navigate(['/home']);
       })
-      
+
     } else {
       console.log('Please fill the valid credentials');
     }

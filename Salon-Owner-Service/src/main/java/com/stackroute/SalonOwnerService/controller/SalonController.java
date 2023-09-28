@@ -25,6 +25,7 @@ public class SalonController {
         return new ResponseEntity<>(salon1, HttpStatus.CREATED);
     }
 
+
     @GetMapping("/viewall")
     public ResponseEntity<?> viewAllSalon()  {
         Iterable<Salon> salonList = service.viewAllSalons();

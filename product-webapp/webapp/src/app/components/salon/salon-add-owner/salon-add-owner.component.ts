@@ -8,9 +8,8 @@ import { SalonownerService } from 'src/app/services/salonowner/salonowner.servic
   templateUrl: './salon-add-owner.component.html',
   styleUrls: ['./salon-add-owner.component.css']
 })
-export class HotelAddOwnerComponent {
+export class SalonAddOwnerComponent {
   ownerId = "";
-  image: File[] = [];
   email = "";
   name = "";
   mobileNo = "";
@@ -25,9 +24,6 @@ export class HotelAddOwnerComponent {
   ) { }
 
 
-  imageUpload(event: any) {
-    this.image = event.target.files;
-  }
   submitForm() {
     const formData = new FormData();
 
@@ -42,9 +38,6 @@ export class HotelAddOwnerComponent {
 
     formData.append('maintanance', this.referalCode);
 
-    for (const image of this.image) {
-      formData.append('image', image);
-    }
 
     this.addOwnerService.addOwner(formData).subscribe(
       (response: any) => {

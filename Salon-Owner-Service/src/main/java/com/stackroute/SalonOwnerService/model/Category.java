@@ -7,6 +7,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 @Data
 @Document(indexName = "categorytypes")
 public class Category {
+
     @Id
     String categoryId;
     String categoryType;
@@ -14,5 +15,4 @@ public class Category {
     String acNonAc;
     String wifi;
     String maintanance;
-
 }
