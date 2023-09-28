@@ -14,7 +14,7 @@ public class UserServiceImpl implements UserService{
     @Autowired
     UserRepo userRepo;
 
-    @RabbitListener(queues = "authQueue")
+    @RabbitListener(queues = "auth_Queue")
     @Override
     public Void registerUser(UserDTO userDTO) {
 

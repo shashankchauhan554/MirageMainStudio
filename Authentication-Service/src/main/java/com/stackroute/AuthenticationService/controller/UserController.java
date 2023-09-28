@@ -17,7 +17,6 @@ import com.stackroute.AuthenticationService.util.JwtUtils;
 
 @RestController
 @RequestMapping("api/v1/user")
-@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
     @Autowired

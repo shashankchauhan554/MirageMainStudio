@@ -12,9 +12,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class rabbitmq {
-    private String exchangeName = "PhilanthrolinkExchange";
-    private String queue1 = "authQueue";
-    private String queue2 = "emailQueue2";
+    private String exchangeName = "SaloonExchange";
+    private String queue1 = "auth_Queue";
+    private String queue2 = "email_Queue2";
 
 
     @Bean
