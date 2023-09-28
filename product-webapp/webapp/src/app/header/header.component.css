@@ -1,0 +1,114 @@
+.nav{
+  height: 5.5em;
+}
+
+.anchor1{
+  text-decoration: none;
+  
+  font-family: Poppins,sans-serif!important;
+
+  color: #f47d31;
+  font-size: 20px;
+}
+.anchor2{
+  text-decoration: none;
+  color: #fff!important;
+  font-family: Poppins,sans-serif!important;
+
+  font-size: 20px;
+}
+.buttontheme1{
+width: 140px;
+  background: #f47d31;
+  font-size: 16px;
+  color: #fff;
+  display: inline-block;
+  border-radius: 50px;
+  box-shadow: 0 3px 6px rgba(0,0,0,.16);
+  padding: 10px 25px;
+  border: 1px solid #f47d31;
+  text-align: center;
+}
+.buttontheme2{
+  width: 140px;
+  background: #fff;
+  font-size: 16px;
+  width: 140px;
+  display: inline-block;
+  border-radius: 25px;
+  box-shadow: 0 3px 6px rgba(0,0,0,.16);
+  padding: 10px 25px;
+  border: 1px solid #f47d31;
+  text-align: center;
+
+}
+.text-end{
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+}
+ul li a{
+  color: #000;
+  font-size: 1rem;
+  font-family: Poppins,sans-serif!important;
+
+}
+ul li a:hover{
+  color: #f47d31;
+}
+.backimg{
+  height: 70vh;
+  /* background-image: url('../../assets/background1.jpg'); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  display: flex;
+  align-items: center;
+}
+.mainCard{
+  padding: 5vh 6vh;
+  background: #fff;
+  border-radius: 12px;
+  opacity: .91;
+  width: 62vh;
+  -webkit-tap-highlight-color: transparent;
+}
+.card_title{
+  color: #f68a40;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  line-height: 1.2;
+  font-size: 2.5rem;
+}
+.card_desc{
+  font-size: 2.2vh;
+  color: #333;
+  font-weight: 500;
+  margin: 2.5vh 0 3.5vh;
+  margin-top: 0;
+  margin-bottom: 1rem;
+
+}
+.getbutton{
+  padding: 1.2vh 3.2vh;
+  border-radius: 0.8vh;
+  background: #f68a40;
+  font-size: 2.4vh;
+  display: inline-block;
+  color: #fff;
+  transition: all .5s ease;
+  text-decoration: none;
+  width: 40%;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+
+  /* padding: 20px; */
+}
+.getbutton:hover{
+  background-color: blue;
+}

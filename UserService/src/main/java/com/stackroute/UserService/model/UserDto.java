@@ -14,8 +14,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class UserDto {
 
 
-    private String FullName;
-    private String Email;
+
+
+
+
 
 
 
@@ -30,7 +32,18 @@ public class UserDto {
 
 
     public UserDto(JSONObject authobj){
-
     }
 
+    public UserDto(String fullName, String email, String password) {
+        this.email = email;
+        this.password = password;
+        this.fullName = fullName;
+    }
+
+    public UserDto(String fullName, String email) {
+        this.fullName = fullName;
+        this.email = email;
+    }
 }
+
+

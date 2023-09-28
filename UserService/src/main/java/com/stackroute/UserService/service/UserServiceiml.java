@@ -4,6 +4,7 @@ package com.stackroute.UserService.service;
 import com.stackroute.UserService.exception.UserAlreadyExist;
 import com.stackroute.UserService.model.UserDto;
 import com.stackroute.UserService.repository.UserRepository;
+import org.apache.catalina.User;
 import org.json.simple.JSONObject;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -19,7 +20,7 @@ public class UserServiceiml {
     private RabbitTemplate rabbitTemplate;
 
     @Autowired
-    private DirectExchange directExchange;
+    private DirectExchange exchange;
 
     @Autowired
     private UserRepository userRepository;
@@ -27,34 +28,36 @@ public class UserServiceiml {
 
 
     public UserDto registerUser(UserDto user) throws UserAlreadyExist {
-        Optional<Boolean> userDtoOptional = Optional.ofNullable(
-                userRepository.existsByEmail(user.getEmail())
-        );
-
-        if (userDtoOptional.isPresent()) {
+        Optional<UserDto> userDtoOptional = userRepository.findById(user.getEmail());
+        if (!userDtoOptional.isEmpty()) {
             System.out.println(userDtoOptional.get());
             throw new UserAlreadyExist ("User Already Exists");
         } else {
 
             UserDto saveduser = userRepository.save(user);
-            JSONObject authobj = new JSONObject();
+//            JSONObject authobj = new JSONObject();
+//
+//            authobj.put("userEmail", user.getEmail());
+//            authobj.put("userPassword", user.getPassword());
+//            authobj.put("userFullname", user.getFullName());
+//
+//            UserDto authDto = new UserDto(authobj);
+//            rabbitTemplate.convertAndSend(directExchange.getName(), "thisisAuthkey", authDto);
+//
+//            JSONObject emailobj = new JSONObject();
+//
+//            emailobj.put("userEmail", user.getEmail());
+//            emailobj.put("userFullname", user.getFullName());
+//
+//            UserDto emailDto = new UserDto(emailobj);
+//            rabbitTemplate.convertAndSend(directExchange.getName(), "thisisEmailkey", emailDto);
+//            return saveduser;
+            UserDto userdata = new UserDto(user.getFullName(),user.getEmail(),user.getPassword());
+            rabbitTemplate.convertAndSend(exchange.getName(),"thisisAuthkey", userdata);
 
-            authobj.put("userEmail", user.getEmail());
-            authobj.put("userPassword", user.getPassword());
-            authobj.put("userFullname", user.getFullName());
-
-            UserDto authDto = new UserDto(authobj);
-            rabbitTemplate.convertAndSend(directExchange.getName(), "thisisAuthkey", authDto);
-
-            JSONObject emailobj = new JSONObject();
-
-            emailobj.put("userEmail", user.getEmail());
-            emailobj.put("userFullname", user.getFullName());
-
-            UserDto emailDto = new UserDto(emailobj);
-            rabbitTemplate.convertAndSend(directExchange.getName(), "thisisEmailkey", emailDto);
+            UserDto useremaildata = new UserDto(user.getFullName(),user.getEmail());
+            rabbitTemplate.convertAndSend(exchange.getName(),"thisisemailkey", useremaildata);
             return saveduser;
-
         }
     }
 }

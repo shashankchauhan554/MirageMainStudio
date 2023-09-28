@@ -15,6 +15,12 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
+import { HeaderComponent } from './header/header.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -22,6 +28,7 @@ import { SignupComponent } from './signup/signup.component';
     AppComponent,
     LoginComponent,
     SignupComponent,
+    HeaderComponent,
    
   ],
   imports: [
@@ -35,7 +42,12 @@ import { SignupComponent } from './signup/signup.component';
     MatCardModule,
     ReactiveFormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
