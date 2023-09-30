@@ -2,8 +2,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SalonOwner } from 'src/app/model/SalonOwner';
-import { Admin } from 'src/app/model/admin';
+// import { SalonOwner } from './src/app/model/SalonOwner';
+// import {SalonOwner}
+
+// import { Admin } from 'src/app/model/admin';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ import { Admin } from 'src/app/model/admin';
 export class SalonownerService {
   constructor(private http: HttpClient) { }
 
-  addSalonOwner(salonOwner: SalonOwner) {
+  addSalonOwner(salonOwner: any) {
     return this.http.post('http://localhost:8082/api/v1/addsalonowner', salonOwner);
   }
 
@@ -19,7 +21,7 @@ export class SalonownerService {
     return this.http.get('http://localhost:8082/api/v1/viewallsalonowner');
   }
 
-  updateSalonOwner(salonOwner: SalonOwner): Observable<any> {
+  updateSalonOwner(salonOwner: any): Observable<any> {
     return this.http.put('http://localhost:8082/api/v1/updatesalonowner', salonOwner);
   }
 
