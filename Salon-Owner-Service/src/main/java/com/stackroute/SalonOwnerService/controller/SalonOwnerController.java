@@ -97,7 +97,7 @@ public class SalonOwnerController {
     }
 
     @GetMapping("/viewbylocation/salon/{ownerId}/{salonAddress}")
-    public ResponseEntity<?> getSalonByAddress(@PathVariable("ownerId") String ownerId, @PathVariable String salonAddress) {
+    public ResponseEntity<?> getSalonByAddress(@PathVariable("ownerId") String ownerId, @PathVariable("salonAddress") String salonAddress) {
         try {
             Salon salon = service.getSalonByAddress(ownerId, salonAddress);
             return new ResponseEntity<Salon>(salon, HttpStatus.OK);

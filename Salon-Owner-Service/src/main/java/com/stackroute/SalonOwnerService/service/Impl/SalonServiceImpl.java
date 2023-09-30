@@ -21,6 +21,7 @@ public class SalonServiceImpl implements SalonService {
     @Autowired
     CategoryRepository categoryRepository ;
     @Override
+
     public Salon addSalon(Salon salon) throws SalonIdAlreadyExistException {
         Salon salon1;
         Optional<Salon> optionalSalon = repository.findById(salon.getSalonId());
@@ -28,13 +29,11 @@ public class SalonServiceImpl implements SalonService {
             throw new SalonIdAlreadyExistException("Duplicate Salon Id");
         }
         else{
-
             Optional<List<Category>> optionalCategoryList = Optional.ofNullable(salon.getCategoryList());
             optionalCategoryList.ifPresent(categoryList ->
                     categoryList.forEach(category -> categoryRepository.save(category)));
             salon1= repository.save(salon);
         }
-
         return salon1;
     }
     @Override
