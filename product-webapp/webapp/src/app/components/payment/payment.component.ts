@@ -17,11 +17,12 @@ export class AppComponent {
   constructor(private http: HttpClient,
     private orderService:OrderServiceService) {
 
-  }
+    }
+
 
   ngOnInit() {
-    
 
+    
   }
 
   sayHello() {
@@ -34,7 +35,7 @@ export class AppComponent {
   options = {
     "key": "",
     "amount": "", 
-    "name": "Coding World",
+    "name": "MirageManeStudio",
     "description": "Web Development",
     "image": "https://www.javachinna.com/wp-content/uploads/2020/02/android-chrome-512x512-1.png",
     "order_id":"",
