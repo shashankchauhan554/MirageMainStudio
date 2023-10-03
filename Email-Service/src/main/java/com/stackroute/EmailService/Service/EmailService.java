@@ -46,7 +46,7 @@ public class EmailService {
 
     public void handleReceivedEmailForUser(EmailRequestDTO emailRequestDTO) {
         try {
-            JSONObject jsonObject = EmailRequestDTO.getJsonObject();
+            JSONObject jsonObject = emailRequestDTO.getJsonObject();
             String userEmail = (String) jsonObject.get("userEmail");
             String userName = (String) jsonObject.get("userName");
             if (userEmail != null && userName != null) {

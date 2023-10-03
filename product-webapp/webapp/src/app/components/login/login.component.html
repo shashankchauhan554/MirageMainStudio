@@ -12,11 +12,11 @@
               <div class="row">
                   <div class="col">
                       <mat-form-field class="full-width">
-                          <input matInput placeholder="Email" formControlName="email">
-                          <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+                          <input matInput placeholder="Email" formControlName="userEmail">
+                          <mat-error *ngIf="loginForm.controls['userEmail'].hasError('required')">
                               Email is <strong>required</strong>
                           </mat-error>
-                          <mat-error *ngIf="loginForm.controls['email'].hasError('email')">
+                          <mat-error *ngIf="loginForm.controls['userEmail'].hasError('email')">
                               Please enter a valid email address
                           </mat-error>
                       </mat-form-field>
@@ -32,11 +32,11 @@
               <div class="row">
                   <div class="col">
                       <mat-form-field class="full-width">
-                          <input matInput placeholder="Password" type="password" formControlName="password">
-                          <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+                          <input matInput placeholder="Password" type="password" formControlName="userPassword">
+                          <mat-error *ngIf="loginForm.controls['userPassword'].hasError('required')">
                               Password is <strong>required</strong>
                           </mat-error>
-                          <mat-error *ngIf="loginForm.controls['password'].hasError('minlength')">
+                          <mat-error *ngIf="loginForm.controls['userPassword'].hasError('minlength')">
                               Password should be at least 4 characters long
                           </mat-error>
                       </mat-form-field>
