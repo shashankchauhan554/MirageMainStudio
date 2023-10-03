@@ -25,7 +25,7 @@ public class EmailConfirmationController {
             String jsonUser = objectMapper.writeValueAsString(user);
 
             // Send the JSON object to the RabbitMQ queue
-            rabbitTemplate.convertAndSend("Saloon_exchange", "thisisemailkey", jsonUser);
+            rabbitTemplate.convertAndSend("SaloonExchange", "thisIsEmailKey", jsonUser);
         } catch (Exception e) {
             // Handle exceptions and logging
         }

@@ -6,5 +6,9 @@ import org.json.simple.JSONObject;
 @Data
 public class EmailRequestDTO {
 
-private JSONObject jsonObject ;
+    public static JSONObject jsonObject ;
+
+    public static JSONObject getJsonObject() {
+        return  jsonObject;
+    }
 }

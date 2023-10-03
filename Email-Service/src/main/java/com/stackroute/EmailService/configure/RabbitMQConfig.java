@@ -8,9 +8,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 @Configuration
 public class RabbitMQConfig {
-    private static final String QUEUE_NAME = "user_email_queue";
-   @Bean
-   public Queue queue() {
-       return new Queue(QUEUE_NAME);
-   }
+    public Jackson2JsonMessageConverter getJackson2JsonMessageConverter()
+    {
+        return new Jackson2JsonMessageConverter();
+    }
 }
