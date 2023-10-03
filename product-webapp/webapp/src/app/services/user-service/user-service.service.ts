@@ -16,7 +16,7 @@ import { Injectable } from '@angular/core';
 export class UserServiceService {
  
   
-  private API_URL='http://localhost:8082/'
+  private API_URL='http://localhost:8081/'
   private API_URL1='http://localhost:8085/'
   constructor(private http:HttpClient) { }
 loginUser(user:any):any{

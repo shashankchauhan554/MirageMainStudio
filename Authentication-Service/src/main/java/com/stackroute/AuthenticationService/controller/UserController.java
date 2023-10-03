@@ -27,7 +27,7 @@ public class UserController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
-
+    @CrossOrigin(origins = "*")
 
     @PostMapping("/api/login")
     public ResponseEntity<?> generateToken(@RequestBody User user) throws Exception {
