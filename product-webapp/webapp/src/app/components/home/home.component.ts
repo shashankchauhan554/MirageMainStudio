@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 ​
 import { LoginComponent } from '../login/login.component';
 import { UserServiceService } from '../../services/user-service/user-service.service';
+import { LocalstorageservicesService } from 'src/app/services/localstorageservices.service';
+import { SignupComponent } from '../signup/signup.component';
+import { User } from 'src/app/model/user';
 ​
 @Component({
   selector: 'app-home',
@@ -10,17 +13,18 @@ import { UserServiceService } from '../../services/user-service/user-service.ser
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
- constructor(private router: Router, private login: UserServiceService,private local: LocalStorageService){}
+ constructor(private router: Router, private login: UserServiceService, local : LocalstorageservicesService
+ ){}
  username: string | undefined;
 ​
  
 ​
- ngOnInit(): void {
+ /*ngOnInit(): void {
    const currentUser: User | null = this.local.getCurrentUser();
    if (currentUser) {
-     this.username = currentUser.userName;
-   }
- }
+    this.username = currentUser.userName;
+  }
+ }*/
 ​
 ​
    loginCheck(){
@@ -37,7 +41,7 @@ export class HomeComponent {
      this.router.navigateByUrl('subscribe');
    }
    register(){
-     this.router.navigateByUrl('register');
+     this.router.navigateByUrl('signup');
    }
    
    Cart(){
@@ -50,4 +54,11 @@ export class HomeComponent {
    review(){
      this.router.navigateByUrl('testt');
    }
-}
+   bookings(){
+    this.router.navigateByUrl('/booking');
+   }
+   feedback(){
+    this.router.navigateByUrl("feedback");
+   }
+
+  }
