@@ -9,8 +9,9 @@ public interface AppointmentService {
     Appointment createAppointmentService(Appointment appointmentDetails);
     List<Appointment> getAllAppointmentServices();
 
-    boolean getBarberAvailability(Appointment appointmentDetails);
-    List<Appointment> getAppointmentOfBarber(long id);
+  //  boolean getBarberAvailability(Appointment appointmentDetails);
+//    List<Appointment> getAppointmentOfBarber(long id);
+    Appointment getAppointmentBySalonName(String salonName);
 }
 
 
