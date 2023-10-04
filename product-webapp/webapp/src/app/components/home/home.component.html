@@ -1,0 +1,165 @@
+<nav class="navbar navbar-expand-lg bg-black fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="color: rgb(216, 19, 216); font-size: 29px; font-weight: bold;font-style: italic;">
+        <img src="../../assets/hungerlogo11.jpg" alt="Logo" width="45" height="45" class="d-inline-block align-text-top">
+        Miragemanestudio
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active"(click)="bookings()" aria-current="page" style="color: rgb(175, 35, 152); font-size: 16px; font-weight: bold;">Booknow</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="feedback()" style="color: rgb(255, 0, 221); font-size: 16px; font-weight: bold;">Testimonials</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="subscribe()" style="color: rgb(201, 7, 168); font-size: 16px; font-weight: bold;">Subscribe</a>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: yellow; font-size: 16px; font-weight: bold;">
+              <i class="fa fa-user-circle-o" style="font-size: 18px; color: rgb(160, 160, 138);"></i> {{ username }}
+            </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="background-color:  #fffff0 ;">
+              <a class="dropdown-item" (click)="loginCheck()">Login</a>
+              <a class="dropdown-item" (click)="register()">Register</a>
+              <a class="dropdown-item" (click)="profile()">Edit Profile</a>
+              <a class="dropdown-item" (click)="Cart()">My bookings</a>
+              <a class="dropdown-item" (click)="logout()">Logout</a>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+   
+  </nav>
+  ​
+  ​
+  ​
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../../assets/24.jpg" class="d-block w-100 carousel-image" alt="Image 1">
+      </div>
+      <div class="carousel-item">
+        <div class="carousel-caption">
+          <div class="carousel-caption" style="text-align: left;"></div>
+        </div>
+        <img src="../../assets/122.png" class="d-block w-100 carousel-image" alt="Image 2">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+  ​
+  ​
+  ​
+  ​
+  <h2 class="section-heading" style="text-align: center; color: #f79a0f; margin-top: 50px;font-weight: bold; font-size:xx-large;">Services We Provide</h2>
+  <div class="row" style="margin-top: 50px;">
+    <div class="column">
+      <div class="card">
+        <img src="../../assets/ye.jpg" alt="Fast Delivery" style="width: 100%; height: 200px; object-fit: cover;">
+        <div class="container">
+          <div class="card-body">
+            <h5 class="card-title" style="text-align: center;font-weight:bold">Easy Services</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <img src="../../assets/map.jpeg" alt="Fast Delivery" style="width: 100%; height: 200px; object-fit: cover;">
+        <div class="container">
+          <div class="card-body">
+            <h5 class="card-title" style="text-align: center;font-weight:bold">bokoking Tracking</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <img src="../../assets/images.jpeg" alt="Eco-Friendly" style="width: 100%; height: 200px; object-fit: cover;">
+        <div class="container">
+          <div class="card-body">
+            <h5 class="card-title" style="text-align: center;font-weight:bold">Eco-Friendly</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card">
+        <img src="../../assets/11.jpg" alt="Eat Your Greens" style="width: 100%; height: 200px; object-fit: cover;">
+        <div class="container">
+          <div class="card-body">
+            <h5 class="card-title" style="text-align: center;font-weight:bold">Have Your lifestyle much better</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="100%" id="gmap_canvas" 
+    src="https://maps.google.com/maps?q=janakpuri,Delhi&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://2yu.co">2yu</a><br><style>.mapouter{position:relative;text-align:right;height:100%;width:100%;}</style><a href="https://embedgooglemap.2yu.co/">html embed google map</a>
+    <style>.gmap_canvas {overflow:hidden;background:none!important;height:80%;width:100%;margin-top: 60px;}</style></div></div>
+  <footer id="footerSection" class="text-center text-lg-start text-white" style="background-color: #03050a;">
+    <div class="container p-4 pb-0">
+      <section class="">
+        <div class="row">
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold" style="color: yellow;font-size: large;">
+              Miragemanestudio
+            </h6>
+            <p>
+                Welcome to Mirage Mane Studio, where beauty meets technology. We're more than just a salon .
+            </p>
+            <p> we're your go-to destination for all things hair and beauty, conveniently accessible right from your fingertips.
+            </p>
+          </div>
+          <hr class="w-100 clearfix d-md-none" />
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold" style="color: yellow;font-size: large;">Features</h6>
+            <p>
+              <a class="text-white">Eco-friendly packing</a>
+            </p>
+            <p>
+              <a class="text-white">customer Support</a>
+            </p>
+            <p>
+              <a class="text-white">Live Tracking</a>
+            </p>
+          </div>
+          <hr class="w-100 clearfix d-md-none" />
+          <hr class="w-100 clearfix d-md-none" />
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold" style="color: yellow;font-size: large;">Contact</h6>
+            <p><i class="fas fa-home mr-3"></i> New Delhi, India</p>
+            <p><i class="fas fa-envelope mr-3"></i> Miragemanestudio@gmail.com</p>
+            <p><i class="fas fa-phone mr-3"></i> + 91 760 083 5672</p>
+            <p><i class="fas fa-print mr-3"></i> + 91 027 0012</p>
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold" style="color: yellow; font-size: large;">Follow us</h6>
+            <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998" href="https://www.facebook.com/" role="button"><i class="fab fa-facebook-f"></i></a>
+            <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee" href="https://twitter.com/home" role="button"><i class="fab fa-twitter"></i></a>
+            <a class="btn btn-primary btn-floating m-1" style="background-color: #dd4b39" href="https://www.google.com/" role="button"><i class="fab fa-google"></i></a>
+            <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac" href="https://www.instagram.com/accounts/login/" role="button"><i class="fab fa-instagram"></i></a>
+            <a class="btn btn-primary btn-floating m-1" style="background-color: #0082ca" href="https://www.linkedin.com/in/trisha-shah-9a486517a/" role="button"><i class="fab fa-linkedin-in"></i></a>
+            <a class="btn btn-primary btn-floating m-1" style="background-color: #333333" href="https://github.com/Trisha962" role="button"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); color: yellow; margin-top: 50px;">
+      © 2023 Miragemanestudio.com
+    </div>
+  </footer>
