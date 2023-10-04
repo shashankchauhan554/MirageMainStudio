@@ -2,9 +2,8 @@ package com.stackroute.SalonOwnerService.service.Impl;
 
 import com.stackroute.SalonOwnerService.exception.*;
 import com.stackroute.SalonOwnerService.model.Salon;
-import com.stackroute.SalonOwnerService.model.Category;
+import com.stackroute.SalonOwnerService.model.Slot;
 import com.stackroute.SalonOwnerService.repository.SalonRepository;
-import com.stackroute.SalonOwnerService.repository.CategoryRepository;
 import com.stackroute.SalonOwnerService.service.SalonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,27 +17,109 @@ public class SalonServiceImpl implements SalonService {
 
     @Autowired
     SalonRepository repository;
-    @Autowired
-    CategoryRepository categoryRepository ;
+
     @Override
 
     public Salon addSalon(Salon salon) throws SalonIdAlreadyExistException {
-        Salon salon1;
-        Optional<Salon> optionalSalon = repository.findById(salon.getSalonId());
-        if(optionalSalon.isPresent()){
-            throw new SalonIdAlreadyExistException("Duplicate Salon Id");
+
+        Optional<Salon> opt = repository.findById(salon.getSalonId());
+
+        if (salon.getSalonName() == null ||
+                salon.getEmail() == null || salon.getSalonOwnerName() == null || opt.isPresent()) {
+            throw new SalonIdAlreadyExistException("Already Exist");
+        } else {
+            return repository.save(salon);
         }
-        else{
-            Optional<List<Category>> optionalCategoryList = Optional.ofNullable(salon.getCategoryList());
-            optionalCategoryList.ifPresent(categoryList ->
-                    categoryList.forEach(category -> categoryRepository.save(category)));
-            salon1= repository.save(salon);
-        }
-        return salon1;
     }
     @Override
-    public Iterable<Salon> viewAllSalons() {
-        return repository.findAll();
+    public Salon addService(String ownerId, com.stackroute.SalonOwnerService.model.SalonService salonService) throws SalonOwnerIdDoesNotExistException {
+//        Optional<Salon> optionalSalonOwner = repository.findById(ownerId);
+//
+//        if (optionalSalonOwner.isEmpty()) {
+//            throw new SalonOwnerIdDoesNotExistException("notFound");
+//        } else {
+//            Salon salonOwner = optionalSalonOwner.get();
+//            List<com.stackroute.SalonOwnerService.model.SalonService> existSalon = salonOwner.getSalonServices();
+//
+//            if (existSalon == null) {
+//                existSalon = new ArrayList<>(); // Create a new list if it's null
+//            }
+//
+//            existSalon.add((com.stackroute.SalonOwnerService.model.SalonService) salon.getCategoryList());
+//            salonOwner.setSalonServices(existSalon);
+////            Optional<List<Salon>> optionalSalonList = Optional.ofNullable(salonOwner.getSalonList());
+////            optionalSalonList.ifPresent(salons ->
+////                    salons.forEach(salonlist -> salonRepository.save(salon)));
+//
+//            repository.save(salonOwner);
+//            Optional<Salon> updatedservice = repository.findById(ownerId);
+//            return updatedservice;
+//        }
+
+        Salon salon1;
+        com.stackroute.SalonOwnerService.model.SalonService salonService1 = null;
+        Optional<Salon> opt = repository.findById(ownerId);
+        if (opt.isPresent()) {
+
+            salon1 = opt.get();
+            System.out.println(salon1);
+
+            List<com.stackroute.SalonOwnerService.model.SalonService> servicelist = salon1.getSalonServices();
+            System.out.println(servicelist);
+            if (servicelist == null) {
+                servicelist= new ArrayList<>(); // Create a new list if it's null
+            }
+            servicelist.add(salonService);
+
+            salon1.setSalonServices(servicelist);
+
+        } else {
+            throw new SalonOwnerIdDoesNotExistException("notFound");
+        }
+        try {
+            return repository.save(salon1);
+        } catch (Exception e) {
+            throw new SalonOwnerIdDoesNotExistException("Not Found");
+        }
+    }
+
+    @Override
+    public Salon addSlot(String ownerId, Slot slot) throws SalonOwnerIdDoesNotExistException {
+
+
+        Salon salon1;
+        com.stackroute.SalonOwnerService.model.SalonService salonService1 = null;
+        Optional<Salon> opt = repository.findById(ownerId);
+        if (opt.isPresent()) {
+
+            salon1 = opt.get();
+            System.out.println(salon1);
+
+            List<Slot> slotlist = salon1.getSlots();
+            System.out.println(slotlist);
+            if (slotlist == null) {
+                slotlist= new ArrayList<>(); // Create a new list if it's null
+            }
+            slotlist.add(slot);
+
+            salon1.setSlots(slotlist);
+
+        } else {
+            throw new SalonOwnerIdDoesNotExistException("notFound");
+        }
+        try {
+            return repository.save(salon1);
+        } catch (Exception e) {
+            throw new SalonOwnerIdDoesNotExistException("Not Found");
+        }
+    }
+
+
+    @Override
+    public Optional<Salon> viewSalonById(String ownerId)throws SalonOwnerIdDoesNotExistException
+    {
+        Optional<Salon> updatedservice = repository.findById(ownerId);
+        return updatedservice;
     }
 
     @Override
@@ -66,55 +147,17 @@ public class SalonServiceImpl implements SalonService {
         return repository.findById(salonId);
     }
 
-    @Override
-    public Salon addCategory(String salonId,Category category) throws SalonIdDoesNotExistException {
-        Optional<Salon> optionalSalon = repository.findById(salonId);
 
-        if (optionalSalon.isEmpty()) {
-            throw new SalonIdDoesNotExistException("notFound");
-        } else {
-            Salon salon = optionalSalon.get();
-            List<Category> existCategoryList = salon.getCategoryList();
-
-            if (existCategoryList == null) {
-                existCategoryList = new ArrayList<>(); // Create a new list if it's null
-            }
-
-            existCategoryList.add(category);
-            salon.setCategoryList(existCategoryList);
-            Optional<List<Category>> optionalCategoryList = Optional.ofNullable(salon.getCategoryList());
-            optionalCategoryList.ifPresent(categoryaList ->
-                    categoryaList.forEach(categorys -> categoryRepository.save(category)));
-            return repository.save(salon);
-        }
-    }
 
     @Override
     public List<Salon> getSalonByLocation(String location) {
-        return repository.findByLocation(location);
+        return repository.findByCity(location);
     }
     @Override
     public Salon getSalonByName(String name) {return repository.findBySalonName(name);
     }
 
-    @Override
-    public boolean deleteCategory(String salonId, String Category) throws SalonIdDoesNotExistException, CategoryDoesNotExistException {
-        Optional<Salon> medicalShop = repository.findById(salonId);
-        if(medicalShop.isEmpty()){
-            throw new SalonIdDoesNotExistException("Not Found");
-        }
-        else {
-            Salon salon1 = medicalShop.get();
-            List<Category> existSalon = salon1.getCategoryList();
-            existSalon.removeIf((med) ->med.getCategoryId().equals(Category));
-            salon1.setCategoryList(existSalon);
-            repository.save(salon1);
-            return true;
-        }
-    }
-    @Override
-    public List<Salon> getSalonBasedOnCost(int price) {
-        return repository.findByPriceGreaterThan(price);
-    }
+
+
 
 }

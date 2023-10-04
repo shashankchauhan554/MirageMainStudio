@@ -8,16 +8,46 @@ import { SalonownerService } from 'src/app/services/salonowner/salonowner.servic
   styleUrls: ['./salon-get-saloncategory.component.css']
 })
 export class SalonGetSaloncategoryComponent {
+  salonId: any;
   public getJsonValue: any[] = [];
+
+  public getServicesValue: any[] = [];
+
+  getDetails ={
+    salonId:[''],
+    salonName:[''],
+    salonOwnerName:[''],
+    city:[''],
+    contactNumber:[''],
+    gstNumber:[''],
+    email:[''],
+    slots:[''],
+    salonServices:['']
+
+  };
+
+
+ 
+
   public postJsonValue: any;
   constructor(private http: HttpClient, private getCategoryService: SalonownerService) { }
-  ngOnInit(): void {
+  // ngOnInit(): void {
+  //   this.getAllDetails()
+    
+  // }
+
+  getbyid(id: String) {
+    this.salonId = id;
     this.getAllDetails()
+
   }
 
   getAllDetails() {
-    this.getCategoryService.getAllCategory().subscribe((data: any) => {
-      this.getJsonValue = data.content;
+    this.getCategoryService.getAlldetailsById(this.salonId).subscribe((data: any) => {
+      this.getJsonValue = data.slots;
+      this.getServicesValue = data.salonServices;
+      this.getDetails= data;
+      console.log(data);
     });
   }
   deletecategory(id: String) {

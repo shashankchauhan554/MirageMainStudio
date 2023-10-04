@@ -49,9 +49,10 @@ export class SalonownerService {
     const ur = `http://localhost:8082/category/deletecategory/${categoryId}`;
     return this.http.delete<void>(ur);
   }
-  private urlR = "http://localhost:8082/category/viewallcategory";
-  getAllCategory(): Observable<any> {
-    return this.http.get(this.urlR)
+  // private urlR = `http://localhost:8082/salon/viewall/${id}`;
+  getAlldetailsById(id: String): Observable<any> {
+    const urlR = `http://localhost:8082/salon/viewall/${id}`;
+    return this.http.get(urlR);
   }
   getbyid(id: String): Observable<any> {
     const ur1 = `http://localhost:8082/salon/viewbyId/${id}`;
@@ -61,17 +62,17 @@ export class SalonownerService {
   updatesalon(salon: FormData): Observable<any> {
     return this.http.put<FormData>(this.urlu1, salon);
   }
-  private urlO1 = "http://localhost:8082/api/v1/addsalonowner";
+  private urlO1 = "http://localhost:8082/salon/addsalon";
   addOwner(newOwner: any): Observable<any> {
     return this.http.post(this.urlO1, newOwner);
   }
-  addSalon(newSalon: FormData, id: String): Observable<any> {
-    const url1 = `http://localhost:8082/api/v1/addsalon/${id}`;
-    return this.http.post<FormData>(url1, newSalon);
+  addSalon(newServiceData:any, id: String): Observable<any> {
+    const url1 = `http://localhost:8082/salon/addservice/${id}`;
+    return this.http.post(url1, newServiceData);
   }
-  addCategory(newCategory: FormData, id: String): Observable<any> {
-    const urlr = `http://localhost:8082/salon/addcategory/${id}`;
-    return this.http.post<FormData>(urlr, newCategory);
+  addslot(newServiceData:any, id: String): Observable<any> {
+    const urlr = `http://localhost:8082/salon/addslot/${id}`;
+    return this.http.post<FormData>(urlr, newServiceData);
   }
 
 }

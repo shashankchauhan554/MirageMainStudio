@@ -19,6 +19,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
 // import { FormsModule } from '@angular/forms';
 
 import { SalonHomepageComponent } from './components/salon/salon-homepage/salon-homepage.component';
@@ -79,6 +83,9 @@ import { SalonUpdateSalonComponent } from './components/salon/salon-update-salon
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent],
