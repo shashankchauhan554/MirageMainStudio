@@ -136,7 +136,7 @@
 .about-section {
   padding: 10px;
   text-align: center;
-  background-color: #474e5d;
+  background-color: #5d4758;
   color: rgb(248, 202, 229);
 }
 ​
@@ -156,4 +156,14 @@
     width: 100%;
     display: block;
   }
+}
+.nav-link:hover {
+  color:whitesmoke; /* Change to your desired text color on hover */
+  /* Add any other styles you want to apply on hover */
+}
+.nav-link {
+  color: rgb(175, 35, 152); /* Set the default text color */
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease; /* Add a smooth transition for color changes */
 }

@@ -31,7 +31,7 @@ export class HomeComponent {
    this.router.navigateByUrl('login');
    }
    profile(){
-     this.router.navigateByUrl('profile');
+     this.router.navigateByUrl('user');
    }
    order(){
      this.router.navigateByUrl('Services');
