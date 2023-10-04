@@ -40,7 +40,7 @@ export class SignupComponent {
         console.log('Form submitted successfully!',data);
         alert('Form submitted successfully!');
         
-        // this.router.navigate(['/login']);
+        this.router.navigate(['/login']);
       })
      
       

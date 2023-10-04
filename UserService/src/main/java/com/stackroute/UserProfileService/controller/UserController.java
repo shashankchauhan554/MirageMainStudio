@@ -14,7 +14,7 @@ import com.stackroute.UserProfileService.service.*;
 public class UserController{
 	@Autowired
     UserService userService;
-    
+    @CrossOrigin(origins = "http://localhost:4200/")
     @PostMapping("/api/register")
     public User register(@RequestBody User user) throws UserAlreadyExistsException {
     	System.out.println(user);

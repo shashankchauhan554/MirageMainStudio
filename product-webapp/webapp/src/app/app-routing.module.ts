@@ -4,6 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 
+import { HomeComponent } from './components/home/home.component';
+
+
+
 // import { authGuard } from './guard/auth.guard';
 
 import { SalonContentComponent } from './components/salon/salon-content/salon-content.component';
@@ -29,6 +33,7 @@ const routes: Routes = [
 
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
+
   {path: 'salon-get-salon',component: SalonGetSalonComponent,canActivate: [SalonauthGuard]},
   {path: 'salon-get-owner',component: SalonGetOwnerComponent,canActivate: [SalonauthGuard],},
   {path: 'salon-get-category',component: SalonGetSaloncategoryComponent,canActivate: [SalonauthGuard]},
@@ -39,7 +44,12 @@ const routes: Routes = [
   {path: 'salon-add-salonowner',component: SalonAddSalonownerComponent,canActivate: [SalonauthGuard]},
   {path: 'salon-update-salonowner',component: SalonUpdateSalonownerComponent,canActivate: [SalonauthGuard]},
   {path: 'salon-homepage',component: SalonHomepageComponent,canActivate: [SalonauthGuard]},
-  {path: 'salon-add-owner', component: SalonAddOwnerComponent,canActivate:[SalonauthGuard]}
+  {path: 'salon-add-owner', component: SalonAddOwnerComponent,canActivate:[SalonauthGuard]},
+
+
+  {path:'',component:HomeComponent},
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
+
 
 ];
 

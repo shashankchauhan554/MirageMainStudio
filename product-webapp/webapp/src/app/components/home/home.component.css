@@ -1,103 +1,169 @@
-/* Header Section */
-.navbar {
-    background-color: #f5ebeb;
-    color: rgb(219, 20, 169);
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .navbar-brand {
-    font-size: 29px;
-    font-weight: bold;
-    font-style: italic;
-  }
-  
-  .nav-link {
-    color: rgb(188, 59, 192);
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .nav-link.active {
-    /* Add styles for the active link if needed */
-  }
-  
-  .navbar-toggler-icon {
-    /* Styles for the mobile menu icon if needed */
-  }
-  
-  /* Carousel Section */
+.navbar-nav {
+  flex-direction: row;
+}
+​
+.nav-link {
+  padding: 0.5rem 1rem;
+}
+
+.carousel-image {
+  object-fit: cover;
+  max-height: 120vh; 
+  width: 100%;
+}
+
+.carousel-inner {
+  overflow: hidden;
+}
+
+.carousel-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.carousel-item.active {
+  transform: translateX(0);
+}
+
+.carousel-item.next {
+  transform: translateX(100%);
+}
+
+.carousel-item.prev {
+  transform: translateX(-100%);
+}
+
+.carousel-item:not(.active) {
+  visibility: hidden;
+  position: absolute;
+}
+
+.carousel-item:not(.active).next,
+.carousel-item:not(.active).prev {
+  visibility: visible;
+}
+
+.carousel-item:not(.active).next {
+  transform: translateX(100%);
+}
+
+.carousel-item:not(.active).prev {
+  transform: translateX(-100%);
+}
+@media (max-width: 410px) {
   .carousel-image {
-    max-height: 400px; /* Adjust as needed */
+    max-height: 90vh;
   }
-  
-  /* Service Cards Section */
+}
+
+@media (max-width: 380px) {
+  .carousel-image {
+    max-height: 80vh;
+  }
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+.dropdown-item:hover {
+  background-color: #eea3d8 ;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -8px; /* Added margin */
+}
+​
+.column {
+  flex: 0 0 calc(25% - 16px); /* Updated width calculation */
+  margin: 0 8px; /* Added margin */
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  height: 280px;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  border-radius: 50%;
+}
+​
+.container {
+  padding: 16px;
+}
+​
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@media screen and (max-width: 600px) {
   .column {
-    padding: 10px;
-  }
-  
-  .card {
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    background-color: #ffffff; /* Adjust as needed */
-  }
-  
-  .card img {
-    max-height: 200px;
-    object-fit: cover;
-  }
-  
-  .card-title {
-    text-align: center;
-    font-weight: bold;
-  }
-  
-  /* Google Map Section */
-  .mapouter {
-    position: relative;
-    text-align: right;
-    height: 100%;
     width: 100%;
   }
-  
-  .gmap_canvas {
-    overflow: hidden;
-    background: none !important;
-    height: 80%;
+}
+
+@media (max-width: 380px) {
+  .navbar-nav {
+    flex-direction: column;
+  }
+}
+​
+.section-heading {
+  text-align: center;
+  margin-top: 40px;
+}
+​
+/* .carousel-container {
+  margin-top: 20px;
+} */
+
+​
+.mapouter {
+  margin-bottom: -160px; /* Add a negative margin to remove the white space */
+}
+
+.about-section {
+  padding: 10px;
+  text-align: center;
+  background-color: #5d4758;
+  color: rgb(248, 202, 229);
+}
+​
+.container {
+  padding: 0 16px;
+}
+​
+.container::after,
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
     width: 100%;
-    margin-top: 60px;
+    display: block;
   }
-  
-  /* Footer Section */
-  #footerSection {
-    background-color: #03050a;
-    color: yellow;
-  }
-  
-  #footerSection h6 {
-    color: rgb(240, 240, 230);
-    font-size: large;
-  }
-  
-  /* Social Media Icons in Footer */
-  .btn-floating {
-    font-size: 20px;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 40px;
-    margin-right: 10px;
-  }
-  
-  /* Copyright Text */
-  #footerSection .text-center {
-    background-color: rgba(173, 76, 173, 0.2);
-    color: yellow;
-    margin-top: 50px;
-  }
-  
-  
+}
+.nav-link:hover {
+  color:whitesmoke; /* Change to your desired text color on hover */
+  /* Add any other styles you want to apply on hover */
+}
+.nav-link {
+  color: rgb(175, 35, 152); /* Set the default text color */
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease; /* Add a smooth transition for color changes */
+}
