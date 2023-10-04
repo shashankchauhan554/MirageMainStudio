@@ -1,0 +1,115 @@
+
+<div class="body">
+  <form class="example-form" (ngSubmit)="getbyid(box.value)">
+    <h2 class="heading">Salon Owner Details</h2>
+    <input
+      type="text"
+      required
+      #box
+      matInput
+      placeholder="Enter owner Id"
+      name="ownerId"
+      [(ngModel)]="ownerId"
+      pattern="[A-Za-z0-9]+"
+    />
+    <br />
+    <button type="submit" class="btn btn-primary">Enter</button>
+  </form>
+</div>
+
+<div class="body">
+  <div class="example-form">
+    <h2 class="heading">Salon Details</h2>
+    <form
+      (ngSubmit)="submitForm()"
+      enctype="multipart/form-data"
+      class="example-form"
+    >
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Salon Number"
+        name="salonId"
+        [(ngModel)]="salonId"
+        pattern="[A-Za-z0-9]+"
+      />
+
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Salon Name"
+        name="salonName"
+        [(ngModel)]="salonName"
+
+      />
+
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Salon Address"
+        name="salonAddress"
+        [(ngModel)]="salonAddress"
+
+      />
+
+
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Referal"
+        name="referalcode"
+        [(ngModel)]="referalCode"
+        pattern="[A-Za-z0-9]+"
+      />
+
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter NearbyTraspotation"
+        name="nearbyTraspotation"
+        [(ngModel)]="nearbyTraspotation"
+
+      />
+
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Location"
+        name="location"
+        [(ngModel)]="location"
+
+      />
+
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Maintanance"
+        name="maintanance"
+        [(ngModel)]="maintanance"
+
+      />
+
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Price"
+        name="price"
+        [(ngModel)]="price"
+        pattern="[0-9]"
+      />
+
+
+      <br /><br />
+      <button type="submit" class="btn btn-primary">Add Salon</button>
+    </form>
+  </div>
+  <br /><br /><br /><br /><br />
+</div>
