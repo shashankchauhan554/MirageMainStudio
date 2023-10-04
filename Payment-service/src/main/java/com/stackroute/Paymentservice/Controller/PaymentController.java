@@ -4,10 +4,7 @@ import java.math.BigInteger;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.razorpay.Order;
 import com.razorpay.RazorpayClient;
@@ -15,6 +12,7 @@ import com.razorpay.RazorpayException;
 
 @RestController
 @RequestMapping("/pg")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PaymentController {
 
     private RazorpayClient client;
@@ -23,7 +21,7 @@ public class PaymentController {
     private static final String SECRET_ID2 = "rzp_test_J4fInjDpTX475d";
     private static final String SECRET_KEY2 = "r8fNXAB78RmsVfdiQbWGwyjr";
 
-    @RequestMapping(path = "/createOrder", method = RequestMethod.POST)
+    @PostMapping("/createOrder")
     public OrderResponse createOrder(@RequestBody OrderRequest orderRequest) {
         OrderResponse response = new OrderResponse();
         try {
@@ -53,8 +51,7 @@ public class PaymentController {
 
             return response;
         } catch (RazorpayException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
         return response;
@@ -80,10 +77,15 @@ public class PaymentController {
             throw new RuntimeException(e);
         }
         try {
-            options.put("payment_capture", 1); // You can enable this if you want to do Auto Capture.
+            options.put("payment_capture", 1); // Auto Capture=1.
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
         return client.orders.create(options);
+    }
+
+    @GetMapping("/api")
+    public void helloWorld() {
+        System.out.println("Hello World");
     }
 }

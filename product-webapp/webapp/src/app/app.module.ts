@@ -19,6 +19,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { PaymentComponent } from './components/payment/payment.component';
 
 
 
@@ -30,6 +31,7 @@ import { MatListModule } from '@angular/material/list';
     LoginComponent,
     SignupComponent,
     HeaderComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { MatListModule } from '@angular/material/list';
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
