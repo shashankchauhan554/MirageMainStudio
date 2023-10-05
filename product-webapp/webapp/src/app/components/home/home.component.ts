@@ -33,7 +33,7 @@ export class HomeComponent {
    this.router.navigateByUrl('login');
    }
    profile(){
-     this.router.navigateByUrl('user');
+     this.router.navigateByUrl('userdashboard');
    }
    order(){
      this.router.navigateByUrl('salon');

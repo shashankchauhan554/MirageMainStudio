@@ -1,0 +1,72 @@
+<div style="position:relative;display: flex;background-size: 80%;background-color: #f4cccc;background-image: url('../../assets/image/final-removebg-preview.png');">
+  <div style="width: 75%;height: 100vh;">
+  <h1 style="color: #a64d79;text-align: center;padding-top: 5%;">"Welcome to MirageManeStudio - Your Beauty Destination!"</h1>
+  <p style="padding: 0% 5% 0% 5%;text-align: center;color:#741b47;font-size: medium;">
+At MirageManeStudio, we believe that beauty is an art, and every client deserves to feel confident and radiant. Our team of experienced and passionate stylists is here to transform your beauty dreams into reality.</p>
+<p style="color: #741b47;font-weight: 700 ;padding: 2%;">
+  
+Why Choose Us:
+
+<br>
+<br>
+    Expert Stylists: Our team consists of highly skilled and certified stylists who stay up-to-date with the latest beauty trends. They'll work closely with you to achieve your desired look.
+<br>
+<br>
+    Quality Products: We use only premium, salon-quality products for our services to ensure you get the best results and long-lasting beauty.
+<br>
+<br>
+    Relaxing Atmosphere: Enjoy a soothing and comfortable environment as you pamper yourself. We provide a tranquil escape from the hustle and bustle of daily life.
+<br>
+<br>
+    Wide Range of Services: From haircuts and coloring to skincare and spa treatments, we offer a comprehensive range of beauty services for both men and women.
+
+
+<br>
+<br>
+<br>
+</p>
+<p style="color: #20124d;font-size: medium;">
+Thank you for choosing MirageManeStudio. We can't wait to help you achieve your beauty goals and provide you with an unforgettable salon experience!
+
+</p>
+  </div>
+<div style="width: 25%; padding-left: 2%;padding-right: 2%;padding-top: 2%;padding-bottom: 5%;">
+<form style="display: flex;flex-direction: column;" (ngSubmit)="submitBooking(bookingForm)" #bookingForm="ngForm">
+  <h1 style="text-align:center ;color:#351c75">Reserve your Salon</h1>
+  <mat-form-field>
+      <input matInput placeholder="Customer Name" name="customerName" ngModel required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Appointment Date" name="appointmentDate" ngModel required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Start Time" name="startTime" ngModel required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="End Time" name="endTime" ngModel required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label >Salon Name</mat-label>
+      <mat-select ngModel name="salonName">
+        <!-- <mat-option>salon 0</mat-option> -->
+        <!-- <mat-option>salon 1</mat-option>
+        <mat-option>salon 2</mat-option> -->
+        <mat-option  *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+
+    <button style="margin-left:15%;margin-right:15%;padding: 2%;font-size: large;" mat-raised-button color="primary" type="submit" [disabled]="bookingForm.invalid">
+      
+     <span>Book Appointment</span><span *ngIf="loading===true" ><img style="width: 25px;height: 25px;" src="../../assets/image/34338d26023e5515f6cc8969aa027bca_w200.webp"></span> </button>
+  </form>
+</div>
+
+<div  style="width: 30%;position: fixed;top:10%;left: 30%;">  
+  <app-failure *ngIf="booking_value_change_from_backend===false"></app-failure>
+  <app-success *ngIf="booking_value_change_from_backend===true" [data]="data_send_to_success"></app-success>
+</div>
+</div>
+

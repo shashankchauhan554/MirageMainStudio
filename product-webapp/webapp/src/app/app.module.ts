@@ -19,8 +19,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { PaymentComponent } from './components/payment/payment.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
 // import { FormsModule } from '@angular/forms';
@@ -42,13 +42,22 @@ import { SalonAddcategorybysalonidSalonComponent } from './components/salon/salo
 import { SalonGetSaloncategoryComponent } from './components/salon/salon-get-saloncategory/salon-get-saloncategory.component';
 import { SalonGetbysalonidSalonComponent } from './components/salon/salon-getbysalonid-salon/salon-getbysalonid-salon.component';
 import { SalonUpdateSalonComponent } from './components/salon/salon-update-salon/salon-update-salon.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { UserProfileDashboardComponent } from './components/user-profile-dashboard/user-profile-dashboard.component';
+import { BookingFormComponent } from './booking-form/booking-form.component';
+
+import { FailureComponent } from './failure/failure.component';
+import { SuccessComponent } from './success/success.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
+    EditProfileComponent,
+    UserProfileDashboardComponent,
     HeaderComponent,
+    PaymentComponent,
     SalonHomepageComponent,
     SalonHeaderComponent,
     SalonFooterComponent,
@@ -63,6 +72,9 @@ import { SalonUpdateSalonComponent } from './components/salon/salon-update-salon
     SalonGetOwnerComponent,
     SalonAddOwnerComponent,
     SalonAddsalonbyowneridSalonComponent,
+    BookingFormComponent,
+    SuccessComponent,
+    FailureComponent
   ],
   imports: [
     FormsModule,
@@ -85,7 +97,7 @@ import { SalonUpdateSalonComponent } from './components/salon/salon-update-salon
     MatListModule,
     MatDatepickerModule,
     MatFormFieldModule,
-    MatNativeDateModule
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
