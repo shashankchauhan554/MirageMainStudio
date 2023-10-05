@@ -11,9 +11,9 @@
         type="text"
         required
         matInput
-        placeholder="Enter Owner Id"
-        name="ownerId"
-        [(ngModel)]="ownerId"
+        placeholder="Enter salon Id"
+        name="salonId"
+        [(ngModel)]="salonId"
         pattern="[A-Za-z0-9]+"
       />
 
@@ -21,59 +21,63 @@
         type="text"
         required
         matInput
-        placeholder="Enter email."
-        name="email"
-        [(ngModel)]="email"
-        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+        placeholder="Enter Salon Name"
+        name="salonName"
+        [(ngModel)]="salonName"
+        pattern="[A-Za-z ]+"
+        
       />
 
       <input
         type="text"
         required
         matInput
-        placeholder="Enter Name"
-        name="name"
-        [(ngModel)]="name"
+        placeholder="Enter Salon Owner Name"
+        name="salonOwnerName"
+        [(ngModel)]="salonOwnerName"
         pattern="[A-Za-z ]+"
       />
 
+      <input
+      type="text"
+      required
+      matInput
+      placeholder="Enter Email Id"
+      name="email"
+      [(ngModel)]="email"
+      pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+    />
+
+      <input
+      type="text"
+      required
+      matInput
+      placeholder="Enter City"
+      name="city"
+      [(ngModel)]="city"
+      pattern="[A-Za-z ]+"
+    />
       <input
         type="text"
         required
         matInput
         placeholder="Enter Mobile Number"
-        name="mobileNo"
-        [(ngModel)]="mobileNo"
+        name="contactNumber"
+        [(ngModel)]="contactNumber"
         pattern="[0-9]{10}"
       />
 
       <input
-        type="text"
-        required
-        matInput
-        placeholder="Enter Referal"
-        name="referalcode"
-        [(ngModel)]="referalCode"
-      />
+      type="text"
+      required
+      matInput
+      placeholder="Enter GST Number"
+      name="gstNumber"
+      [(ngModel)]="gstNumber"
+      pattern="[A-Za-z0-9]+"
+    />
 
-      <input
-        type="text"
-        required
-        matInput
-        placeholder="Enter Address"
-        name="addr"
-        [(ngModel)]="addr"
-      />
-
-      <input
-        type="text"
-        required
-        matInput
-        placeholder="Enter Date Of birth"
-        name="dob"
-        [(ngModel)]="dob"
-        pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
-      />
+    
       <br /><br />
 
       <button type="submit" class="btn btn-primary">Submit</button>
