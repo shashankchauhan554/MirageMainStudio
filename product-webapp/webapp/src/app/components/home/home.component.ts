@@ -15,11 +15,8 @@ import { User } from 'src/app/model/user';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
- constructor(private router: Router, private login: UserServiceService, local : LocalstorageservicesService
- ){}
- username: string | undefined;
-​
  
+
 ​
  /*ngOnInit(): void {
    const currentUser: User | null = this.local.getCurrentUser();
@@ -63,5 +60,6 @@ export class HomeComponent {
    feedback(){
     this.router.navigateByUrl("feedback");
    }
+
 
   }

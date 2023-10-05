@@ -22,6 +22,10 @@ import { SalonGetSaloncategoryComponent } from './components/salon/salon-get-sal
 import { SalonGetbysalonidSalonComponent } from './components/salon/salon-getbysalonid-salon/salon-getbysalonid-salon.component';
 import { UserProfileDashboardComponent } from './components/user-profile-dashboard/user-profile-dashboard.component';
 import { BookingFormComponent } from './booking-form/booking-form.component';
+import { BoxesComponent } from './boxes/boxes.component';
+
+
+
 
 const routes: Routes = [
 
@@ -32,22 +36,22 @@ const routes: Routes = [
 
 
   {path:"booking-form",component:BookingFormComponent},
-
+{path:"boxes",component:BoxesComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
   {path: 'payment', component:PaymentComponent},
   {path:'userdashboard',component:UserProfileDashboardComponent},
   {path: 'salon-get-salon',component: SalonGetSalonComponent,canActivate: [SalonauthGuard]},
   {path: 'salon-get-owner',component: SalonGetOwnerComponent,canActivate: [SalonauthGuard],},
-  {path: 'salon-get-category',component: SalonGetSaloncategoryComponent,canActivate: [SalonauthGuard]},
-  {path: 'salon-addbyownerid-salon',component: SalonAddsalonbyowneridSalonComponent,canActivate: [SalonauthGuard]},
-  {path: 'salon-addbysalonid-salon',component: SalonAddcategorybysalonidSalonComponent,canActivate: [SalonauthGuard]},
-  {path: 'salon-update-salon',component: SalonUpdateSalonComponent,canActivate: [SalonauthGuard]},
+  {path: 'boxes/salon-get-category',component: SalonGetSaloncategoryComponent,canActivate: [SalonauthGuard]},
+  {path: 'boxes/salon-addbyownerid-salon',component: SalonAddsalonbyowneridSalonComponent,canActivate: [SalonauthGuard]},
+  {path: 'boxes/salon-addbysalonid-salon',component: SalonAddcategorybysalonidSalonComponent,canActivate: [SalonauthGuard]},
+  {path: 'boxes/salon-update-salon',component: SalonUpdateSalonComponent,canActivate: [SalonauthGuard]},
   {path: 'salon-getbyid-salon',component: SalonGetbysalonidSalonComponent,canActivate: [SalonauthGuard]},
   {path: 'salon-add-salonowner',component: SalonAddSalonownerComponent,canActivate: [SalonauthGuard]},
   {path: 'salon-update-salonowner',component: SalonUpdateSalonownerComponent,canActivate: [SalonauthGuard]},
   {path: 'salon-homepage',component: SalonHomepageComponent,canActivate: [SalonauthGuard]},
-  {path: 'salon-add-owner', component: SalonAddOwnerComponent,canActivate:[SalonauthGuard]},
+  {path: 'boxes/salon-add-owner', component: SalonAddOwnerComponent,canActivate:[SalonauthGuard]},
 
 
   {path:'',component:HomeComponent},
