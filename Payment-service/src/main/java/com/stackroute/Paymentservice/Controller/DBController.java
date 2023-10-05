@@ -7,6 +7,10 @@ import org.springframework.context.PayloadApplicationEvent;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+@RestController
+@RequestMapping("/payment")
+@CrossOrigin(origins = "http://localhost:4200")
 public class DBController {
     @Autowired
     private DBService dbService;
