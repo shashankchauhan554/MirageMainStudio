@@ -34,7 +34,7 @@ export class LoginComponent {
         localStorage.setItem('userRole', this.responseData.userRole);
         alert('User logged in Successful!');
         
-        this.router.navigate(['/login']);
+        this.router.navigate(['/userdashboard']);
       })
 
     } else {

@@ -2,42 +2,19 @@ import { Component,  OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserRegistrationServiceService } from 'src/app/services/user-dashboard-service/user-registration-service.service';
 
-
-export class userdata{
-  email: string | undefined;
-}
-
-export class Data{
-  username: string | undefined;
-  email    : userdata | undefined;
-  gender  : String | undefined;
-  phonenumber : number | undefined;
-  Role  : String | undefined;
-  city  : String | undefined; 
-}
-
 @Component({
   selector: 'app-user-profile-dashboard',
   templateUrl: './user-profile-dashboard.component.html',
   styleUrls: ['./user-profile-dashboard.component.css']
 })
 export class UserProfileDashboardComponent implements OnInit {
-  isEditing:boolean = false;
+  //isEditing:boolean = false;
   constructor(private router:Router, private userregistrationservice:UserRegistrationServiceService){}
-  userprofiledata:any = {
-    "email":'',
-    "fullName":'',
-    "password":'',
-    "gender":'',
-    "role":'',
-    "phonenumber":'',
-    "city":'',
-    "age":''
-};
-  data : Array<Data> = [];
+  userprofiledata:any= { };
   ngOnInit(): void {
-    this.userregistrationservice.getById().subscribe(
-        (data) => {
+    const email = localStorage.getItem('userEmail');
+    this.userregistrationservice.getUserByEmail(email).subscribe(
+        (data:any) => {
           console.log(data)
           this.userprofiledata = data;
           console.log(data)
@@ -47,7 +24,7 @@ export class UserProfileDashboardComponent implements OnInit {
         }
       );
   }
-  onEdit(){
+ /* onEdit(){
     this.isEditing = true;
   }
   saveProfile(){
@@ -66,6 +43,6 @@ export class UserProfileDashboardComponent implements OnInit {
   }
   cancelEdit(){
     this.isEditing = false;
-  }
+  }*/
   
 }

@@ -1,5 +1,3 @@
-
-
 /* .shipping-card {
   width: 100%;
 
@@ -42,7 +40,7 @@ flex-direction: column;
 }
 .img{
   width: 100%;
-  min-height: 400px;
+  min-height: 35em;
 }
 
 .div1{
@@ -56,6 +54,7 @@ flex-direction: column;
 justify-content: space-around;
   flex-direction: row;
   background: linear-gradient(to left, rgb(148, 138, 207) 50%, #b0b0cf 50%);
+  min-height: 35em;
 }
 .input{
   width: 60%;
