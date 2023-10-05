@@ -1,0 +1,96 @@
+<div class="UserDashboardContainer">
+        <div class="Userprof">
+                <img src="../../../assets/signup.jpg" alt="Altprofile.png"/>
+                <span><h1>{{userprofiledata.fullName}}</h1></span>
+                <span><h3>{{userprofiledata.email}}</h3></span>
+        </div>
+        <form class="UserDetails" (ngSubmit)="$event.preventDefault(); f.form.valid && saveProfile()" #f="ngForm" novalidate *ngIf="isEditing">
+                <div class="form-group" class="gender">      
+                    <label for="gender">Gender :</label> <br>                            
+                    <input type="text" id="gender" name="gender" [(ngModel)]="userprofiledata.gender" #gender="ngModel" />
+                </div>
+                <div class="form-group">
+                    <label for="age">Age :</label> <br>             
+                    <input type="number" id="age" name="Age" [(ngModel)]="userprofiledata.age" #amount="ngModel"/>
+                </div>
+                <div class="form-group" class="phone">
+                    <label for="phone">Phone number :</label> <br>                  
+                    <input type="tel" id="phone" name="phone" [(ngModel)]="userprofiledata.phonenumber" #phone="ngModel" />
+                </div>         
+                <div class="form-group">
+                    <label for="address">City :</label> <br> 
+                    <input id="address" [(ngModel)]="userprofiledata.city" name="address"/>
+                </div>
+                <div class="form-group" class="phone">
+                    <label for="role">role :</label> <br>                  
+                    <input type="text" id="role" name="Role" [(ngModel)]="userprofiledata.role"  #phone="ngModel" />
+                </div> 
+                <div class="form-group button-holder">
+                    <button type="submit">Save</button>
+                    <button (click)="cancelEdit()">cancel</button>
+                </div>
+        </form>
+        <form class="UserDetails" (ngSubmit)="f.form.valid && saveProfile()" #f="ngForm" novalidate *ngIf="isEditing === false">
+                <div class="form-group" class="email">      
+                  <label for="email">Gender :</label> <br>                            
+                  {{userprofiledata.gender}}
+                </div>
+                <div class="form-group">
+                    <label for="age">Age :</label> <br>             
+                    {{userprofiledata.age}}
+                </div>
+                <div class="form-group" class="phone">
+                  <label for="phone">Phone number :</label> <br>                  
+                  {{userprofiledata.phonenumber}}
+                </div>         
+                <div class="form-group">
+                  <label for="address">City :</label> <br> 
+                  {{userprofiledata.city}}
+                </div> 
+                <div class="form-group" class="role">
+                    <label for="role">role :</label> <br>                  
+                    {{userprofiledata.role}}
+                </div>
+                <div class="button-holder">
+                    <!-- <button id="edit" (click)="onEdit()">Edit</button> -->
+                </div>
+        </form>
+    <div class="appointment-details">
+        <div class="Appointment-cards">
+            <div>
+                <h2>15 Sep 23</h2>
+                <h4>17:05-18:00</h4>
+            </div>
+            <div>
+                <h5>service</h5>
+                <h3>HAIRCUT</h3>
+            </div>
+            <div>
+                <h4>Stylist</h4>
+                <h3>Stylist Name</h3>
+            </div>
+            <div>
+                <h4>Rating</h4>
+                <span class="material-symbols-rounded">
+                    star
+                </span>
+                <span class="material-symbols-rounded">
+                    star
+                </span>
+                <span class="material-symbols-rounded">
+                    star
+                </span>
+                <span class="material-symbols-rounded">
+                    star
+                </span>
+                <span class="material-symbols-rounded">
+                    star
+                </span>
+
+            </div>
+        </div>
+    </div>
+    <!-- <div class="button-holder">
+        <button (click)="cancelEdit()">cancel</button>
+        <button (click)="saveProfile()">Save</button>
+    </div> -->
