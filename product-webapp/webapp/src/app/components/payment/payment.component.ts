@@ -43,7 +43,7 @@ export class PaymentComponent {
     "amount": "",
     "name": "MirageManeStudio",
     "description": "Web Development",
-    "image": "https://www.javachinna.com/wp-content/uploads/2020/02/android-chrome-512x512-1.png",
+    "image": "webapp/src/assets/imge.jpg/",
     "order_id": "",
     "handler": function (response: any) {
       var event = new CustomEvent("payment.success",

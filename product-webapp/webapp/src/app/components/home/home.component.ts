@@ -57,7 +57,8 @@ export class HomeComponent {
      this.router.navigateByUrl('testt');
    }
    bookings(){
-    this.router.navigateByUrl('/booking');
+    console.log('hello')
+    this.router.navigate(['booking-form']);
    }
    feedback(){
     this.router.navigateByUrl("feedback");
