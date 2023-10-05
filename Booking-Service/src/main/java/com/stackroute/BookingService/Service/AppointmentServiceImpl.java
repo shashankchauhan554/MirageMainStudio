@@ -37,7 +37,7 @@ public class AppointmentServiceImpl implements AppointmentService{
     }
 
 
-    @Override
+   /** @Override
     public boolean getBarberAvailability(Appointment appointmentDetails) {
 
         String bookingDate = appointmentDetails.getAppointmentDate();
@@ -60,11 +60,17 @@ public class AppointmentServiceImpl implements AppointmentService{
         }
         return false;
     }
+*/
+//    @Override
+//    public List<Appointment> getAppointmentOfBarber(String id) {
+//        List<Appointment> barberAppointmentList = appointmentRepository.findById(id);
+//        return barberAppointmentList;
+//    }
 
     @Override
-    public List<Appointment> getAppointmentOfBarber(long id) {
-        List<Appointment> barberAppointmentList = appointmentRepository.findByBarberId(id);
-        return barberAppointmentList;
+    public Appointment getAppointmentBySalonName(String salonName) {
+
+        return appointmentRepository.findBySalonName(salonName);
     }
 
 

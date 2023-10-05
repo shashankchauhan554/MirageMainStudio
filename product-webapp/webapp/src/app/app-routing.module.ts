@@ -22,6 +22,7 @@ import { SalonUpdateSalonComponent } from './components/salon/salon-update-salon
 import { SalonGetSaloncategoryComponent } from './components/salon/salon-get-saloncategory/salon-get-saloncategory.component';
 import { SalonGetbysalonidSalonComponent } from './components/salon/salon-getbysalonid-salon/salon-getbysalonid-salon.component';
 import { UserProfileDashboardComponent } from './components/user-profile-dashboard/user-profile-dashboard.component';
+import { BookingFormComponent } from './booking-form/booking-form.component';
 
 
 
@@ -29,6 +30,7 @@ import { UserProfileDashboardComponent } from './components/user-profile-dashboa
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
+  {path:"booking-form",component:BookingFormComponent},
 
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
@@ -50,6 +52,9 @@ const routes: Routes = [
   {path:'',component:HomeComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 
+
+  
+    // { path: '', redirectTo: 'home', pathMatch: 'full' }
 
 ];
 

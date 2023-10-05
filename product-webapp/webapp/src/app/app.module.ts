@@ -44,6 +44,10 @@ import { SalonGetbysalonidSalonComponent } from './components/salon/salon-getbys
 import { SalonUpdateSalonComponent } from './components/salon/salon-update-salon/salon-update-salon.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { UserProfileDashboardComponent } from './components/user-profile-dashboard/user-profile-dashboard.component';
+import { BookingFormComponent } from './booking-form/booking-form.component';
+
+import { FailureComponent } from './failure/failure.component';
+import { SuccessComponent } from './success/success.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +72,9 @@ import { UserProfileDashboardComponent } from './components/user-profile-dashboa
     SalonGetOwnerComponent,
     SalonAddOwnerComponent,
     SalonAddsalonbyowneridSalonComponent,
+    BookingFormComponent,
+    SuccessComponent,
+    FailureComponent
   ],
   imports: [
     FormsModule,
