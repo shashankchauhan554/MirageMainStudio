@@ -1,15 +1,55 @@
+<div class="body">
+<form class="example-form" (ngSubmit)="getbyid(box.value)">
+  <h2 class="heading">Salon Details</h2>
+  <input
+    type="text"
+    required
+    #box
+    matInput
+    placeholder="Enter salon Id"
+    name="salonId"
+    [(ngModel)]="salonId"
+  />
+  <br />
+  <button type="submit" class="btn btn-primary">Enter</button>
+</form>
+</div>
+
 <div class="top">
   <div class="warp">
-    <div class="example-card" *ngFor="let item of getJsonValue">
+    <div class="example-card">
       <mat-card-content>
-        <h2>Category Number:{{ item.categoryId }}</h2>
-        <h2>Category Type:{{ item.categoryType }}</h2>
-        <h2>price:{{ item.price }}</h2>
-        <h2>Ac type:{{ item.acNonAc }}</h2>
-        <h2>WIFI:{{ item.wifi }}</h2>
-        <h2>Maintanance:{{ item.maintanance }}</h2>
-        <button (click)="deletecategory(item.categoryId)">Delete</button>
-      </mat-card-content>
+        <h1>Hi</h1> 
+        <h1>Salon Id:{{ getDetails.salonId }}</h1>
+        <h1>Salon Name:{{ getDetails.salonName }}</h1>
+        <h1>Salon Owner Name:{{ getDetails.salonName }}</h1>
+        <h1>Email :{{ getDetails.email }}</h1>
+        <h1>City:{{ getDetails.city }}</h1>
+        <h1>Contact Number:{{ getDetails.contactNumber }}</h1>
+        <h1>GST Number:{{ getDetails.gstNumber }}</h1>
+        <h1>Slots:</h1>
+        <div *ngFor="let item of getJsonValue">
+          <hr>
+          <b><div>Slot Id:{{ item.slotId}}</div></b>
+          <b><div>Slot Date:{{ item.slotDate}}</div></b>
+          <b><div>Slot Status:{{ item.slotStatus}}</div></b>
+          <b><div>Slot Time:{{ item.slotTime}}</div></b>
+          <br>    
+        </div> 
+        <h1>Services:</h1>
+        <div *ngFor="let item1 of getServicesValue">
+          <hr>
+          <b><div>Service Id:{{ item1.serviceId}}</div></b>
+          <b><div>Service Name:{{ item1.serviceName}}</div></b>
+          <b><div>Service Price:{{ item1.price}}</div></b>
+          <br>   
+        </div>
+
+          
+        
+         <!-- <button (click)="deletecategory(item.categoryId)">Delete</button> -->
+       </mat-card-content>
     </div>
   </div>
-</div>
+</div> 
+

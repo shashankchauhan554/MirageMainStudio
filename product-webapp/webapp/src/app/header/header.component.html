@@ -1,5 +1,49 @@
 <div>
   <nav class=" nav navbar navbar-expand-lg navbar-light bg-light p-3">
+    <mat-toolbar color="primary">
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" class="matMenulist">
+        
+       
+        <button mat-menu-item class="custom-menu-item">
+          <a routerLink="salon-add-owner">Add Salon Details</a>
+        </button>
+        <button mat-menu-item class="custom-menu-item">
+          <a routerLink="salon-addbyownerid-salon">Add Salon Services</a>
+        </button>
+        <button mat-menu-item class="custom-menu-item">
+          <a routerLink="salon-addbysalonid-salon">Add Slots</a>
+        </button>
+  
+        <!-- <button mat-menu-item class="custom-menu-item">
+          <a routerLink="salon1-get-owner">List of Owners</a>
+        </button>
+        <button mat-menu-item class="custom-menu-item">
+          <a routerLink="salon-get-salon">List of Salons</a>
+        </button> -->
+        <button mat-menu-item class="custom-menu-item">
+          <a routerLink="salon-get-category">My Salon Details</a>
+        </button>
+  
+        <button mat-menu-item class="custom-menu-item">
+          <a routerLink="salon-update-salon">Update your Salon</a>
+        </button>
+  
+        <button mat-menu-item class="custom-menu-item">
+          <a (click)="onlogout()">Salon-Owner-Logout</a>
+        </button>
+      </mat-menu>
+     </mat-toolbar>
+
+
+
+
     <div class="container-fluid">
       <a class="navbar-brand" href="/home">Miragemanestudio</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

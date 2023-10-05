@@ -1,4 +1,4 @@
-<div class="body">
+<!-- <div class="body">
   <form class="example-form" (ngSubmit)="getbyid(box.value)">
     <h2 class="heading">Salon Details</h2>
     <input
@@ -14,66 +14,54 @@
     <br />
     <button type="submit" class="btn btn-primary">Enter</button>
   </form>
-</div>
+</div> -->
 <div class="body">
   <div class="example-form">
-    <h2 class="heading">Category Details</h2>
+    <h2 class="heading">Slot Details</h2>
     <form
       (ngSubmit)="submitForm()"
       enctype="multipart/form-data"
       class="example-form"
     >
+    <input
+    type="text"
+    required
+    #box
+    matInput
+    placeholder="Enter salon Id"
+    name="salonId"
+    [(ngModel)]="salonId"
+    pattern="[A-Za-z0-9]+"
+  />
       <input
         type="text"
         required
         matInput
-        placeholder="Enter Category Number"
-        name="categoryId"
-        [(ngModel)]="categoryId"
+        placeholder="Enter Slot Id"
+        name="slotId"
+        [(ngModel)]="slotId"
         pattern="[A-Za-z0-9]+"
       />
-
+      
+      <mat-form-field>
+        <mat-label>Choose a Slot date</mat-label>
+        <input matInput [matDatepicker]="picker" readonly [(ngModel)]="slotDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+     
       <input
         type="text"
         required
         matInput
-        placeholder="Enter Category type"
-        name="categoryType"
-        [(ngModel)]="categoryType"
+        placeholder="Enter Slot Time"
+        name="slotTime"
+        [(ngModel)]="slotTime"
+        pattern="[A-Za-z0-9]+"
       />
-      <input
-        type="text"
-        required
-        matInput
-        placeholder="Enter Ac type"
-        name="acNonAc"
-        [(ngModel)]="acNonAc"
-      />
-      <input
-        type="text"
-        required
-        matInput
-        placeholder="Enter wifi"
-        name="wifi"
-        [(ngModel)]="wifi"
-      />
-      <input
-        type="text"
-        required
-        matInput
-        placeholder="Enter Maintanance"
-        name=" maintanance"
-        [(ngModel)]="maintanance"
-      />
-      <input
-        type="text"
-        required
-        matInput
-        placeholder="Enter Price"
-        name="price"
-        [(ngModel)]="price"
-        pattern="[0-9]"
-      />
+      
+      
 
 <!--      <div class="form-group col-md-20">-->
 <!--        <input-->
@@ -86,7 +74,7 @@
 <!--      </div>-->
 
       <br /><br />
-      <button type="submit" class="btn btn-primary">Add Category</button>
+      <button type="submit" class="btn btn-primary">Add Slot</button>
     </form>
   </div>
   <br /><br /><br /><br /><br />

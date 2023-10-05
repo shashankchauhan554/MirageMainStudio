@@ -9,15 +9,14 @@ import { SalonownerService } from 'src/app/services/salonowner/salonowner.servic
   styleUrls: ['./salon-add-owner.componet.css']
 })
 export class SalonAddOwnerComponent {
-  ownerId = "";
+  salonId = "";
+  salonName = "";
+  salonOwnerName = "";
+  city = "";
+  contactNumber = "";
+  gstNumber = "";
   email = "";
-  name = "";
-  mobileNo = "";
-  referalCode = "";
-  addr = "";
-  dob = "";
-  salonList?: [];
-  aprovedbyadmin?: false;
+  
 
   constructor(
     private http: HttpClient,
@@ -47,18 +46,18 @@ export class SalonAddOwnerComponent {
   //     "approvedByAdmin": false
   // }
   const newOwnerData = {
-    ownerId: this.ownerId,
-    email: this.email,
-    name: this.name,
-    mobileNo: this.mobileNo,
-    addr: this.addr,
-    dob: this.dob,
-    approvedByAdmin: false,
-    salonList: [],
-    maintenance: this.referalCode
+    salonId: this.salonId,
+    salonName: this.salonName,
+    salonOwnerName: this.salonOwnerName,
+    city: this.city,
+    contactNumber: this.contactNumber,
+    gstNumber: this.gstNumber,
+    email:this.email
   };
+    console.log(newOwnerData)
     this.addOwnerService.addOwner(newOwnerData).subscribe(
       (response: any) => {
+        console.log(response);
         alert('Owner Added Succesfully');
       },
       (error) => {

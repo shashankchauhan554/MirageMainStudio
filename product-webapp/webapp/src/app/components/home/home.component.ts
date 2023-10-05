@@ -6,6 +6,7 @@ import { UserServiceService } from '../../services/user-service/user-service.ser
 import { LocalstorageservicesService } from 'src/app/services/localstorageservices.service';
 import { SignupComponent } from '../signup/signup.component';
 import { User } from 'src/app/model/user';
+import { SalonHomepageComponent } from '../salon/salon-homepage/salon-homepage.component'; 
 ​
 @Component({
   selector: 'app-home',
@@ -34,7 +35,7 @@ export class HomeComponent {
      this.router.navigateByUrl('user');
    }
    order(){
-     this.router.navigateByUrl('Services');
+     this.router.navigateByUrl('salon-homepage');
    }
    
    subscribe(){

@@ -3,10 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
-
+import { PaymentComponent } from './components/payment/payment.component';
 import { HomeComponent } from './components/home/home.component';
-
-
 
 // import { authGuard } from './guard/auth.guard';
 
@@ -35,77 +33,27 @@ const routes: Routes = [
 
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
+  {path: 'payment', component:PaymentComponent},
+
+  {path: 'salon-get-salon',component: SalonGetSalonComponent,canActivate: [SalonauthGuard]},
+  {path: 'salon-get-owner',component: SalonGetOwnerComponent,canActivate: [SalonauthGuard],},
+  {path: 'salon-get-category',component: SalonGetSaloncategoryComponent,canActivate: [SalonauthGuard]},
+  {path: 'salon-addbyownerid-salon',component: SalonAddsalonbyowneridSalonComponent,canActivate: [SalonauthGuard]},
+  {path: 'salon-addbysalonid-salon',component: SalonAddcategorybysalonidSalonComponent,canActivate: [SalonauthGuard]},
+  {path: 'salon-update-salon',component: SalonUpdateSalonComponent,canActivate: [SalonauthGuard]},
+  {path: 'salon-getbyid-salon',component: SalonGetbysalonidSalonComponent,canActivate: [SalonauthGuard]},
+  {path: 'salon-add-salonowner',component: SalonAddSalonownerComponent,canActivate: [SalonauthGuard]},
+  {path: 'salon-update-salonowner',component: SalonUpdateSalonownerComponent,canActivate: [SalonauthGuard]},
+  {path: 'salon-homepage',component: SalonHomepageComponent,canActivate: [SalonauthGuard]},
+  {path: 'salon-add-owner', component: SalonAddOwnerComponent,canActivate:[SalonauthGuard]},
+
 
   {path:'',component:HomeComponent},
-   
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
 
-  {
-    path: 'salon-content',
-    component: SalonContentComponent,
-    children: [
-      {
-        path: 'salon-get-salon',
-        component: SalonGetSalonComponent,
-        canActivate: [SalonauthGuard],
-      },
-      {
-        path: 'salon-get-owner',
-        component: SalonGetOwnerComponent,
-        canActivate: [SalonauthGuard],
-      },
-      {
-        path: 'salon-get-category',
-        component: SalonGetSaloncategoryComponent,
-        canActivate: [SalonauthGuard],
-      },
-      {
-        path: 'salon-add-owner',
-        component: SalonAddOwnerComponent,
-        canActivate: [SalonauthGuard],
-      },
-      {
-        path: 'salon-addbyownerid-salon',
-        component: SalonAddsalonbyowneridSalonComponent,
-        canActivate: [SalonauthGuard],
-      },
-      {
-        path: 'salon-addbysalonid-salon',
-        component: SalonAddcategorybysalonidSalonComponent,
-        canActivate: [SalonauthGuard],
-      },
-      {
-        path: 'salon-update-salon',
-        component: SalonUpdateSalonComponent,
-        canActivate: [SalonauthGuard],
-      },
-      {
-        path: 'salon-getbyid-salon',
-        component: SalonGetbysalonidSalonComponent,
-        canActivate: [SalonauthGuard],
-      },
-      {
-        path: 'salon-add-salonowner',
-        component: SalonAddSalonownerComponent,
-        canActivate: [SalonauthGuard],
-      },
-      {
-        path: 'salon-update-salonowner',
-        component: SalonUpdateSalonownerComponent,
-        canActivate: [SalonauthGuard],
-      },
-      {
-        path: 'salon-homepage',
-        component: SalonHomepageComponent,
-        canActivate: [SalonauthGuard],
-      },
-      { path: '', redirectTo: 'salon-login', pathMatch: 'full' },
-    ],
-  },
 
-// {path:"booking",component:BookingFormComponent},
-
-    // { path: 'landing-page', component: LandingPageComponent },
-    { path: '', redirectTo: 'home', pathMatch: 'full' }
+  
+    // { path: '', redirectTo: 'home', pathMatch: 'full' }
 
 ];
 

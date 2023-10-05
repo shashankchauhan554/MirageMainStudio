@@ -159,7 +159,7 @@
 }
 .nav-link:hover {
   color:whitesmoke; /* Change to your desired text color on hover */
-  /* Add any other styles you want to apply on hover */
+  font-size: 18px;/* Add any other styles you want to apply on hover */
 }
 .nav-link {
   color: rgb(175, 35, 152); /* Set the default text color */

@@ -4,15 +4,18 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
+import java.util.Date;
+
 @Data
-@Document(indexName = "categorytypes")
-public class Category {
+@Document(indexName = "slots")
+public class Slot {
 
     @Id
-    String categoryId;
-    String categoryType;
-    int price;
-    String acNonAc;
-    String wifi;
-    String maintanance;
+    int slotId;
+
+    Date slotDate;
+
+    Status slotStatus;
+
+    String slotTime;
 }

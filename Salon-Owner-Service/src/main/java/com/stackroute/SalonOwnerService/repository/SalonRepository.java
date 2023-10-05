@@ -8,9 +8,9 @@ import java.util.List;
 @Repository
 public interface SalonRepository extends ElasticsearchRepository <Salon, String> {
     Salon findBySalonName(String med);
-    Salon findBySalonAddress(String med);
-    List<Salon> findByLocation(String location);
-    List<Salon> findByPriceGreaterThan(int price);
+    List<Salon> findByCity(String med);
+//    List<Salon> findByLocation(String location);
+//    List<Salon> findByPriceGreaterThan(int price);
 
 
 }

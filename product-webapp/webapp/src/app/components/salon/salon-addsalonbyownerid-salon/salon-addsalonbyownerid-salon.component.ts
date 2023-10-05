@@ -2,51 +2,65 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 // import { HotelownerService } from 'src/app/services/salonowner/salonowner.service';
 import { SalonownerService } from '../../../services/salonowner/salonowner.service';
-
+//import { SalonServices } from 'src/app/model/SalonServices';
 @Component({
   selector: 'app-salon-addsalonbyownerid-salon',
   templateUrl: './salon-addsalonbyownerid-salon.component.html',
   styleUrls: ['./salon-addsalonbyownerid-salon.component.css']
 })
 export class SalonAddsalonbyowneridSalonComponent {
-  ownerId: any;
-  salonId = "";
-  salonName = "";
+  salonId: any;
+  
+  //salonServices : any[] = [];
+ 
+  serviceId = "";
+  serviceName ="";
   price: any;
-  acNonAc = "";
-  wifi = "";
-  maintanance = "";
-  salonAddress = "";
-  location = "";
-  referalCode = "";
-  nearbyTraspotation = "";
-  gstNumber = "";
+
+  
+  
 
   constructor(
     private http: HttpClient,
-    private addSalonService: SalonownerService
+    //salonServices : SalonServices[],
+    private addSalonService: SalonownerService,
+    // private salonServices:[{serviceId:String;
+    //   serviceName:String;
+    //   price:any; 
+    // }]
   ) { }
 
   getbyid(id: String) {
-    this.ownerId = id;
+    this.salonId = id;
   }
   submitForm() {
-    const formData = new FormData();
-    formData.append('salonId', this.salonId);
-    formData.append('salonName', this.salonName);
-    formData.append('price', this.price);
-    formData.append('acNonAc', this.acNonAc);
-    formData.append('wifi', this.wifi);
-    formData.append('salonAddress', this.salonAddress);
-    formData.append('location', this.location);
-    formData.append('referalCode', this.referalCode);
-    formData.append('maintanance', this.maintanance);
-    formData.append('nearbyTranspotation', this.nearbyTraspotation);
-    formData.append('gstNumber', this.gstNumber);
+    // const formData = new FormData();
+    // formData.append('salonId', this.salonId);
+    // formData.append('serviceId', this.serviceId);
+    // formData.append('serviceName', this.serviceName);
+    // formData.append('price', this.price);
+    
+    // console.log(formData)
+
+    const newServiceData = {
+      // salonId: this.salonId,
+      serviceId: this.serviceId,
+      serviceName: this.serviceName,
+      price: this.price,
+      
+    };
+     
+    
+    
 
 
-    this.addSalonService.addSalon(formData, this.ownerId).subscribe(
+      console.log(newServiceData)
+      
+      
+
+    this.addSalonService.addSalon(newServiceData, this.salonId).subscribe(
       (response: any) => {
+        console.log(response)
         alert('added Succesfully');
       },
       (error) => {

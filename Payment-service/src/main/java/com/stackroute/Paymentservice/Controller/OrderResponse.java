@@ -1,4 +1,4 @@
-package Controller;
+package com.stackroute.Paymentservice.Controller;
 
 import lombok.Getter;
 

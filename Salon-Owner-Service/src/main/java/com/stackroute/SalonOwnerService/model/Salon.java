@@ -13,22 +13,15 @@ public class Salon {
     @Id
     String salonId;
     String salonName;
-    String salonAddress;
-    String location;
-    String referalCode;
+    String salonOwnerName;
+    String city;
+    String contactNumber;
     String gstNumber;
-    String availability;
-    String acNonAc;
-    String NearbyTransportation;
-    String wifi;
-    String maintanance;
-    int price;
-    List<Category> categoryList;
+    String email;
 
-    public List<Category> getCategoryList() {return categoryList;}
+    List<Slot> slots;
 
-    public void setCategoryList(List<Category> roomList) {
-        this.categoryList = categoryList;
-    }
+    List<SalonService> salonServices;
+
 
 }
