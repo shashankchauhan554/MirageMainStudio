@@ -61,9 +61,9 @@ export class SalonownerService {
   updatesalon(salon: FormData): Observable<any> {
     return this.http.put<FormData>(this.urlu1, salon);
   }
-  private urlO1 = "http://localhost:8082/api/v1/addalonowner";
-  addOwner(newOwner: FormData): Observable<any> {
-    return this.http.post<FormData>(this.urlO1, newOwner);
+  private urlO1 = "http://localhost:8082/api/v1/addsalonowner";
+  addOwner(newOwner: any): Observable<any> {
+    return this.http.post(this.urlO1, newOwner);
   }
   addSalon(newSalon: FormData, id: String): Observable<any> {
     const url1 = `http://localhost:8082/api/v1/addsalon/${id}`;

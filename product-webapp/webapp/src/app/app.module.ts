@@ -20,10 +20,25 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { PaymentComponent } from './components/payment/payment.component';
+// import { FormsModule } from '@angular/forms';
 
+import { SalonHomepageComponent } from './components/salon/salon-homepage/salon-homepage.component';
+import { SalonHeaderComponent } from './components/salon/salon-header/salon-header.component';
+import { SalonFooterComponent } from './components/salon/salon-footer/salon-footer.component';
+import { SalonContentComponent } from './components/salon/salon-content/salon-content.component';
 
-
-
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SalonAddSalonownerComponent } from './components/salon/salon-add-salonowner/salon-add-salonowner.component';
+import { SalonUpdateSalonownerComponent } from './components/salon/salon-update-salonowner/salon-update-salonowner.component';
+import { SalonGetSalonComponent } from './components/salon/salon-get-salon/salon-get-salon.component';
+import { SalonGetOwnerComponent } from './components/salon/salon-get-owner/salon-get-owner.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { SalonAddOwnerComponent } from './components/salon/salon-add-owner/salon-add-owner.component';
+import { SalonAddsalonbyowneridSalonComponent } from './components/salon/salon-addsalonbyownerid-salon/salon-addsalonbyownerid-salon.component';
+import { SalonAddcategorybysalonidSalonComponent } from './components/salon/salon-addcategorybysalonid-salon/salon-addcategorybysalonid-salon.component';
+import { SalonGetSaloncategoryComponent } from './components/salon/salon-get-saloncategory/salon-get-saloncategory.component';
+import { SalonGetbysalonidSalonComponent } from './components/salon/salon-getbysalonid-salon/salon-getbysalonid-salon.component';
+import { SalonUpdateSalonComponent } from './components/salon/salon-update-salon/salon-update-salon.component';
 
 @NgModule({
   declarations: [
@@ -31,14 +46,30 @@ import { PaymentComponent } from './components/payment/payment.component';
     LoginComponent,
     SignupComponent,
     HeaderComponent,
-    PaymentComponent
+    PaymentComponent,
+    SalonHomepageComponent,
+    SalonHeaderComponent,
+    SalonFooterComponent,
+    SalonContentComponent,
+    SalonAddSalonownerComponent,
+    SalonUpdateSalonownerComponent,
+    SalonGetSalonComponent,
+    SalonAddcategorybysalonidSalonComponent,
+    SalonGetSaloncategoryComponent,
+    SalonGetbysalonidSalonComponent,
+    SalonUpdateSalonComponent,
+    SalonGetOwnerComponent,
+    SalonAddOwnerComponent,
+    SalonAddsalonbyowneridSalonComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
+    MatMenuModule,
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
@@ -51,8 +82,9 @@ import { PaymentComponent } from './components/payment/payment.component';
     MatIconModule,
     MatListModule,
     FormsModule
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

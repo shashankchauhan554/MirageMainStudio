@@ -1,8 +1,11 @@
-<div>
+<div class="userregistrationcontainer"> 
+  <div class="imageconatiner">
+    <img src="../../../assets/img/signup.png" alt="image">
+  </div>
   <form [formGroup]="signupForm" novalidate (ngSubmit)="onSubmit()">
     <mat-card class="shipping-card">
       <mat-card-header>
-        <mat-card-title>Registeration Information</mat-card-title>
+        <mat-card-title class="card_title">Welcome to Miragemanestudio</mat-card-title>
       </mat-card-header>
       <mat-card-content>
 
@@ -65,6 +68,7 @@
             </mat-form-field>
           </div>
         </div>
+       
         <div class="row">
           <div class="col">
             <label for="age">Age:</label>
@@ -115,9 +119,7 @@
       <a href="login" class="anchor">Login</a>
      </div>
     </mat-card>
-
-
-
-
   </form>
 </div>
+
+

@@ -23,7 +23,7 @@ loginUser(user:any):any{
     return this.http.post<any>(`${this.API_URL}v1/user/api/login`,user)
   }
   registerUser(user:any):any{
-    return this.http.post<any>(`${this.API_URL1}api/v1/user`,user)
+    return this.http.post<any>(`${this.API_URL1}user/api/register`,user)
   }
 
   
