@@ -16,6 +16,7 @@ public interface SalonService {
 
     Salon addSlot(String ownerId, Slot slot) throws SalonOwnerIdDoesNotExistException;
 
+    Iterable<Salon> viewAllSalon();
     // fetch the all salon
     Optional<Salon> viewSalonById(String ownerId) throws SalonOwnerIdDoesNotExistException;
 
@@ -32,8 +33,10 @@ public interface SalonService {
     // getting the salon data using salonId
     public Optional<Salon> getSalonBySalonId(String salonId);
 
-    List<Salon> getSalonByLocation(String location);
+    public List<Salon> getSalonByCity(String city);
 
-    Salon getSalonByName(String name);
+    List<Salon> getSalonByName(String Name);
+
+
 
 }

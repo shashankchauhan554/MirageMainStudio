@@ -68,6 +68,17 @@ public class SalonController {
         }
     }
 
+    @GetMapping("/viewall")
+    public ResponseEntity<?> viewAll()  {
+        Iterable<Salon> allsalons;
+        try {
+            allsalons= service.viewAllSalon();
+            return new ResponseEntity<Iterable<Salon>>(allsalons, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
     @GetMapping("/viewall/{ownerId}")
     public ResponseEntity<?> viewAllSalon(@PathVariable String ownerId)  {
         Optional<Salon> salonOwner = null;
@@ -135,9 +146,15 @@ public class SalonController {
         return service.getSalonBySalonId(salonId);
     }
 
-    @GetMapping("viewbyaddr/{location}")
-    public ResponseEntity<List> viewByLocation(@PathVariable String location){
-        return  new ResponseEntity<List>(service.getSalonByLocation(location),HttpStatus.OK);
+
+    @GetMapping("viewbyCity/{city}")
+    public List<Salon> viewByCity(@PathVariable("city") String city){
+        return service.getSalonByCity(city);
+    }
+
+    @GetMapping("viewbyName/{Name}")
+    public ResponseEntity<List> viewByName(@PathVariable String Name){
+        return  new ResponseEntity<List>(service.getSalonByName(Name),HttpStatus.OK);
     }
 //
 

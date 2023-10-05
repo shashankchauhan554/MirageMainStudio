@@ -115,6 +115,12 @@ public class SalonServiceImpl implements SalonService {
         }
     }
 
+    @Override
+    public Iterable<Salon> viewAllSalon()
+    {
+        Iterable<Salon> allsalons = repository.findAll();
+        return allsalons;
+    }
 
     @Override
     public Optional<Salon> viewSalonById(String ownerId)throws SalonOwnerIdDoesNotExistException
@@ -149,14 +155,18 @@ public class SalonServiceImpl implements SalonService {
     }
 
 
+    @Override
+    public List<Salon> getSalonByCity(String city) {
+        return repository.findByCity(city);
+    }
+
+
 
     @Override
-    public List<Salon> getSalonByLocation(String location) {
-        return repository.findByCity(location);
+    public List<Salon> getSalonByName(String Name) {
+        return repository.findBySalonName(Name);
     }
-    @Override
-    public Salon getSalonByName(String name) {return repository.findBySalonName(name);
-    }
+
     @Override
     public boolean deleteSlotBySlotId(String ownerId, String slotId) throws SalonOwnerIdDoesNotExistException {
         Optional<Salon> opt = repository.findById(ownerId);
