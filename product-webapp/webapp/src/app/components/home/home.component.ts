@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-​
+
 import { LoginComponent } from '../login/login.component';
 import { UserServiceService } from '../../services/user-service/user-service.service';
 import { LocalstorageservicesService } from 'src/app/services/localstorageservices.service';
@@ -8,18 +8,15 @@ import { SignupComponent } from '../signup/signup.component';
 import { User } from 'src/app/model/user';
 
 
-​
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
- constructor(private router: Router, private login: UserServiceService, local : LocalstorageservicesService
- ){}
- username: string | undefined;
-​
  
+
 ​
  /*ngOnInit(): void {
    const currentUser: User | null = this.local.getCurrentUser();
@@ -29,7 +26,7 @@ export class HomeComponent {
  }*/
 ​
 ​
-   loginCheck(){
+  /* loginCheck(){
    this.router.navigateByUrl('login');
    }
    profile(){
@@ -47,7 +44,7 @@ export class HomeComponent {
    }
    
    Cart(){
-     this.router.navigateByUrl('myBookings');
+     this.router.navigateByUrl('booking-service');
    }
    logout(){
     localStorage.removeItem('Token');
@@ -63,5 +60,5 @@ export class HomeComponent {
    feedback(){
     this.router.navigateByUrl("feedback");
    }
-
+*/
   }

@@ -1,82 +1,47 @@
-<div>
-  <nav class=" nav navbar navbar-expand-lg navbar-light bg-light p-3">
-    <mat-toolbar color="primary">
-      <button
-        mat-icon-button
-        [matMenuTriggerFor]="menu"
-        aria-label="Example icon-button with a menu"
-      >
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu" class="matMenulist">
-        
+<nav class="navbar navbar-expand-lg bg-white fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="color: rgb(216, 19, 216); font-size: 29px; font-weight: bold;font-style: italic;">
+      <img src="../../assets/imge.jpg" alt="Logo" width="45" height="45" class="d-inline-block align-text-top">
+      Miragemanestudio
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="#"onclick="order()" aria-current="page" style="color: rgb(201, 14, 170); font-size: 16px; font-weight: bold;">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active"  (click)="bookings()" aria-current="page" style="color: rgb(201, 14, 170); font-size: 16px; font-weight: bold;cursor: pointer;">Booknow</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="feedback()" style="color:rgb(201, 14, 170); font-size: 16px; font-weight: bold;">feedback</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"  onclick ="subscribe()" style="color: rgb(201, 14, 170); font-size: 16px; font-weight: bold;">Subscribe</a>
+        </li>
        
-        <button mat-menu-item class="custom-menu-item">
-          <a routerLink="salon-add-owner">Add Salon Details</a>
-        </button>
-        <button mat-menu-item class="custom-menu-item">
-          <a routerLink="salon-addbyownerid-salon">Add Salon Services</a>
-        </button>
-        <button mat-menu-item class="custom-menu-item">
-          <a routerLink="salon-addbysalonid-salon">Add Slots</a>
-        </button>
-  
-        <!-- <button mat-menu-item class="custom-menu-item">
-          <a routerLink="salon1-get-owner">List of Owners</a>
-        </button>
-        <button mat-menu-item class="custom-menu-item">
-          <a routerLink="salon-get-salon">List of Salons</a>
-        </button> -->
-        <button mat-menu-item class="custom-menu-item">
-          <a routerLink="salon-get-category">My Salon Details</a>
-        </button>
-  
-        <button mat-menu-item class="custom-menu-item">
-          <a routerLink="salon-update-salon">Update your Salon</a>
-        </button>
-  
-        <button mat-menu-item class="custom-menu-item">
-          <a (click)="onlogout()">Salon-Owner-Logout</a>
-        </button>
-      </mat-menu>
-     </mat-toolbar>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: rgb(240, 126, 225); font-size: 16px; font-weight: bold;">
+            <i class="fa fa-user-circle-o" style="font-size: 18px; color: rgb(160, 160, 138);"></i> {{ username }}
+          </a>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="background-color:  #fffff0 ;">
+            <a class="dropdown-item" (click)="loginCheck()">Login</a>
 
+            <a class="dropdown-item" (click)="register()">Sign up</a>
+            <a class="dropdown-item" (click)="profile()">Edit Profile</a>
+           
+            <a class="dropdown-item" (click)="profile()">User Dashboard</a>
+            <a class="dropdown-item" (click)="Cart()">My bookings</a>
 
-
-
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/home">Miragemanestudio</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-     
-      <div class="items collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-0 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/service">Services</a>
-          </li>
-          <li class="nav-item">
-            <!-- <a class="nav-link active" aria-current="page" href="/paymentform1">Counsellor</a> -->
-            <!-- <a class="nav-link active" aria-current="page" href="/counsellor-update">Counsellor</a> -->
-          </li>
-        </ul>
-        <div class="text-end">
-          <button class="buttontheme1"><a  href="/signup" class="anchor2 me-2">Sign Up</a> </button> 
-          <button class="buttontheme2"><a  href="/login" class="anchor1 me-2">Login</a></button>
-          
-                 </div>
-          <!-- <a routerLink="/showappointments">slots</a> -->
-      </div>
-     </div>
-    
-  </nav>
-
-
-</div>
+            <a class="dropdown-item" (click)="logout()">Logout</a>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+ 
+</nav>
