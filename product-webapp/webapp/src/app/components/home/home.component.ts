@@ -47,7 +47,7 @@ export class HomeComponent {
    }
    
    Cart(){
-     this.router.navigateByUrl('myBookings');
+     this.router.navigateByUrl('booking-service');
    }
    logout(){
     localStorage.removeItem('Token');
