@@ -1,0 +1,93 @@
+<div class="body">
+  <form class="example-form" (ngSubmit)="getbyid(box.value)">
+    <h2 class="heading">Salon Details</h2>
+    <input
+      type="text"
+      required
+      #box
+      matInput
+      placeholder="Enter salon Id"
+      name="salonId"
+      [(ngModel)]="salonId"
+      pattern="[A-Za-z0-9]+"
+    />
+    <br />
+    <button type="submit" class="btn btn-primary">Enter</button>
+  </form>
+</div>
+<div class="body">
+  <div class="example-form">
+    <h2 class="heading">Category Details</h2>
+    <form
+      (ngSubmit)="submitForm()"
+      enctype="multipart/form-data"
+      class="example-form"
+    >
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Category Number"
+        name="categoryId"
+        [(ngModel)]="categoryId"
+        pattern="[A-Za-z0-9]+"
+      />
+
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Category type"
+        name="categoryType"
+        [(ngModel)]="categoryType"
+      />
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Ac type"
+        name="acNonAc"
+        [(ngModel)]="acNonAc"
+      />
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter wifi"
+        name="wifi"
+        [(ngModel)]="wifi"
+      />
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Maintanance"
+        name=" maintanance"
+        [(ngModel)]="maintanance"
+      />
+      <input
+        type="text"
+        required
+        matInput
+        placeholder="Enter Price"
+        name="price"
+        [(ngModel)]="price"
+        pattern="[0-9]"
+      />
+
+<!--      <div class="form-group col-md-20">-->
+<!--        <input-->
+<!--          type="file"-->
+<!--          class="form-control"-->
+<!--          name="photo"-->
+<!--          (change)="imageUpload($event)"-->
+<!--          required-->
+<!--        />-->
+<!--      </div>-->
+
+      <br /><br />
+      <button type="submit" class="btn btn-primary">Add Category</button>
+    </form>
+  </div>
+  <br /><br /><br /><br /><br />
+</div>

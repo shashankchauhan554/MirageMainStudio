@@ -7,11 +7,12 @@ import com.stackroute.SalonOwnerService.repository.SalonOwnerRepository;
 import com.stackroute.SalonOwnerService.repository.SalonRepository;
 import com.stackroute.SalonOwnerService.service.SalonOwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class SalonOwnerServiceImpl implements SalonOwnerService {
 
     @Autowired
