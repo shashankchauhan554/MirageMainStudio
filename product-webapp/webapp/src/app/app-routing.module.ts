@@ -22,6 +22,10 @@ import { SalonGetSaloncategoryComponent } from './components/salon/salon-get-sal
 import { SalonGetbysalonidSalonComponent } from './components/salon/salon-getbysalonid-salon/salon-getbysalonid-salon.component';
 import { UserProfileDashboardComponent } from './components/user-profile-dashboard/user-profile-dashboard.component';
 import { BookingFormComponent } from './booking-form/booking-form.component';
+import { BoxesComponent } from './boxes/boxes.component';
+
+
+
 
 const routes: Routes = [
 
@@ -32,7 +36,7 @@ const routes: Routes = [
 
 
   {path:"booking-form",component:BookingFormComponent},
-
+{path:"boxes",component:BoxesComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
   {path: 'payment', component:PaymentComponent},

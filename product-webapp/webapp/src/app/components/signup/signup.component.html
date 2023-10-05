@@ -1,5 +1,6 @@
 <div class="userregistrationcontainer"> 
   <div class="imageconatiner">
+    <img src="../../../assets/signup.jpg" alt="image">
     <img src="../../../assets/img/signup.png" alt="image">
   </div>
   <form [formGroup]="signupForm" novalidate (ngSubmit)="onSubmit()">
@@ -69,6 +70,17 @@
           </div>
         </div>
        
+        <div class="row">
+          <div class="col">
+            <mat-form-field>
+              <input matInput placeholder="City" formControlName="city">
+              <mat-error *ngIf="signupForm.controls['city'].hasError('required')">
+                city name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+         
+        </div>
         <div class="row">
           <div class="col">
             <label for="age">Age:</label>

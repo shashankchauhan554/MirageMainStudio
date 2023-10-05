@@ -18,6 +18,7 @@ export class SignupComponent {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
     phonenumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+    city:['',Validators.required],
     role: ['CUSTOMER', Validators.required],
     gender: ['MALE', Validators.required],
     age: [null, Validators.required]
