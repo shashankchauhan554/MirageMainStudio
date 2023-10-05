@@ -16,6 +16,7 @@ public class User {
 	private String fullName;
 	private String password;
 	private Long phonenumber;
+	private String city;
 	private Integer age;
 	private Urole role;
 	private Ugender gender;

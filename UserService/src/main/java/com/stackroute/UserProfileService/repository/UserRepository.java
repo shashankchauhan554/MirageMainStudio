@@ -8,6 +8,8 @@ import com.stackroute.UserProfileService.model.*;
 	
 	    User findByEmail(String email);
 
+		User findAndModifyByEmail(String email, User newUser);
+
 
 	}
 

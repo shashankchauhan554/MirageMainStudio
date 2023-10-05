@@ -48,7 +48,8 @@ public class UserServiceimpl implements UserService{
 
 	@Override
 	public User updateUser(User user) {
-		return userRepository.save(user);
+
+		return userRepository.findAndModifyByEmail(user.getEmail(), user);
 	}
 
 	@Override
