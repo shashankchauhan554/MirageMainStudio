@@ -12,5 +12,4 @@ public interface SalonRepository extends ElasticsearchRepository <Salon, String>
 //    List<Salon> findByLocation(String location);
 //    List<Salon> findByPriceGreaterThan(int price);
 
-
 }

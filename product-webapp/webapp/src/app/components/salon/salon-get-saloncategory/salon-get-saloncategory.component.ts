@@ -10,9 +10,7 @@ import { SalonownerService } from 'src/app/services/salonowner/salonowner.servic
 export class SalonGetSaloncategoryComponent {
   salonId: any;
   public getJsonValue: any[] = [];
-
   public getServicesValue: any[] = [];
-
   getDetails ={
     salonId:[''],
     salonName:[''],
@@ -23,31 +21,22 @@ export class SalonGetSaloncategoryComponent {
     email:[''],
     slots:[''],
     salonServices:['']
-
   };
-
-
- 
-
   public postJsonValue: any;
   constructor(private http: HttpClient, private getCategoryService: SalonownerService) { }
   // ngOnInit(): void {
   //   this.getAllDetails()
     
   // }
-
   getbyid(id: String) {
     this.salonId = id;
     this.getAllDetails()
-
   }
-
   getAllDetails() {
     this.getCategoryService.getAlldetailsById(this.salonId).subscribe((data: any) => {
       this.getJsonValue = data.slots;
       this.getServicesValue = data.salonServices;
       this.getDetails= data;
-      console.log(data);
     });
   }
   deletecategory(id: String) {

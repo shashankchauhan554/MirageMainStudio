@@ -45,6 +45,28 @@ public class SalonController {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
         }
     }
+    @DeleteMapping("/delete/{ownerId}/{slotId}")
+    public ResponseEntity<?> deleteSlot(@PathVariable String ownerId, @PathVariable String slotId) {
+        try {
+            service.deleteSlotBySlotId(ownerId, slotId);
+            return new ResponseEntity<String>("Slot Deleted", HttpStatus.OK);
+        } catch (SalonOwnerIdDoesNotExistException e) {
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+    }
+    @DeleteMapping("/deleteservice/{ownerId}/{serviceId}")
+    public ResponseEntity<?> deleteSalonService(@PathVariable String ownerId, @PathVariable String serviceId) {
+        try {
+            boolean result = service.deleteSalonService(ownerId, serviceId);
+            if (result) {
+                return new ResponseEntity<String>("SalonService Deleted", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<String>("SalonService not found for the given ownerId and serviceId", HttpStatus.NOT_FOUND);
+            }
+        } catch (SalonOwnerIdDoesNotExistException e) {
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+    }
 
     @GetMapping("/viewall/{ownerId}")
     public ResponseEntity<?> viewAllSalon(@PathVariable String ownerId)  {
@@ -57,13 +79,43 @@ public class SalonController {
         }
     }
 
-    @DeleteMapping("/delete/{sId}")
-    public ResponseEntity<?> deleteSalon(@PathVariable("sId") String sid){
+//    @DeleteMapping("/delete/{sId}")
+//    public ResponseEntity<?> deleteSalon(@PathVariable("sId") String sid){
+//        try {
+//            boolean result = service.deleteSalonbySalonId(sid);
+//            return new ResponseEntity<String>("Salon Deleted", HttpStatus.OK);
+//        } catch (SalonIdDoesNotExistException e) {
+//            return new ResponseEntity<String>("salonId not Found in DB", HttpStatus.NOT_FOUND);
+//        }
+//    }
+    @PostMapping("/editslot/{ownerId}/{slotId}")
+    public ResponseEntity<?> editSlot(@PathVariable String ownerId, @PathVariable String slotId, @RequestBody Slot updatedSlot) {
+//        System.out.println("Hello, World!");
         try {
-            boolean result = service.deleteSalonbySalonId(sid);
-            return new ResponseEntity<String>("Salon Deleted", HttpStatus.OK);
-        } catch (SalonIdDoesNotExistException e) {
-            return new ResponseEntity<String>("salonId not Found in DB", HttpStatus.NOT_FOUND);
+            boolean result  = service.editSlotBySlotId(ownerId, slotId, updatedSlot);
+            if (result) {
+                return new ResponseEntity<String>("Slot Updated", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<String>("Slot not found for the given ownerId and slotId", HttpStatus.NOT_FOUND);
+            }
+        } catch (SalonOwnerIdDoesNotExistException e) {
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+    }
+    @PostMapping("/editservice/{ownerId}/{serviceId}")
+    public ResponseEntity<?> editService(
+            @PathVariable String ownerId,
+            @PathVariable String serviceId,
+            @RequestBody SalonService salonService) {
+        try {
+            Salon salon = service.editService(ownerId, serviceId, salonService);
+            if (salon != null) {
+                return new ResponseEntity<>(salon, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<String>("Service not found for the given ownerId and serviceId", HttpStatus.NOT_FOUND);
+            }
+        } catch (SalonOwnerIdDoesNotExistException e) {
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
         }
     }
 
@@ -83,20 +135,10 @@ public class SalonController {
         return service.getSalonBySalonId(salonId);
     }
 
-
-
-
     @GetMapping("viewbyaddr/{location}")
     public ResponseEntity<List> viewByLocation(@PathVariable String location){
         return  new ResponseEntity<List>(service.getSalonByLocation(location),HttpStatus.OK);
     }
-    @GetMapping("viewbyname/{name}")
-    public ResponseEntity<Salon> viewByName(@PathVariable String name){
-        return  new ResponseEntity<>(service.getSalonByName(name),HttpStatus.OK);
-    }
-//    @GetMapping("viewbypricegreaterthan/{maxprice}")
-//    public ResponseEntity<?> viewByPrice(@PathVariable int maxprice){
-//        List<Salon> salonList = service.getSalonBasedOnCost(maxprice);
-//        return new ResponseEntity<List>(salonList,HttpStatus.OK);
-//    }
+//
+
 }

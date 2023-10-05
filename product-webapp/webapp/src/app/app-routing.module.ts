@@ -1,12 +1,9 @@
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 
 import { HomeComponent } from './components/home/home.component';
-
-
 
 // import { authGuard } from './guard/auth.guard';
 
@@ -24,37 +21,74 @@ import { SalonUpdateSalonComponent } from './components/salon/salon-update-salon
 import { SalonGetSaloncategoryComponent } from './components/salon/salon-get-saloncategory/salon-get-saloncategory.component';
 import { SalonGetbysalonidSalonComponent } from './components/salon/salon-getbysalonid-salon/salon-getbysalonid-salon.component';
 
-
-
-
-
 const routes: Routes = [
-  {path:'',redirectTo:'home',pathMatch:'full'},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 
-  {path:'login',component:LoginComponent},
-  {path:'signup',component:SignupComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
 
-  {path: 'salon-get-salon',component: SalonGetSalonComponent,canActivate: [SalonauthGuard]},
-  {path: 'salon-get-owner',component: SalonGetOwnerComponent,canActivate: [SalonauthGuard],},
-  {path: 'salon-get-category',component: SalonGetSaloncategoryComponent,canActivate: [SalonauthGuard]},
-  {path: 'salon-addbyownerid-salon',component: SalonAddsalonbyowneridSalonComponent,canActivate: [SalonauthGuard]},
-  {path: 'salon-addbysalonid-salon',component: SalonAddcategorybysalonidSalonComponent,canActivate: [SalonauthGuard]},
-  {path: 'salon-update-salon',component: SalonUpdateSalonComponent,canActivate: [SalonauthGuard]},
-  {path: 'salon-getbyid-salon',component: SalonGetbysalonidSalonComponent,canActivate: [SalonauthGuard]},
-  {path: 'salon-add-salonowner',component: SalonAddSalonownerComponent,canActivate: [SalonauthGuard]},
-  {path: 'salon-update-salonowner',component: SalonUpdateSalonownerComponent,canActivate: [SalonauthGuard]},
-  {path: 'salon-homepage',component: SalonHomepageComponent,canActivate: [SalonauthGuard]},
-  {path: 'salon-add-owner', component: SalonAddOwnerComponent,canActivate:[SalonauthGuard]},
+  {
+    path: 'salon-get-salon',
+    component: SalonGetSalonComponent,
+    canActivate: [SalonauthGuard],
+  },
+  {
+    path: 'salon-get-owner',
+    component: SalonGetOwnerComponent,
+    canActivate: [SalonauthGuard],
+  },
+  {
+    path: 'salon-get-category',
+    component: SalonGetSaloncategoryComponent,
+    canActivate: [SalonauthGuard],
+  },
+  {
+    path: 'salon-addbyownerid-salon',
+    component: SalonAddsalonbyowneridSalonComponent,
+    canActivate: [SalonauthGuard],
+  },
+  {
+    path: 'salon-addbysalonid-salon',
+    component: SalonAddcategorybysalonidSalonComponent,
+    canActivate: [SalonauthGuard],
+  },
+  {
+    path: 'salon-update-salon',
+    component: SalonUpdateSalonComponent,
+    canActivate: [SalonauthGuard],
+  },
+  {
+    path: 'salon-getbyid-salon',
+    component: SalonGetbysalonidSalonComponent,
+    canActivate: [SalonauthGuard],
+  },
+  {
+    path: 'salon-add-salonowner',
+    component: SalonAddSalonownerComponent,
+    canActivate: [SalonauthGuard],
+  },
+  {
+    path: 'salon-update-salonowner',
+    component: SalonUpdateSalonownerComponent,
+    canActivate: [SalonauthGuard],
+  },
+  {
+    path: 'salon-homepage',
+    component: SalonHomepageComponent,
+    canActivate: [SalonauthGuard],
+  },
+  {
+    path: 'salon-add-owner',
+    component: SalonAddOwnerComponent,
+    canActivate: [SalonauthGuard],
+  },
 
-
-  {path:'',component:HomeComponent},
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
-
-
+  { path: '', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

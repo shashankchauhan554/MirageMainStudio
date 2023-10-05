@@ -31,6 +31,7 @@ public class SalonServiceImpl implements SalonService {
             return repository.save(salon);
         }
     }
+
     @Override
     public Salon addService(String ownerId, com.stackroute.SalonOwnerService.model.SalonService salonService) throws SalonOwnerIdDoesNotExistException {
 //        Optional<Salon> optionalSalonOwner = repository.findById(ownerId);
@@ -156,8 +157,82 @@ public class SalonServiceImpl implements SalonService {
     @Override
     public Salon getSalonByName(String name) {return repository.findBySalonName(name);
     }
-
-
+    @Override
+    public boolean deleteSlotBySlotId(String ownerId, String slotId) throws SalonOwnerIdDoesNotExistException {
+        Optional<Salon> opt = repository.findById(ownerId);
+        if (opt.isPresent()) {
+            Salon salon = opt.get();
+            List<Slot> slots = salon.getSlots();
+            if (slots != null) {
+                // Find the slot with the specified slotId and remove it
+                slots.removeIf(slot -> slot.getSlotId().equals(slotId));
+                salon.setSlots(slots);
+                repository.save(salon);
+                return true;
+            }
+        }
+        throw new SalonOwnerIdDoesNotExistException("Salon or Slot not found");
+    }
+    @Override
+    public boolean deleteSalonService(String ownerId, String serviceId) throws SalonOwnerIdDoesNotExistException {
+        Optional<Salon> opt = repository.findById(ownerId);
+        if (opt.isPresent()) {
+            Salon salon = opt.get();
+            List<com.stackroute.SalonOwnerService.model.SalonService> services = salon.getSalonServices();
+            if (services != null) {
+                // Find the service with the specified serviceId and remove it
+                services.removeIf(service -> service.getServiceId().equals(serviceId));
+                salon.setSalonServices(services);
+                repository.save(salon);
+                return true;
+            }
+        }
+        throw new SalonOwnerIdDoesNotExistException("Salon or SalonService not found");
+    }
+    @Override
+    public boolean editSlotBySlotId(String ownerId, String slotId, Slot updatedSlot) throws SalonOwnerIdDoesNotExistException {
+        Optional<Salon> opt = repository.findById(ownerId);
+        if (opt.isPresent()) {
+            Salon salon = opt.get();
+            List<Slot> slots = salon.getSlots();
+            if (slots != null) {
+                slots.removeIf(slot -> slot.getSlotId().equals(slotId));
+                slots.add(updatedSlot);
+                salon.setSlots(slots);
+                repository.save(salon);
+                return true;
+            }
+        }
+        return false; // Slot or owner not found
+    }
+    @Override
+    public Salon editService(String ownerId, String serviceId, com.stackroute.SalonOwnerService.model.SalonService salonService) throws SalonOwnerIdDoesNotExistException {
+        Optional<Salon> opt = repository.findById(ownerId);
+        if (opt.isPresent()) {
+            Salon salon = opt.get();
+            List<com.stackroute.SalonOwnerService.model.SalonService> services = salon.getSalonServices();
+            if (services != null) {
+                // Find the service with the specified serviceId
+//                for (SalonService service : services) {
+//                    if (service.getServiceId().equals(serviceId)) {
+//                        // Update the service with the new data
+//                        service.setServiceName(salonService.getServiceName());
+//                        service.setServiceDescription(salonService.getServiceDescription());
+//                        service.setServicePrice(salonService.getServicePrice());
+//                        // Save the updated salon
+//                        repository.save(salon);
+//                        return salon;
+//                    }
+//                }
+                services.removeIf(service -> service.getServiceId().equals(serviceId));
+                services.add(salonService);
+                salon.setSalonServices(services);
+                repository.save(salon);
+                return salon;
+            }
+        }
+        throw new SalonOwnerIdDoesNotExistException("Salon or Service not found");
+    }
 
 
 }
