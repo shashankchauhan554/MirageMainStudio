@@ -18,10 +18,6 @@ public class Salon {
     String contactNumber;
     String gstNumber;
     String email;
-
     List<Slot> slots;
-
     List<SalonService> salonServices;
-
-
 }

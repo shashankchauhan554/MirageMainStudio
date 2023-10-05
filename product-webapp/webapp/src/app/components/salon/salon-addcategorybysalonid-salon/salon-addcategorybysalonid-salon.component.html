@@ -1,77 +1,34 @@
-<!-- <div class="body">
-  <form class="example-form" (ngSubmit)="getbyid(box.value)">
-    <h2 class="heading">Salon Details</h2>
-    <input
-      type="text"
-      required
-      #box
-      matInput
-      placeholder="Enter salon Id"
-      name="salonId"
-      [(ngModel)]="salonId"
-      pattern="[A-Za-z0-9]+"
-    />
-    <br />
-    <button type="submit" class="btn btn-primary">Enter</button>
-  </form>
-</div> -->
 <div class="body">
   <div class="example-form">
     <h2 class="heading">Slot Details</h2>
-    <form
-      (ngSubmit)="submitForm()"
-      enctype="multipart/form-data"
-      class="example-form"
-    >
-    <input
-    type="text"
-    required
-    #box
-    matInput
-    placeholder="Enter salon Id"
-    name="salonId"
-    [(ngModel)]="salonId"
-    pattern="[A-Za-z0-9]+"
-  />
-      <input
-        type="text"
-        required
-        matInput
-        placeholder="Enter Slot Id"
-        name="slotId"
-        [(ngModel)]="slotId"
-        pattern="[A-Za-z0-9]+"
-      />
-      
+    <form (ngSubmit)="submitForm()" enctype="multipart/form-data" class="example-form">
+      <input type="text" required matInput placeholder="Enter salon Id" name="salonId" [(ngModel)]="salonId"
+        pattern="[A-Za-z0-9]+" />
+      <input type="text" required matInput placeholder="Enter Slot Id" name="slotId" [(ngModel)]="slotId"
+        pattern="[A-Za-z0-9]+" />
+
       <mat-form-field>
         <mat-label>Choose a Slot date</mat-label>
-        <input matInput [matDatepicker]="picker" readonly [(ngModel)]="slotDate">
+        <input matInput [matDatepicker]="picker" readonly [(ngModel)]="slotDate" name="slotDate">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-     
-      <input
-        type="text"
-        required
-        matInput
-        placeholder="Enter Slot Time"
-        name="slotTime"
-        [(ngModel)]="slotTime"
-        pattern="[A-Za-z0-9]+"
-      />
-      
-      
 
-<!--      <div class="form-group col-md-20">-->
-<!--        <input-->
-<!--          type="file"-->
-<!--          class="form-control"-->
-<!--          name="photo"-->
-<!--          (change)="imageUpload($event)"-->
-<!--          required-->
-<!--        />-->
-<!--      </div>-->
+      <input type="text" required matInput placeholder="Enter Slot Time" name="slotTime" [(ngModel)]="slotTime"
+        pattern="[A-Za-z0-9]+" />
+
+
+
+      <!--      <div class="form-group col-md-20">-->
+      <!--        <input-->
+      <!--          type="file"-->
+      <!--          class="form-control"-->
+      <!--          name="photo"-->
+      <!--          (change)="imageUpload($event)"-->
+      <!--          required-->
+      <!--        />-->
+      <!--      </div>-->
 
       <br /><br />
       <button type="submit" class="btn btn-primary">Add Slot</button>

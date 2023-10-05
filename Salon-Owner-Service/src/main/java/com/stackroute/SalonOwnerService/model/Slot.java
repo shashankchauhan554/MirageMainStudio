@@ -11,7 +11,7 @@ import java.util.Date;
 public class Slot {
 
     @Id
-    int slotId;
+    String slotId;
 
     Date slotDate;
 
