@@ -6,7 +6,8 @@ import { UserServiceService } from '../../services/user-service/user-service.ser
 import { LocalstorageservicesService } from 'src/app/services/localstorageservices.service';
 import { SignupComponent } from '../signup/signup.component';
 import { User } from 'src/app/model/user';
-import { SalonHomepageComponent } from '../salon/salon-homepage/salon-homepage.component'; 
+
+
 ​
 @Component({
   selector: 'app-home',
@@ -32,10 +33,10 @@ export class HomeComponent {
    this.router.navigateByUrl('login');
    }
    profile(){
-     this.router.navigateByUrl('user');
+     this.router.navigateByUrl('userdashboard');
    }
    order(){
-     this.router.navigateByUrl('salon-homepage');
+     this.router.navigateByUrl('salon');
    }
    
    subscribe(){
@@ -56,7 +57,8 @@ export class HomeComponent {
      this.router.navigateByUrl('testt');
    }
    bookings(){
-    this.router.navigateByUrl('/booking');
+    console.log('hello')
+    this.router.navigate(['booking-form']);
    }
    feedback(){
     this.router.navigateByUrl("feedback");

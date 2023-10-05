@@ -16,7 +16,7 @@ export class OrderServiceService {
 	}
   
   createOrder(order: { name: string; email: string; phone: number; amount: number; }): Observable<any> {
-		return this.http.post("http://localhost:8080/pg/createOrder", {
+		return this.http.post("http://localhost:8088/pg/createOrder", {
 		customerName: order.name,
 		email: order.email,
 		phoneNumber: order.phone,

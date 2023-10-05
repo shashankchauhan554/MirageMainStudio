@@ -18,7 +18,7 @@ export class PaymentServiceService {
   constructor(private http:HttpClient) { }
   
 SavePayment(paymentData: any):any{
-    return this.http.post<any>(`http://localhost:8080/savePayment'`,paymentData);
+    return this.http.post<any>(`http://localhost:8088/payment/savePayment`,paymentData);
   }
 
   
