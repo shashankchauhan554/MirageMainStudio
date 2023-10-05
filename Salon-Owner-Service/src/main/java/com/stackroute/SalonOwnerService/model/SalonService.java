@@ -9,7 +9,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 public class SalonService {
 
     @Id
-    int serviceId;
+    String serviceId;
 
     String serviceName;
 

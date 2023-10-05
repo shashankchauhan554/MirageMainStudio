@@ -23,8 +23,8 @@ export class PaymentComponent {
     private orderService: OrderServiceService) {
 
   }
-  paymentData: any;
-
+  
+  paymentData:any;
 
   ngOnInit() {
 
@@ -43,7 +43,7 @@ export class PaymentComponent {
     "amount": "",
     "name": "MirageManeStudio",
     "description": "Web Development",
-    "image": "https://www.javachinna.com/wp-content/uploads/2020/02/android-chrome-512x512-1.png",
+    "image": "webapp/src/assets/imge.jpg/",
     "order_id": "",
     "handler": function (response: any) {
       var event = new CustomEvent("payment.success",
@@ -115,16 +115,25 @@ export class PaymentComponent {
   @HostListener('window:payment.success', ['$event'])
   onPaymentSuccess(event: { detail: any; }): void {
     console.log(event.detail);
+    console.log(this.form.name);
+    console.log(event.detail.razorpay_order_id);
     const { razorpayPayemntID, razorpayOrderId, signature} = event.detail;
-    this.paymentData= {razorpayPayemntID: razorpayPayemntID,
-    razorpayOrderId: razorpayOrderId,
-    signature: signature
-    };
+
+    this.paymentData = {
+      // salonId: this.salonId,
+      razorpayOrderId:event.detail.razorpay_order_id,
+      razorpayPaymentId:event.detail.razorpay_payment_id,
+      signature:event.detail.razorpay_signature,
+      customerName:this.form.name,
+      email:this.form.email,
+      phoneNumber:this.form.phone,
+      amount:this.form.amount};
+   
     this.scall.SavePayment(this.paymentData).subscribe(
       () => {
         console.log("Payment data has been saved successfully.");
       },
-      (error: any) => {
+      (error: any)  => {
         console.error("Error saving payment data:", error);
       }
     )

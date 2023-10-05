@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-black fixed-top">
+<nav class="navbar navbar-expand-lg bg-white fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#" style="color: rgb(216, 19, 216); font-size: 29px; font-weight: bold;font-style: italic;">
         <img src="../../assets/imge.jpg" alt="Logo" width="45" height="45" class="d-inline-block align-text-top">
@@ -13,7 +13,7 @@
             <a class="nav-link active" href="#"onclick="order()" aria-current="page" style="color: rgb(201, 14, 170); font-size: 16px; font-weight: bold;">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active"href="#"onclick="bookings()" aria-current="page" style="color: rgb(201, 14, 170); font-size: 16px; font-weight: bold;">Booknow</a>
+            <a class="nav-link active"  (click)="bookings()" aria-current="page" style="color: rgb(201, 14, 170); font-size: 16px; font-weight: bold;cursor: pointer;">Booknow</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" onclick="feedback()" style="color:rgb(201, 14, 170); font-size: 16px; font-weight: bold;">feedback</a>
@@ -24,14 +24,18 @@
          
           
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: yellow; font-size: 16px; font-weight: bold;">
+            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: rgb(240, 126, 225); font-size: 16px; font-weight: bold;">
               <i class="fa fa-user-circle-o" style="font-size: 18px; color: rgb(160, 160, 138);"></i> {{ username }}
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="background-color:  #fffff0 ;">
               <a class="dropdown-item" (click)="loginCheck()">Login</a>
+
               <a class="dropdown-item" (click)="register()">Sign up</a>
+              <a class="dropdown-item" (click)="profile()">Edit Profile</a>
+             
               <a class="dropdown-item" (click)="profile()">User Dashboard</a>
               <a class="dropdown-item" (click)="Cart()">My bookings</a>
+
               <a class="dropdown-item" (click)="logout()">Logout</a>
             </div>
           </li>
@@ -92,7 +96,7 @@
         <img src="../../assets/image0.jpg" alt="manicure" style="width: 100%; height: 200px; object-fit: cover;">
         <div class="container">
           <div class="card-body">
-            <h5 class="card-title" style="text-align: center;font-weight:bold">booking</h5>
+            <h5 class="card-title" style="text-align: center;font-weight:bold">Quick booking</h5>
           </div>
         </div>
       </div>
@@ -109,7 +113,7 @@
     </div>
     <div class="column">
       <div class="card">
-        <img src="../../assets/image4.jpg" alt="Massage" style="width: 100%; height: 200px; object-fit: cover;">
+        <img src="../../assets/image10.jpg" alt="Massage" style="width: 100%; height: 200px; object-fit: cover;">
         <div class="container">
           <div class="card-body">
             <h5 class="card-title" style="text-align: center;font-weight:bold">Massage</h5>
@@ -122,7 +126,7 @@
         <img src="../../assets/imagemani.jpg" alt="Massage" style="width: 100%; height: 200px; object-fit: cover;">
         <div class="container">
           <div class="card-body">
-            <h5 class="card-title" style="text-align: center;font-weight:bold">manicure</h5>
+            <h5 class="card-title" style="text-align: center;font-weight:bold">Manicure</h5>
           </div>
         </div>
       </div>
@@ -132,7 +136,7 @@
         <img src="../../assets/image1.jpg" alt="feel fresh" style="width: 100%; height: 200px; object-fit: cover;">
         <div class="container">
           <div class="card-body">
-            <h5 class="card-title" style="text-align: center;font-weight:bold">Haircolor</h5>
+            <h5 class="card-title" style="text-align: center;font-weight:bold">Haircolor and much more</h5>
           </div>
         </div>
       </div>

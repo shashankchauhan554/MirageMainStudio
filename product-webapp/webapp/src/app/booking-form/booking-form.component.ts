@@ -1,5 +1,6 @@
 import { Component, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AppointmentService } from '../appointment.service'; // Import your service
 
 @Component({
@@ -21,7 +22,7 @@ export class BookingFormComponent {
     {value: 'salon-1', viewValue: 'Salon 1'},
     {value: 'salon-2', viewValue: 'Salon 2'},
   ];
-  constructor(private bookingService: AppointmentService) {}
+  constructor(private bookingService: AppointmentService,private route:Router) {}
 
   submitBooking(bookingForm:NgForm) {
     const formdata:any=bookingForm.value;
@@ -38,11 +39,12 @@ export class BookingFormComponent {
     setTimeout(()=>{
       this.loading=false;
       this.booking_value_change_from_backend=true
-      if(this.booking_value_change_from_backend===true){
-        setTimeout(()=>{
-          console.log("redirect to payment")
-        },1000)
-      }
+      // if(this.booking_value_change_from_backend===true){
+      //   setTimeout(()=>{
+      //     this.route.navigate(['payment'])
+      //     console.log("redirect to payment")
+      //   },1000)
+      // }
     },1000)
     
   }

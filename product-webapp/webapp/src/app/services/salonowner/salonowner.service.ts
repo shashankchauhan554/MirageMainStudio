@@ -1,20 +1,23 @@
-
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import axios from 'axios';
 // import { SalonOwner } from './src/app/model/SalonOwner';
 // import {SalonOwner}
-
 // import { Admin } from 'src/app/model/admin';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SalonownerService {
-  constructor(private http: HttpClient) { }
+  private baseUrl = 'http://localhost:8082/salon';
+  constructor(private http: HttpClient) {}
 
   addSalonOwner(salonOwner: any) {
-    return this.http.post('http://localhost:8082/api/v1/addsalonowner', salonOwner);
+    return this.http.post(
+      'http://localhost:8082/api/v1/addsalonowner',
+      salonOwner
+    );
   }
 
   viewAllSalonOwners(): Observable<any> {
@@ -22,22 +25,25 @@ export class SalonownerService {
   }
 
   updateSalonOwner(salonOwner: any): Observable<any> {
-    return this.http.put('http://localhost:8082/api/v1/updatesalonowner', salonOwner);
+    return this.http.put(
+      'http://localhost:8082/api/v1/updatesalonowner',
+      salonOwner
+    );
   }
 
-  private urlO = "http://localhost:8082/api/v1/viewallsalonowner";
+  private urlO = 'http://localhost:8082/api/v1/viewallsalonowner';
   getAllOwner(): Observable<any> {
-    return this.http.get(this.urlO)
+    return this.http.get(this.urlO);
   }
-  private urlv = "http://localhost:8082/salon/viewall";
+  private urlv = 'http://localhost:8082/salon/viewall';
   getAllSalons(): Observable<any> {
-    return this.http.get(this.urlv)
+    return this.http.get(this.urlv);
   }
   getbyownerid(id: String): Observable<any> {
     const ur1o = `http://localhost:8082/ap1/v1/viewbyownerId/${1}`;
     return this.http.get<void>(ur1o);
   }
-  private urlo1 = "http://localhost:8082/api/v1/updatesalonowner";
+  private urlo1 = 'http://localhost:8082/api/v1/updatesalonowner';
   updateOwner(owner: FormData): Observable<any> {
     return this.http.put<FormData>(this.urlo1, owner);
   }
@@ -58,21 +64,71 @@ export class SalonownerService {
     const ur1 = `http://localhost:8082/salon/viewbyId/${id}`;
     return this.http.get<void>(ur1);
   }
-  private urlu1 = "http://localhost:8082/salon/update";
-  updatesalon(salon: FormData): Observable<any> {
-    return this.http.put<FormData>(this.urlu1, salon);
+  private urlu1 = 'http://localhost:8082/salon/update';
+  updatesalon(salon: any): Observable<any> {
+    return this.http.put(this.urlu1, salon);
   }
-  private urlO1 = "http://localhost:8082/salon/addsalon";
+  private urlO1 = 'http://localhost:8082/salon/addsalon';
   addOwner(newOwner: any): Observable<any> {
     return this.http.post(this.urlO1, newOwner);
   }
-  addSalon(newServiceData:any, id: String): Observable<any> {
+  addSalon(newServiceData: any, id: String): Observable<any> {
     const url1 = `http://localhost:8082/salon/addservice/${id}`;
     return this.http.post(url1, newServiceData);
   }
-  addslot(newServiceData:any, id: String): Observable<any> {
+  addslot(newServiceData: any, id: String): Observable<any> {
     const urlr = `http://localhost:8082/salon/addslot/${id}`;
     return this.http.post<FormData>(urlr, newServiceData);
   }
-
+  deleteSlot(ownerId: string, slotId: string) {
+    const url = `${this.baseUrl}/delete/${ownerId}/${slotId}`;
+    return axios
+      .delete(url)
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => {
+        throw error;
+      });
+  }
+  updateslot(salon: any, ownerId: string, slotId: string) {
+    const url = `${this.baseUrl}/editslot/${ownerId}/${slotId}`;
+    // return this.http.post(url, salon);
+    return axios
+      .post(url, salon)
+      .then((response) => {
+        console.log('Service deleted:', response.data);
+        return response.data;
+      })
+      .catch((error) => {
+        console.error('Error deleting service:', error);
+        throw error;
+      });
+  }
+  updateservice(salon: any, ownerId: string, serviceId: string) {
+    const url = `${this.baseUrl}/editservice/${ownerId}/${serviceId}`;
+    return axios
+      .post(url, salon)
+      .then((response) => {
+        console.log('Service deleted:', response.data);
+        return response.data;
+      })
+      .catch((error) => {
+        console.error('Error deleting service:', error);
+        throw error;
+      });
+  }
+  deleteService(ownerId: string, serviceId: string) {
+    const apiUrl = `${this.baseUrl}/deleteservice/${ownerId}/${serviceId}`;
+    return axios
+      .delete(apiUrl)
+      .then((response) => {
+        console.log('Service deleted:', response.data);
+        return response.data;
+      })
+      .catch((error) => {
+        console.error('Error deleting service:', error);
+        throw error;
+      });
+  }
 }

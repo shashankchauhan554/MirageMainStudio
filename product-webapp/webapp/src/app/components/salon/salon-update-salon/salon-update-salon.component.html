@@ -1,15 +1,7 @@
 <div class="body">
   <form class="example-form" (ngSubmit)="getbyid(box.value)">
     <h2 class="heading">Salon Details</h2>
-    <input
-      type="text"
-      required
-      #box
-      matInput
-      placeholder="Enter salon Id"
-      name="salonId"
-      [(ngModel)]="salonId"
-    />
+    <input type="text" required #box matInput placeholder="Enter salon Id" name="salonId" [(ngModel)]="salonId" />
     <br />
     <button type="submit" class="btn btn-primary">Enter</button>
   </form>
@@ -17,64 +9,77 @@
 <div class="body">
   <div class="example-form">
     <h2 class="heading">Update Salon Details</h2>
-    <form
-      (ngSubmit)="submitForm()"
-      enctype="multipart/form-data"
-      class="example-form"
-    >
-
-      <input
-        type="text"
-        required
-        matInput
-        placeholder="Enter Salon Name"
-        name="salonName"
-        [(ngModel)]="salonName"
-      />
-
-      <input
-        type="text"
-        required
-        matInput
-        placeholder="Enter Salon Address"
-        name="salonAddress"
-        [(ngModel)]="salonAddress"
-      />
-      <input
-        type="text"
-        required
-        matInput
-        placeholder="Enter Referal"
-        name="referalcode"
-        [(ngModel)]="referalCode"
-      />
-      <input
-        type="text"
-        required
-        matInput
-        placeholder="Enter Location"
-        name="location"
-        [(ngModel)]="location"
-      />
-      <input
-        type="text"
-        required
-        matInput
-        placeholder="Enter Maintanance"
-        name="maintanance"
-        [(ngModel)]="maintanance"
-      />
-      <input
-        type="text"
-        required
-        matInput
-        placeholder="Enter Price"
-        name="price"
-        [(ngModel)]="price"
-      />
-
-      <br /><br />
+    <form (ngSubmit)="submitForm()" enctype="multipart/form-data" class="example-form">
+      <input type="text" required matInput placeholder="Enter Salon Name" name="salonName" [(ngModel)]="salonName" />
+      <input type="text" required matInput placeholder="Enter Salon Owner Name" name="salonOwnerName"
+        [(ngModel)]="salonOwnerName" />
+      <input type="text" required matInput placeholder="Enter Salon City" name="city" [(ngModel)]="city" />
+      <input type="text" required matInput placeholder="Enter Salon Email" name="email" [(ngModel)]="email" />
+      <input type="text" required matInput placeholder="Enter Salon Contact Number" name="contactNumber"
+        [(ngModel)]="contactNumber" />
+      <input type="text" required matInput placeholder="Enter Salon GST Number" name="gstNumber"
+        [(ngModel)]="gstNumber" />
       <button type="submit" class="btn btn-primary">Update</button>
+      <h1>Slots:</h1>
+      <div *ngFor="let item of getJsonValue">
+        <hr>
+        <b>
+          <div>Slot Id:{{ item.slotId}}</div>
+        </b>
+        <b>
+          <div>Slot Date:{{ item.slotDate}}</div>
+        </b>
+        <b>
+          <div>Slot Status:{{ item.slotStatus}}</div>
+        </b>
+        <b>
+          <div>Slot Time:{{ item.slotTime}}</div>
+        </b>
+        <button type="button" class="btn btn-primary" (click)="editSlot(item)">Edit</button>
+        <button type="button" class="btn btn-primary" (click)="deleteslotower(item)">Del</button>
+        <br>
+      </div>
+      <h1>Services:</h1>
+      <div *ngFor="let item1 of getServicesValue">
+        <hr>
+        <b>
+          <div>Service Id:{{ item1.serviceId}}</div>
+        </b>
+        <b>
+          <div>Service Name:{{ item1.serviceName}}</div>
+        </b>
+        <b>
+          <div>Service Price:{{ item1.price}}</div>
+        </b>
+        <button type="button" class="btn btn-primary" (click)="editService(item1)">Edit</button>
+        <button type="button" class="btn btn-primary" (click)="onDeleteService(item1)">Del</button>
+        <br>
+      </div>
+      <!-- Edit Slot Section -->
+      <div *ngIf="selectedSlot">
+        <h2 class="heading">Edit Slot</h2>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" readonly name="slotDate" [(ngModel)]="selectedSlot.slotDate">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <input type="text" required matInput placeholder="Edit Slot Status" name="slotStatus"
+          [(ngModel)]="selectedSlot.slotStatus" />
+        <input type="text" required matInput placeholder="Edit Slot Time" name="slotTime"
+          [(ngModel)]="selectedSlot.slotTime" />
+        <!-- Add more slot fields as needed -->
+        <button type="button" class="btn btn-primary" (click)="updateSlot(selectedSlot)">Update Slot</button>
+      </div>
+      <div *ngIf="selectedService">
+        <h2 class="heading">Edit Service</h2>
+        <input type="text" required matInput placeholder="Edit Service Name" name="serviceName"
+          [(ngModel)]="selectedService.serviceName" />
+        <input type="text" required matInput placeholder="Edit Service Price" name="servicePrice"
+          [(ngModel)]="selectedService.price" />
+        <!-- Add more service fields as needed -->
+        <button type="button" class="btn btn-primary" (click)="updateService(selectedService)">Update Service</button>
+      </div>
     </form>
   </div>
   <br /><br /><br /><br /><br />

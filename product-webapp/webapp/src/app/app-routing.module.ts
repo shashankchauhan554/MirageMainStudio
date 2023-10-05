@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
@@ -24,12 +23,14 @@ import { SalonGetbysalonidSalonComponent } from './components/salon/salon-getbys
 import { UserProfileDashboardComponent } from './components/user-profile-dashboard/user-profile-dashboard.component';
 import { BookingFormComponent } from './booking-form/booking-form.component';
 
-
-
-
-
 const routes: Routes = [
-  {path:'',redirectTo:'home',pathMatch:'full'},
+
+
+
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+
+
   {path:"booking-form",component:BookingFormComponent},
 
   {path:'login',component:LoginComponent},
@@ -50,16 +51,19 @@ const routes: Routes = [
 
 
   {path:'',component:HomeComponent},
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+ 
 
+
+  { path: '', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   
-    // { path: '', redirectTo: 'home', pathMatch: 'full' }
+    
 
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

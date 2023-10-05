@@ -58,6 +58,8 @@ export class SalonAddcategorybysalonidSalonComponent {
       (response: any) => {
 
         alert('Slot added Succesfully');
+        
+        window.location.reload();
       },
       (error) => {
         console.log('error in adding Slot', error);
