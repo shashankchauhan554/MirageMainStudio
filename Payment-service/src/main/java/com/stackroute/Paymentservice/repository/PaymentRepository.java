@@ -1,4 +1,4 @@
-package com.stackroute.Paymentservice.repositry;
+package com.stackroute.Paymentservice.repository;
 
 import com.stackroute.Paymentservice.Model.Payment;
 import org.springframework.data.mongodb.repository.MongoRepository;

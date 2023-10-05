@@ -1,14 +1,13 @@
-package Controller;
-
-import java.math.BigInteger;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.springframework.web.bind.annotation.*;
+package com.stackroute.Paymentservice.Controller;
 
 import com.razorpay.Order;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.web.bind.annotation.*;
+
+import java.math.BigInteger;
 
 @RestController
 @RequestMapping("/pg")
@@ -28,7 +27,8 @@ public class PaymentController {
 
             if (orderRequest.getAmount().intValue() > 1000) {
                 client = new RazorpayClient(SECRET_ID1, SECRET_KEY1);
-            } else {
+            }
+            else {
                 client = new RazorpayClient(SECRET_ID2, SECRET_KEY2);
             }
 
@@ -82,10 +82,5 @@ public class PaymentController {
             throw new RuntimeException(e);
         }
         return client.orders.create(options);
-    }
-
-    @GetMapping("/api")
-    public void helloWorld() {
-        System.out.println("Hello World");
     }
 }
