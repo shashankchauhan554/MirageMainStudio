@@ -42,12 +42,16 @@ import { SalonAddcategorybysalonidSalonComponent } from './components/salon/salo
 import { SalonGetSaloncategoryComponent } from './components/salon/salon-get-saloncategory/salon-get-saloncategory.component';
 import { SalonGetbysalonidSalonComponent } from './components/salon/salon-getbysalonid-salon/salon-getbysalonid-salon.component';
 import { SalonUpdateSalonComponent } from './components/salon/salon-update-salon/salon-update-salon.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { UserProfileDashboardComponent } from './components/user-profile-dashboard/user-profile-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
+    EditProfileComponent,
+    UserProfileDashboardComponent,
     HeaderComponent,
     PaymentComponent,
     SalonHomepageComponent,
@@ -84,7 +88,6 @@ import { SalonUpdateSalonComponent } from './components/salon/salon-update-salon
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    FormsModule,
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,

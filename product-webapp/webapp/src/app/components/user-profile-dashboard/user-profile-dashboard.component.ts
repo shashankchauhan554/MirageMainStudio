@@ -1,5 +1,4 @@
 import { Component,  OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserRegistrationServiceService } from 'src/app/services/user-dashboard-service/user-registration-service.service';
 
@@ -63,7 +62,7 @@ export class UserProfileDashboardComponent implements OnInit {
     }
     );
 
-    this.router.navigate(['/']);
+    this.router.navigate(['home']);
   }
   cancelEdit(){
     this.isEditing = false;
