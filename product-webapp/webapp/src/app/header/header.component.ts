@@ -35,9 +35,11 @@ export class HeaderComponent {
       loginCheck(){
         
       this.router.navigateByUrl('login');
+      this.isLoggedIn = true;
       }
       profile(){
         this.router.navigateByUrl('userdashboard');
+        this.isLoggedIn = true;
       }
       order(){
         this.router.navigateByUrl('salon');
@@ -57,8 +59,10 @@ export class HeaderComponent {
       logout(){
         this.isLoggedIn = false;
        localStorage.removeItem('Token');
-       this.router.navigateByUrl('login');
-    
+       //this.router.navigateByUrl('login');
+       localStorage.removeItem('userEmail');
+       localStorage.removeItem('userRole');
+       this.router.navigateByUrl('');
       }
       review(){
         this.router.navigateByUrl('testt');

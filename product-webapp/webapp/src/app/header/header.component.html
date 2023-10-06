@@ -31,13 +31,13 @@
       
             <a class="dropdown-item"  (click)="loginCheck()"  *ngIf="!isLoggedIn">Login</a>
           
-            <a class="dropdown-item" (click)="register()"  *ngIf="!isLoggedIn">Sign up</a>
-            <a class="dropdown-item" (click)="profile()">Edit Profile</a>
+            <a class="dropdown-item" (click)="register()"*ngIf="!isLoggedIn" >Sign up</a>
+            <a class="dropdown-item" (click)="profile()" *ngIf="isLoggedIn">Edit Profile</a>
            
-            <a class="dropdown-item" (click)="profile()">User Dashboard</a>
-            <a class="dropdown-item" (click)="Cart()">My bookings</a>
+            <a class="dropdown-item" (click)="profile()" *ngIf="isLoggedIn">User Dashboard</a>
+            <a class="dropdown-item" (click)="Cart()" *ngIf="isLoggedIn">My bookings</a>
 
-            <a class="dropdown-item" (click)="logout()" *ngIf="isLoggedIn">Logout</a>
+            <a class="dropdown-item" (click)="logout()"*ngIf="isLoggedIn">Logout</a>
           </div>
         </li>
         

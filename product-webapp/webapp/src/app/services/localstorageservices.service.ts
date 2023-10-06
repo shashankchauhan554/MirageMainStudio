@@ -16,7 +16,7 @@ export class LocalstorageservicesService {
    .subscribe((DataTransfer:any )=> {
     localStorage.setItem('currrentUser',JSON.stringify(DataTransfer))
    });
-   return JSON.parse(localStorage.getItem("currentUser")|| '{userName : "Guest",token:"null" }')
+   return JSON.parse(localStorage.getItem("currentUser")|| '{userEmail : "Guest",token:"null" }')
   }
 
 }
