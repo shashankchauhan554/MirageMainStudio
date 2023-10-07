@@ -36,7 +36,7 @@ export class LoginComponent {
         const userRole = this.responseData.userRole; 
   
         if (userRole === 'CUSTOMER') {
-          this.router.navigate(['userdashboard']);
+          this.router.navigate(['salon-get-salon']);
         } else if (userRole === 'OWNER') {
         
           this.router.navigateByUrl('boxes');

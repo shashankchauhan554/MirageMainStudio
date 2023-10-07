@@ -23,6 +23,7 @@ import { SalonGetbysalonidSalonComponent } from './components/salon/salon-getbys
 import { UserProfileDashboardComponent } from './components/user-profile-dashboard/user-profile-dashboard.component';
 import { BookingFormComponent } from './booking-form/booking-form.component';
 import { BoxesComponent } from './boxes/boxes.component';
+import { SalonDetailsComponent } from './components/salon/salon-details/salon-details.component';
 
 
 
@@ -41,7 +42,7 @@ const routes: Routes = [
   {path:'signup',component:SignupComponent},
   {path: 'payment', component:PaymentComponent},
   {path:'userdashboard',component:UserProfileDashboardComponent},
-  {path: 'salon-get-salon',component: SalonGetSalonComponent,canActivate: [SalonauthGuard]},
+  // {path: 'salon-get-salon',component: SalonGetSalonComponent,canActivate: [SalonauthGuard]},
   {path: 'salon-get-owner',component: SalonGetOwnerComponent,canActivate: [SalonauthGuard],},
   {path: 'boxes/salon-get-category',component: SalonGetSaloncategoryComponent,canActivate: [SalonauthGuard]},
   {path: 'boxes/salon-addbyownerid-salon',component: SalonAddsalonbyowneridSalonComponent,canActivate: [SalonauthGuard]},
@@ -52,6 +53,9 @@ const routes: Routes = [
   {path: 'salon-update-salonowner',component: SalonUpdateSalonownerComponent,canActivate: [SalonauthGuard]},
   {path: 'salon-homepage',component: SalonHomepageComponent,canActivate: [SalonauthGuard]},
   {path: 'boxes/salon-add-owner', component: SalonAddOwnerComponent,canActivate:[SalonauthGuard]},
+  // User side components
+  {path: 'salon-get-salon',component: SalonGetSalonComponent,canActivate: [SalonauthGuard]},
+  { path: 'salon/:id', component: SalonDetailsComponent },
 
 
   {path:'',component:HomeComponent},

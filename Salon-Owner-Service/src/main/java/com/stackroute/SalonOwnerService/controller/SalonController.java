@@ -79,6 +79,8 @@ public class SalonController {
         }
     }
 
+//    My salon details
+
     @GetMapping("/viewall/{ownerId}")
     public ResponseEntity<?> viewAllSalon(@PathVariable String ownerId)  {
         Optional<Salon> salonOwner = null;
@@ -90,15 +92,27 @@ public class SalonController {
         }
     }
 
-//    @DeleteMapping("/delete/{sId}")
-//    public ResponseEntity<?> deleteSalon(@PathVariable("sId") String sid){
-//        try {
-//            boolean result = service.deleteSalonbySalonId(sid);
-//            return new ResponseEntity<String>("Salon Deleted", HttpStatus.OK);
-//        } catch (SalonIdDoesNotExistException e) {
-//            return new ResponseEntity<String>("salonId not Found in DB", HttpStatus.NOT_FOUND);
-//        }
-//    }
+//    My Salon details by email id
+@GetMapping("/viewsalon/{emailId}")
+public ResponseEntity<?> viewSalonByEmail(@PathVariable String emailId)  {
+    Optional<Salon> salonOwner = null;
+    try {
+        salonOwner = service.viewSalonByEmailId(emailId);
+        return new ResponseEntity<Optional<Salon>>(salonOwner, HttpStatus.CREATED);
+    } catch (SalonOwnerIdDoesNotExistException e) {
+        return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
+    }
+}
+
+    @DeleteMapping("/delete/{sId}")
+    public ResponseEntity<?> deleteSalon(@PathVariable("sId") String sid){
+        try {
+            boolean result = service.deleteSalonbySalonId(sid);
+            return new ResponseEntity<String>("Salon Deleted", HttpStatus.OK);
+        } catch (SalonIdDoesNotExistException e) {
+            return new ResponseEntity<String>("salonId not Found in DB", HttpStatus.NOT_FOUND);
+        }
+    }
     @PostMapping("/editslot/{ownerId}/{slotId}")
     public ResponseEntity<?> editSlot(@PathVariable String ownerId, @PathVariable String slotId, @RequestBody Slot updatedSlot) {
 //        System.out.println("Hello, World!");
