@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SalonownerService } from 'src/app/services/salonowner/salonowner.service';
 
 @Component({
@@ -25,6 +25,7 @@ export class SalonDetailsComponent {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private getAllService: SalonownerService
   ) {}
 
@@ -64,6 +65,8 @@ export class SalonDetailsComponent {
 
       this.bookedservices = this.salonServices
       .filter((service: any) => service.selected)
+ 
+
       
     
   }
@@ -76,5 +79,14 @@ export class SalonDetailsComponent {
     console.log(this.salonName);
 
     console.log(this.bookedservices[0].serviceName)
+    console.log(this.bookedslot[0]);
+    this.getAllService.totalPrice=this.totalPrice;
+    this.getAllService.salonName=this.salonName;
+    this.getAllService.selectedSalonServices=this.bookedservices;
+    this.getAllService.selectedSlots=this.bookedslot;
+    // this.getAllService.setSalonServices(this.bookedservices);
+    // this.getAllService.setSlots(this.bookedslot);
+    this.router.navigate(['booking-form'])
  }
+
 }

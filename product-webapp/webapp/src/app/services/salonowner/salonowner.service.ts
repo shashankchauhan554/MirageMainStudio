@@ -10,6 +10,25 @@ import axios from 'axios';
   providedIn: 'root',
 })
 export class SalonownerService {
+  selectedSalonServices: any[] = [];
+  selectedSlots: any[] = [];
+  salonName:string='';
+  totalPrice:number=0;
+  // setSalonServices(services: any[]) {
+  //   this.selectedSalonServices = services;
+  // }
+
+  // getSalonServices() {
+  //   return this.selectedSalonServices;
+  // }
+
+  // setSlots(slots: any[]) {
+  //   this.selectedSlots = slots;
+  // }
+
+  // getSlots() {
+  //   return this.selectedSlots;
+  // }
   private baseUrl = 'http://localhost:8082/salon';
   constructor(private http: HttpClient) {}
 

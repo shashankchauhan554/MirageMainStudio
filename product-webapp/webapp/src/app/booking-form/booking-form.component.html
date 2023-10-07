@@ -33,28 +33,28 @@ Thank you for choosing MirageManeStudio. We can't wait to help you achieve your 
 <div style="width: 25%; padding-left: 2%;padding-right: 2%;padding-top: 2%;padding-bottom: 5%;">
 <form style="display: flex;flex-direction: column;" (ngSubmit)="submitBooking(bookingForm)" #bookingForm="ngForm">
   <h1 style="text-align:center ;color:#351c75">Reserve your Salon</h1>
-  <mat-form-field>
+  
+    <!-- <mat-form-field>
+      <input matInput placeholder="Appointment Date" name="appointmentDate" ngModel required>
+    </mat-form-field> -->
+    <mat-card>
+      <mat-card-content>{{salonName}}</mat-card-content>
+    </mat-card><br>
+    <mat-card *ngFor="let service of selectedService">
+      <mat-card-content>{{service.serviceName}}</mat-card-content>
+    </mat-card><br>
+    <mat-card>
+      <mat-card-content>{{selectedSlot[0].slotDate | date:'dd/MM/yyyy'}}</mat-card-content>
+    </mat-card><br>
+    <mat-card>
+      <mat-card-content>{{selectedSlot[0].slotTime}}</mat-card-content>
+    </mat-card><br>
+    <mat-card>
+      <mat-card-content>{{totalPrice}}</mat-card-content>
+    </mat-card><br>
+    <mat-form-field>
       <input matInput placeholder="Customer Name" name="customerName" ngModel required>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Appointment Date" name="appointmentDate" ngModel required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Slot Time" name="slotTime" ngModel required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Salon Name" name="salonName" ngModel required>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-select placeholder="Services"  name="servicesReq" ngModel multiple>
-        <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-   
-    <mat-form-field>
-      <input matInput placeholder="Total Price" name="totalPrice" ngModel required>
-    </mat-form-field>
-    
     
    
     

@@ -16,7 +16,7 @@ public class Appointment {
     @Id
     private long id;
     private String appointmentDate;
-    private String CustomerName;
+    private String customerName;
     private String salonName;
     private String slotTime;
     private String[] servicesReq;
