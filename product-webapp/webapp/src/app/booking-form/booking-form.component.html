@@ -37,23 +37,29 @@ Thank you for choosing MirageManeStudio. We can't wait to help you achieve your 
     <!-- <mat-form-field>
       <input matInput placeholder="Appointment Date" name="appointmentDate" ngModel required>
     </mat-form-field> -->
+    <b>Salon Name</b>
     <mat-card>
       <mat-card-content>{{salonName}}</mat-card-content>
     </mat-card><br>
+    <b>Services Opted</b>
     <mat-card *ngFor="let service of selectedService">
       <mat-card-content>{{service.serviceName}}</mat-card-content>
     </mat-card><br>
+    <b>Slot Date</b>
     <mat-card>
       <mat-card-content>{{selectedSlot[0].slotDate | date:'dd/MM/yyyy'}}</mat-card-content>
     </mat-card><br>
+    <b>Slot Time</b>
     <mat-card>
       <mat-card-content>{{selectedSlot[0].slotTime}}</mat-card-content>
     </mat-card><br>
+    <b>Total Price</b>
     <mat-card>
       <mat-card-content>{{totalPrice}}</mat-card-content>
     </mat-card><br>
+    <b>Customer Name</b>
     <mat-form-field>
-      <input matInput placeholder="Customer Name" name="customerName" ngModel required>
+      <input matInput placeholder="Enter your Name" name="customerName" ngModel required>
     </mat-form-field>
     
    
