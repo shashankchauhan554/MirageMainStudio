@@ -4,7 +4,7 @@
                 <span><h1>{{userprofiledata.fullName}}</h1></span>
                 <span><h3>{{userprofiledata.email}}</h3></span>
         </div>
-        <form class="UserDetails" (ngSubmit)="$event.preventDefault(); f.form.valid && saveProfile()" #f="ngForm" novalidate *ngIf="isEditing">
+ <!--       <form class="UserDetails" (ngSubmit)="$event.preventDefault(); f.form.valid && saveProfile()" #f="ngForm" novalidate *ngIf="isEditing">
                 <div class="form-group" class="gender">      
                     <label for="gender">Gender :</label> <br>                            
                     <input type="text" id="gender" name="gender" [(ngModel)]="userprofiledata.gender" #gender="ngModel" />
@@ -27,10 +27,10 @@
                 </div> 
                 <div class="form-group button-holder">
                     <button type="submit">Save</button>
-                    <button (click)="cancelEdit()">cancel</button>
+                     <button (click)="cancelEdit()">cancel</button> 
                 </div>
-        </form>
-        <form class="UserDetails" (ngSubmit)="f.form.valid && saveProfile()" #f="ngForm" novalidate *ngIf="isEditing === false">
+        </form> -->
+        <form class="UserDetails" *ngIf="userprofiledata">
                 <div class="form-group" class="email">      
                   <label for="email">Gender :</label> <br>                            
                   {{userprofiledata.gender}}
@@ -52,7 +52,7 @@
                     {{userprofiledata.role}}
                 </div>
                 <div class="button-holder">
-                    <!-- <button id="edit" (click)="onEdit()">Edit</button> -->
+                      <!--<button id="edit" (click)="onEdit()">Edit</button> --> 
                 </div>
         </form>
     <div class="appointment-details">
@@ -89,8 +89,17 @@
 
             </div>
         </div>
-    </div>
-    <!-- <div class="button-holder">
+    </div> 
+   <!-- <div class="button-holder">
         <button (click)="cancelEdit()">cancel</button>
         <button (click)="saveProfile()">Save</button>
     </div> -->
+
+
+<!--<div class="container">
+    <h2>User DashBoard</h2>
+    <div *ngIf="userprofiledata">
+        <p>{{ userprofiledata.fullName }}</p>
+        <p>{{ userprofiledata.email }}</p>
+    </div>
+</div> -->

@@ -16,6 +16,7 @@ export class SalonAddOwnerComponent {
   contactNumber = "";
   gstNumber = "";
   email = "";
+  image = "";
   
 
   constructor(
@@ -52,7 +53,8 @@ export class SalonAddOwnerComponent {
     city: this.city,
     contactNumber: this.contactNumber,
     gstNumber: this.gstNumber,
-    email:this.email
+    email:this.email,
+    image:this.image
   };
     console.log(newOwnerData)
     this.addOwnerService.addOwner(newOwnerData).subscribe(

@@ -19,9 +19,10 @@ public interface SalonService {
     Iterable<Salon> viewAllSalon();
     // fetch the all salon
     Optional<Salon> viewSalonById(String ownerId) throws SalonOwnerIdDoesNotExistException;
+    Optional<Salon> viewSalonByEmailId(String emailId) throws SalonOwnerIdDoesNotExistException;
 
     //delete the Salon using SalonId
-    boolean deleteSalonbySalonId(String hotelId) throws SalonIdDoesNotExistException;
+    boolean deleteSalonbySalonId(String sid) throws SalonIdDoesNotExistException;
     boolean deleteSlotBySlotId(String ownerId, String slotId) throws SalonOwnerIdDoesNotExistException;
     boolean deleteSalonService(String ownerId, String serviceId) throws SalonOwnerIdDoesNotExistException;
     boolean editSlotBySlotId(String ownerId, String slotId, Slot updatedSlot) throws SalonOwnerIdDoesNotExistException;

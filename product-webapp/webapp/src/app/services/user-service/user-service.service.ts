@@ -1,12 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-
-
-
 
 
 
@@ -25,6 +23,7 @@ loginUser(user:any):any{
   registerUser(user:any):any{
     return this.http.post<any>(`${this.API_URL1}user/api/register`,user)
   }
+
 
   
 }

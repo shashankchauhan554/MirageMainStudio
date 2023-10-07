@@ -33,8 +33,16 @@ export class LoginComponent {
         localStorage.setItem('userEmail', this.responseData.userEmail);
         localStorage.setItem('userRole', this.responseData.userRole);
         alert('User logged in Successful!');
+        const userRole = this.responseData.userRole; 
+  
+        if (userRole === 'CUSTOMER') {
+          this.router.navigate(['salon-get-salon']);
+        } else if (userRole === 'OWNER') {
         
-        this.router.navigate(['/login']);
+          this.router.navigateByUrl('boxes');
+        } 
+        
+        // this.router.navigate(['/userdashboard']);
       })
 
     } else {

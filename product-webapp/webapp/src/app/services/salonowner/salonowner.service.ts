@@ -39,8 +39,8 @@ export class SalonownerService {
   getAllSalons(): Observable<any> {
     return this.http.get(this.urlv);
   }
-  getbyownerid(id: String): Observable<any> {
-    const ur1o = `http://localhost:8082/ap1/v1/viewbyownerId/${1}`;
+  getbyownerid(id: any): Observable<any> {
+    const ur1o = `http://localhost:8082/salon/viewall/${id}`;
     return this.http.get<void>(ur1o);
   }
   private urlo1 = 'http://localhost:8082/api/v1/updatesalonowner';
@@ -56,8 +56,8 @@ export class SalonownerService {
     return this.http.delete<void>(ur);
   }
   // private urlR = `http://localhost:8082/salon/viewall/${id}`;
-  getAlldetailsById(id: String): Observable<any> {
-    const urlR = `http://localhost:8082/salon/viewall/${id}`;
+  getAlldetailsById(email: any): Observable<any> {
+    const urlR = `http://localhost:8082/salon/viewsalon/${email}`;
     return this.http.get(urlR);
   }
   getbyid(id: String): Observable<any> {

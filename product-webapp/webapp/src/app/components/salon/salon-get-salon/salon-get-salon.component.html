@@ -1,14 +1,26 @@
 <div class="top">
   <div class="warp">
-    <div class="example-card" *ngFor="let item of getJsonValue">
-      <h2>Salon Number:{{ item.salonId }}</h2>
-      <h2>Salon Name:{{ item.salonName }}</h2>
-      <h2>Salon Address:{{ item.salonAddress }}</h2>
-      <h2>Location:{{ item.location }}</h2>
-      <h2>Referal Code:{{ item.referalCode }}</h2>
-      <h2>Maintanance:{{ item.maintanance }}</h2>
-      <h2>Price:{{ item.price }}</h2>
-      <button (click)="deletesalon(item.salonId)">Delete</button>
+    <div class="example-card" *ngFor="let item of getJsonValue; let i = index">
+      <h2 class="fristh2">Salon #{{ i + 1 }}</h2>
+      <div class="example-carddiv">
+        <div class="example-cardleftdiv">
+          <img class="img" src={{item.image}} alt="Your Image Description" />
+        </div>
+        <div class="example-cardrightdiv">
+          <h2>Salon Name:{{ item.salonName }}</h2>
+          <h2>Owner Name:{{ item.salonOwnerName }}</h2>
+          <h2>City:{{ item.city }}</h2>
+          <h2>Contact Number:{{ item.contactNumber }}</h2>
+          <h2>GST Number:{{ item.gstNumber }}</h2>
+          <h2>Email:{{ item.email }}</h2>
+          <button type="button" class="learn-more" [routerLink]="['/salon', item.salonId]">
+            <span class="circle" aria-hidden="true">
+              <span class="icon arrow"></span>
+            </span>
+            <span class="button-text">View Details</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

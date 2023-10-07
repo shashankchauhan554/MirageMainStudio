@@ -28,6 +28,7 @@ public class SalonServiceImpl implements SalonService {
                 salon.getEmail() == null || salon.getSalonOwnerName() == null || opt.isPresent()) {
             throw new SalonIdAlreadyExistException("Already Exist");
         } else {
+            System.out.println(salon.getImage());
             return repository.save(salon);
         }
     }
@@ -125,8 +126,15 @@ public class SalonServiceImpl implements SalonService {
     @Override
     public Optional<Salon> viewSalonById(String ownerId)throws SalonOwnerIdDoesNotExistException
     {
-        Optional<Salon> updatedservice = repository.findById(ownerId);
-        return updatedservice;
+        Optional<Salon> salon = repository.findById(ownerId);
+        return salon;
+    }
+
+    @Override
+    public Optional<Salon> viewSalonByEmailId(String emailId)throws SalonOwnerIdDoesNotExistException
+    {
+        Optional<Salon> salon = repository.findByEmail(emailId);
+        return salon;
     }
 
     @Override

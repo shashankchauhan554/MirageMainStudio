@@ -49,6 +49,7 @@ import { BookingFormComponent } from './booking-form/booking-form.component';
 import { FailureComponent } from './failure/failure.component';
 import { SuccessComponent } from './success/success.component';
 import { BoxesComponent } from './boxes/boxes.component';
+import { SalonDetailsComponent } from './components/salon/salon-details/salon-details.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,9 @@ import { BoxesComponent } from './boxes/boxes.component';
     BookingFormComponent,
     SuccessComponent,
     FailureComponent,
-    BoxesComponent
+    BoxesComponent,
+    SalonDetailsComponent
+
   ],
   imports: [
     FormsModule,

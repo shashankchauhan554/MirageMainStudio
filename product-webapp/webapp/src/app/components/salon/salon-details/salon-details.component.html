@@ -1,0 +1,71 @@
+<div class="top" style="margin-top: 60px;">
+    <div class="warp">
+        <div class="example-card">
+            <div class="example-carddiv">
+                <div class="example-cardleftdiv">
+                    <img class="img" src={{image}} alt="Your Image Description" />
+                </div>
+                <div class="example-cardrightdiv">
+                    <h2>Salon Name:{{ salonName }}</h2>
+                    <h2>Owner Name:{{ salonOwnerName }}</h2>
+                    <h2>City:{{ city }}</h2>
+                    <h2>Contact Number:{{ contactNumber }}</h2>
+                    <h2>GST Number:{{ gstNumber }}</h2>
+                    <h2>Email:{{ email }}</h2>
+                </div>
+            </div>
+            <div class="service-cards">
+                <div class="service-uppercard">
+                    <h2>Services</h2>
+                    <h2>Price</h2>
+                </div>
+                <div class="service-card" *ngFor="let item1 of salonServices; let j = index">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" [(ngModel)]="item1.selected" (change)="updateTotalPrice()" />
+                        <div class="service-middlecard">
+                            <div class="checkmark">
+                                <div *ngIf="item1.selected">&#10003;</div>
+                            </div>
+                            <h2>{{ item1.serviceName}}</h2>
+                        </div>
+                        <h2>{{ item1.price}}</h2>
+                    </label>
+                </div>
+                <div class="service-lowercard">
+                    <h2>Total Price:</h2>
+                    <h2>Rs {{ totalPrice }}</h2>
+                </div>
+                <br><br><br>
+                <div class="service-uppercard">
+                    <h2>Slot Date</h2>
+                    <h2>Slot Time</h2>
+                    <h2>Status</h2>
+                </div>
+                <div class="service-card" *ngFor="let item2 of slots; let j = index">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" [(ngModel)]="item2.selected" (change)="updateTotalPrice()" />
+                        <div class="service-middlecard">
+                            <div class="checkmark">
+                                <div *ngIf="item2.selected">&#10003;</div>
+                            </div>
+                            <h2>{{ item2.slotDate}}</h2>
+                        </div>
+                        <div class="service-middlecard">
+                            <h2>{{ item2.slotTime}}</h2>
+                        </div>
+                        <h2>{{ item2.slotStatus}}</h2>
+                    </label>
+                </div>
+
+
+                <!-- <button type="button" class="learn-more" [routerLink]="['/booking-form']"> -->
+                    <button type="button" class="learn-more" (click)="info()" >  
+                  <span class="circle" aria-hidden="true">
+                    <span class="icon arrow"></span>
+                  </span>
+                  <span class="button-text">Booking</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

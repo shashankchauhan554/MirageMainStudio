@@ -3,6 +3,9 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { UserServiceService } from '../services/user-service/user-service.service';
+import { LocalstorageservicesService } from 'src/app/services/localstorageservices.service';
+
 
 @Component({
   selector: 'app-header',
@@ -10,43 +13,70 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  isLoggedIn: boolean = false;
+  constructor(
+    private router: Router,
+     private login: UserServiceService,
+    local : LocalstorageservicesService,
+     
+   ){}
+    username: string | undefined;
+   ​
+    
+   ​
+    /*ngOnInit(): void {
+      const currentUser: User | null = this.local.getCurrentUser();
+      if (currentUser) {
+       this.username = currentUser.userName;
+     }
+    }*/
+   ​
+   ​
+      loginCheck(){
+        
+      this.router.navigateByUrl('login');
+      this.isLoggedIn = true;
+      }
+      profile(){
+        this.router.navigateByUrl('userdashboard');
+        this.isLoggedIn = true;
+      }
+      order(){
+        this.router.navigateByUrl('salon');
+      }
+      
+      subscribe(){
+        this.router.navigateByUrl('subscribe');
+      }
+      register(){
+        this.router.navigateByUrl('signup');
+        this.isLoggedIn = true;
+      }
+      
+      Cart(){
+        this.router.navigateByUrl('myBookings');
+      }
+      logout(){
+        this.isLoggedIn = false;
+       localStorage.removeItem('Token');
+       //this.router.navigateByUrl('login');
+       localStorage.removeItem('userEmail');
+       localStorage.removeItem('userRole');
+       this.router.navigateByUrl('');
+      }
+      review(){
+        this.router.navigateByUrl('testt');
+      }
+      bookings(){
+       console.log('hello')
+       this.router.navigate(['booking-form']);
+      }
+      feedback(){
+       this.router.navigateByUrl("feedback");
+      }
+ 
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
-
-  constructor(private breakpointObserver: BreakpointObserver, private router:Router) {}
 
   
-
-  ngOnInit(): void {
-  }
-
-  isActiveRoute(routePath: string): boolean {
-    return this.router.isActive(routePath, true);
-  }
-
-
-  navigateToAdmin(): any {
-
-
-    sessionStorage.removeItem('bearerToken');
-    this.router.navigate(['/admin-content']) ;
-
-  }
-  navigateToCustomer(): any {
-
-    sessionStorage.removeItem('bearerToken');
-    this.router.navigate(['/customer-content']) ;
-
-  }
-
-  onlogout() {
-
-    sessionStorage.removeItem('bearerToken');
-    this.router.navigate(['/salon-content']);
-  }
 
 }

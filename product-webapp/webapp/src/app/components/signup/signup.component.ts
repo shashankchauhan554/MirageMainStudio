@@ -25,14 +25,6 @@ export class SignupComponent {
    
   });
 
-  
-
-
-
-
-
-  
-
   onSubmit() {
     if (this.signupForm.valid && this.signupForm.dirty) {
 
