@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Service;
-
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,45 +34,11 @@ public class AppointmentServiceImpl implements AppointmentService{
         Collections.sort(appointmentDetailsList, comparator);
         return appointmentDetailsList;
     }
-
-
-   /** @Override
-    public boolean getBarberAvailability(Appointment appointmentDetails) {
-
-        String bookingDate = appointmentDetails.getAppointmentDate();
-        String startTime = appointmentDetails.getStartTime();
-        String endTime = appointmentDetails.getEndTime();
-
-        Query query = new Query();
-        query.addCriteria(
-                new Criteria().andOperator(
-                        Criteria.where("appointmentDate").is(bookingDate),
-                        Criteria.where("startTime").is(startTime),
-                        Criteria.where("endTime").is(endTime),
-                        Criteria.where("barberId").is(appointmentDetails.getBarberId())
-                )
-        );
-
-        List<Appointment> appointmentDetailsList = mongoTemplate.find(query, Appointment.class);
-        if(appointmentDetailsList.isEmpty()){
-            return true;
-        }
-        return false;
-    }
-*/
-//    @Override
-//    public List<Appointment> getAppointmentOfBarber(String id) {
-//        List<Appointment> barberAppointmentList = appointmentRepository.findById(id);
-//        return barberAppointmentList;
-//    }
-
     @Override
     public Appointment getAppointmentBySalonName(String salonName) {
 
         return appointmentRepository.findBySalonName(salonName);
     }
-
-
     private long generateAppointmentId() {
         SecureRandom random = new SecureRandom();
         int num = random.nextInt(100000);

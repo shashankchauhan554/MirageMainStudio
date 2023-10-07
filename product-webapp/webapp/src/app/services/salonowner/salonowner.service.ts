@@ -84,10 +84,10 @@ export class SalonownerService {
     const url = `${this.baseUrl}/delete/${ownerId}/${slotId}`;
     return axios
       .delete(url)
-      .then((response) => {
+      .then((response:any) => {
         return response.data;
       })
-      .catch((error) => {
+      .catch((error:any) => {
         throw error;
       });
   }
@@ -96,11 +96,11 @@ export class SalonownerService {
     // return this.http.post(url, salon);
     return axios
       .post(url, salon)
-      .then((response) => {
+      .then((response:any) => {
         console.log('Service deleted:', response.data);
         return response.data;
       })
-      .catch((error) => {
+      .catch((error:any) => {
         console.error('Error deleting service:', error);
         throw error;
       });
@@ -109,11 +109,11 @@ export class SalonownerService {
     const url = `${this.baseUrl}/editservice/${ownerId}/${serviceId}`;
     return axios
       .post(url, salon)
-      .then((response) => {
+      .then((response:any) => {
         console.log('Service deleted:', response.data);
         return response.data;
       })
-      .catch((error) => {
+      .catch((error:any) => {
         console.error('Error deleting service:', error);
         throw error;
       });
@@ -122,11 +122,11 @@ export class SalonownerService {
     const apiUrl = `${this.baseUrl}/deleteservice/${ownerId}/${serviceId}`;
     return axios
       .delete(apiUrl)
-      .then((response) => {
+      .then((response:any) => {
         console.log('Service deleted:', response.data);
         return response.data;
       })
-      .catch((error) => {
+      .catch((error:any) => {
         console.error('Error deleting service:', error);
         throw error;
       });

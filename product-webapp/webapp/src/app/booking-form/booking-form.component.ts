@@ -17,12 +17,14 @@ export class BookingFormComponent {
 
   data_send_to_success:any={}
 
-  foods: any = [
-    {value: 'salon-0', viewValue: 'Salon 0'},
-    {value: 'salon-1', viewValue: 'Salon 1'},
-    {value: 'salon-2', viewValue: 'Salon 2'},
-  ];
+ 
   constructor(private bookingService: AppointmentService,private route:Router) {}
+
+  // toppings = new FormControl();
+
+  toppingList = [ 'Hair Cutting', 'Shaving','Facial', 'Massage', ];
+
+
 
   submitBooking(bookingForm:NgForm) {
     const formdata:any=bookingForm.value;
@@ -55,8 +57,9 @@ interface Appointment{
   //phone:string;
  // barberId:number;
   salonName:string;
-  startTime:string;
-  endTime:string;
+  slotTime:string;
+  servicesReq:string;
+  totalPrice:string;
 
 
 }

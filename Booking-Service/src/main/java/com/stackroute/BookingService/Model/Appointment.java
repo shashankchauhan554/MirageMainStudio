@@ -3,6 +3,9 @@ package com.stackroute.BookingService.Model;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.Arrays;
+
 @Data
 @Getter
 @Setter
@@ -14,11 +17,10 @@ public class Appointment {
     private long id;
     private String appointmentDate;
     private String CustomerName;
-   // private String phone;
-   // private long barberId;
     private String salonName;
-    private String startTime;
-    private String endTime;
+    private String slotTime;
+    private String[] servicesReq;
+    private String totalPrice;
 
 }
 

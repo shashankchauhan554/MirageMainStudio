@@ -1,9 +1,9 @@
-<div style="position:relative;display: flex;background-size: 80%;background-color: #f4cccc;background-image: url('../../assets/image/final-removebg-preview.png');">
+<div style="position:relative;display: flex;background-size: 80%;background-color: #fff2cc;background-image: url('../../assets/image/output-onlinepngtools.png');">
   <div style="width: 75%;height: 100vh;">
-  <h1 style="color: #a64d79;text-align: center;padding-top: 5%;">"Welcome to MirageManeStudio - Your Beauty Destination!"</h1>
-  <p style="padding: 0% 5% 0% 5%;text-align: center;color:#741b47;font-size: medium;">
+  <h1 style="color: #6a329f;text-align: center;padding-top: 5%;">"Welcome to MirageManeStudio - Your Beauty Destination!"</h1>
+  <p style="padding: 0% 5% 0% 5%;text-align: center;color:#16537e;font-size: large;">
 At MirageManeStudio, we believe that beauty is an art, and every client deserves to feel confident and radiant. Our team of experienced and passionate stylists is here to transform your beauty dreams into reality.</p>
-<p style="color: #741b47;font-weight: 700 ;padding: 2%;">
+<p style="color: #16537e;font-weight: 700 ;padding: 2%;">
   
 Why Choose Us:
 
@@ -25,7 +25,7 @@ Why Choose Us:
 <br>
 <br>
 </p>
-<p style="color: #20124d;font-size: medium;">
+<p style="color: #0c343d;font-size: medium;">
 Thank you for choosing MirageManeStudio. We can't wait to help you achieve your beauty goals and provide you with an unforgettable salon experience!
 
 </p>
@@ -40,23 +40,25 @@ Thank you for choosing MirageManeStudio. We can't wait to help you achieve your 
       <input matInput placeholder="Appointment Date" name="appointmentDate" ngModel required>
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Start Time" name="startTime" ngModel required>
+      <input matInput placeholder="Slot Time" name="slotTime" ngModel required>
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="End Time" name="endTime" ngModel required>
+      <input matInput placeholder="Salon Name" name="salonName" ngModel required>
     </mat-form-field>
     <mat-form-field>
-      <mat-label >Salon Name</mat-label>
-      <mat-select ngModel name="salonName">
-        <!-- <mat-option>salon 0</mat-option> -->
-        <!-- <mat-option>salon 1</mat-option>
-        <mat-option>salon 2</mat-option> -->
-        <mat-option  *ngFor="let food of foods" [value]="food.value">
-          {{food.viewValue}}
-        </mat-option>
+      <mat-select placeholder="Services"  name="servicesReq" ngModel multiple>
+        <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
       </mat-select>
     </mat-form-field>
+   
+    <mat-form-field>
+      <input matInput placeholder="Total Price" name="totalPrice" ngModel required>
+    </mat-form-field>
     
+    
+   
+    
+
 
     <button style="margin-left:10%;margin-right:10%;padding: 2%;font-size: large;" mat-raised-button color="primary" type="submit" [disabled]="bookingForm.invalid">
       

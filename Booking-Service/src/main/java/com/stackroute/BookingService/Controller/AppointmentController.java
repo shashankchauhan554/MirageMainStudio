@@ -34,14 +34,6 @@ public class AppointmentController {
         }
     }
 
-//    @GetMapping("/details/{id}")
-//    public ResponseEntity getAppointmentDetailsForBarber(@PathVariable long id) {
-//        try {
-//            return new ResponseEntity<>(appointmentService.getAppointmentOfBarber(id), HttpStatus.OK);
-//        } catch (Exception e) {
-//            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//    }
 
     @GetMapping("/salon-name/{salonName}")
     public ResponseEntity getBySalonName(@PathVariable String salonName){
@@ -53,22 +45,6 @@ public class AppointmentController {
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Does not exist");
     }
-
-
-
-
-
-   /** @PostMapping("/barber/availability")
-    public ResponseEntity checkBarberAvailability(@RequestBody Appointment appointmentDetails) {
-        try {
-            return new ResponseEntity<>(appointmentService.getBarberAvailability(appointmentDetails), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-*/
-
-
 }
 
 
