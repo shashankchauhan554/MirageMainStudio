@@ -1,36 +1,47 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import  axios  from 'axios';
+import axios from 'axios';
 // import { SalonOwner } from './src/app/model/SalonOwner';
 // import {SalonOwner}
 // import { Admin } from 'src/app/model/admin';
-
 @Injectable({
   providedIn: 'root',
 })
 export class SalonownerService {
+  selectedSalonServices: any[] = [];
+  selectedSlots: any[] = [];
+  salonName:string='';
+  totalPrice:number=0;
+  // setSalonServices(services: any[]) {
+  //   this.selectedSalonServices = services;
+  // }
+  // getSalonServices() {
+  //   return this.selectedSalonServices;
+  // }
+  // setSlots(slots: any[]) {
+  //   this.selectedSlots = slots;
+  // }
+  // getSlots() {
+  //   return this.selectedSlots;
+  // }
   private baseUrl = 'http://localhost:8082/salon';
   constructor(private http: HttpClient) {}
-
   addSalonOwner(salonOwner: any) {
     return this.http.post(
       'http://localhost:8082/api/v1/addsalonowner',
       salonOwner
     );
   }
-
   viewAllSalonOwners(): Observable<any> {
     return this.http.get('http://localhost:8082/api/v1/viewallsalonowner');
   }
-
   updateSalonOwner(salonOwner: any): Observable<any> {
     return this.http.put(
       'http://localhost:8082/api/v1/updatesalonowner',
       salonOwner
     );
   }
-
   private urlO = 'http://localhost:8082/api/v1/viewallsalonowner';
   getAllOwner(): Observable<any> {
     return this.http.get(this.urlO);
@@ -39,8 +50,8 @@ export class SalonownerService {
   getAllSalons(): Observable<any> {
     return this.http.get(this.urlv);
   }
-  getbyownerid(id: String): Observable<any> {
-    const ur1o = `http://localhost:8082/ap1/v1/viewbyownerId/${1}`;
+  getbyownerid(id: any): Observable<any> {
+    const ur1o = `http://localhost:8082/salon/viewall/${id}`;
     return this.http.get<void>(ur1o);
   }
   private urlo1 = 'http://localhost:8082/api/v1/updatesalonowner';
@@ -56,8 +67,8 @@ export class SalonownerService {
     return this.http.delete<void>(ur);
   }
   // private urlR = `http://localhost:8082/salon/viewall/${id}`;
-  getAlldetailsById(id: String): Observable<any> {
-    const urlR = `http://localhost:8082/salon/viewall/${id}`;
+  getAlldetailsById(email: any): Observable<any> {
+    const urlR = `http://localhost:8082/salon/viewsalon/${email}`;
     return this.http.get(urlR);
   }
   getbyid(id: String): Observable<any> {
@@ -84,10 +95,10 @@ export class SalonownerService {
     const url = `${this.baseUrl}/delete/${ownerId}/${slotId}`;
     return axios
       .delete(url)
-      .then((response: { data: any; }) => {
+      .then((response:any) => {
         return response.data;
       })
-      .catch((error: any) => {
+      .catch((error:any) => {
         throw error;
       });
   }
@@ -96,11 +107,11 @@ export class SalonownerService {
     // return this.http.post(url, salon);
     return axios
       .post(url, salon)
-      .then((response: { data: any; }) => {
+      .then((response:any) => {
         console.log('Service deleted:', response.data);
         return response.data;
       })
-      .catch((error: any) => {
+      .catch((error:any) => {
         console.error('Error deleting service:', error);
         throw error;
       });
@@ -109,11 +120,11 @@ export class SalonownerService {
     const url = `${this.baseUrl}/editservice/${ownerId}/${serviceId}`;
     return axios
       .post(url, salon)
-      .then((response: { data: any; }) => {
+      .then((response:any) => {
         console.log('Service deleted:', response.data);
         return response.data;
       })
-      .catch((error: any) => {
+      .catch((error:any) => {
         console.error('Error deleting service:', error);
         throw error;
       });
@@ -122,11 +133,11 @@ export class SalonownerService {
     const apiUrl = `${this.baseUrl}/deleteservice/${ownerId}/${serviceId}`;
     return axios
       .delete(apiUrl)
-      .then((response: { data: any; }) => {
+      .then((response:any) => {
         console.log('Service deleted:', response.data);
         return response.data;
       })
-      .catch((error: any) => {
+      .catch((error:any) => {
         console.error('Error deleting service:', error);
         throw error;
       });

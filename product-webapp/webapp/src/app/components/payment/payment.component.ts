@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { OrderServiceService } from './order-service.service';
 import { Observable } from 'rxjs';
 import { PaymentServiceService } from 'src/app/services/Payment/payment.service.service';
+import { SalonownerService } from 'src/app/services/salonowner/salonowner.service';
 
 
 declare var Razorpay: any;
@@ -14,20 +15,22 @@ declare var Razorpay: any;
 })
 export class PaymentComponent {
   title = 'demo';
+  totalPrice:number=0;
   //paymentDetail:any = {}
 
   form: any = {};
   private scall=inject(PaymentServiceService);
   responseData: any;
   constructor(private http: HttpClient,
-    private orderService: OrderServiceService) {
+    private orderService: OrderServiceService,
+    private sos:SalonownerService) {
 
   }
   
   paymentData:any;
 
   ngOnInit() {
-
+  this.totalPrice=this.sos.totalPrice;
 
   }
 

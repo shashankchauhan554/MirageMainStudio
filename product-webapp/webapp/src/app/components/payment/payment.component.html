@@ -49,10 +49,13 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="amount">Amount</label> <input type="number" class="form-control" name="amount" [(ngModel)]="form.amount" required #amount="ngModel" />
-                    <div class="error-message" role="alert" *ngIf="f.submitted && amount.invalid">
-                        <div *ngIf="amount.errors?.['required']">Amount is required</div>
-                    </div>
+                    <label for="amount">Amount</label>
+                     <!-- <input type="number" class="form-control" name="amount" [(ngModel)]="form.amount" required #amount="ngModel" /> -->
+                     <mat-card>
+                        <mat-card-content>{{totalPrice}}</mat-card-content>
+                      </mat-card><br>
+                    
+                    
                 </div>
                 <div class="form-group">
                     <button class="btn btn-danger btn-block">Pay</button>
