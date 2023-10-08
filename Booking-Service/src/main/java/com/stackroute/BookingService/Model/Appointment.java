@@ -21,6 +21,8 @@ public class Appointment {
     private String slotTime;
     private String[] servicesReq;
     private String totalPrice;
+    private String email;
+    private String city;
 
 }
 

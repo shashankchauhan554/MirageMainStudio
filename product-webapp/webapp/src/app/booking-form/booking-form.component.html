@@ -41,6 +41,10 @@ Thank you for choosing MirageManeStudio. We can't wait to help you achieve your 
     <mat-card>
       <mat-card-content>{{salonName}}</mat-card-content>
     </mat-card><br>
+    <b>Salon Email</b>
+    <mat-card>
+      <mat-card-content>{{email}}</mat-card-content>
+    </mat-card><br>
     <b>Services Opted</b>
     <mat-card *ngFor="let service of selectedService">
       <mat-card-content>{{service.serviceName}}</mat-card-content>
@@ -61,6 +65,11 @@ Thank you for choosing MirageManeStudio. We can't wait to help you achieve your 
     <mat-form-field>
       <input matInput placeholder="Enter your Name" name="customerName" ngModel required>
     </mat-form-field>
+    <b>City Name</b>
+    <mat-form-field>
+      <input matInput placeholder="Enter City" name="city" ngModel required>
+    </mat-form-field>
+    
     
    
     

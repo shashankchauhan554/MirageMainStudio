@@ -1,18 +1,12 @@
 package com.stackroute.BookingService.Service;
 import com.stackroute.BookingService.Model.Appointment;
-import com.stackroute.BookingService.Service.AppointmentService;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 import com.stackroute.BookingService.Repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Service;
 import java.security.SecureRandom;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+
 @Service
 public class AppointmentServiceImpl implements AppointmentService{
     @Autowired
@@ -34,6 +28,10 @@ public class AppointmentServiceImpl implements AppointmentService{
         Collections.sort(appointmentDetailsList, comparator);
         return appointmentDetailsList;
     }
+
+   
+
+
     @Override
     public Appointment getAppointmentBySalonName(String salonName) {
 

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class AppointmentService {
   private baseUrl = 'http://localhost:8060/booking'; // Update with your backend URL
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   createAppointment(appointmentDetails: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/create`, appointmentDetails);
@@ -24,5 +24,9 @@ export class AppointmentService {
 
   checkBarberAvailability(appointmentDetails: any) {
     return this.http.post(`${this.baseUrl}/barber/availability`, appointmentDetails);
+  }
+
+  getBySalonName(solanName: any) {
+    return this.http.get(`${this.baseUrl}/salon-name/${solanName}`)
   }
 }
