@@ -23,7 +23,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
-// import { FormsModule } from '@angular/forms';
+//import { FormsModule } from '@angular/forms';
 
 import { SalonHomepageComponent } from './components/salon/salon-homepage/salon-homepage.component';
 import { SalonHeaderComponent } from './components/salon/salon-header/salon-header.component';

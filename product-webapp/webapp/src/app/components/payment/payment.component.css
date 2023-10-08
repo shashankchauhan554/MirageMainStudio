@@ -10,6 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding-left:700px;
 }
 
 .card-container {
@@ -25,6 +26,7 @@ body {
 .form-group {
   margin-bottom: 20px;
 }
+
 
 label {
   font-weight: bold;
@@ -72,4 +74,35 @@ label {
   background-color: #d4edda;
   border-color: #c3e6cb;
   color: #155724;
+}
+
+.content-container {
+  display: flex;
+  align-items: center;
+}
+
+.image-container {
+  flex: 1;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+}
+
+.booking-summary {
+   flex: 1; 
+  padding-left: 200px; 
+  border-left: 1px solid #ccc; 
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+}
+
+.booking-summary h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
