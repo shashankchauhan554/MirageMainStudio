@@ -1,9 +1,10 @@
-import { Component, HostListener,inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { OrderServiceService } from './order-service.service';
 import { Observable } from 'rxjs';
 import { PaymentServiceService } from 'src/app/services/Payment/payment.service.service';
 import { SalonownerService } from 'src/app/services/salonowner/salonowner.service';
+import { AppointmentService } from 'src/app/appointment.service';
 
 
 declare var Razorpay: any;
@@ -15,23 +16,47 @@ declare var Razorpay: any;
 })
 export class PaymentComponent {
   title = 'demo';
-  totalPrice:number=0;
-  //paymentDetail:any = {}
+  totalPrice: number = 0;
+  selectedService: any;
+  selectedSlot: any;
+  salonName: string = '';
+  email: string = '';
+  city = ''
+  customerName = ''
+
 
   form: any = {};
-  private scall=inject(PaymentServiceService);
+  private scall = inject(PaymentServiceService);
   responseData: any;
   constructor(private http: HttpClient,
     private orderService: OrderServiceService,
-    private sos:SalonownerService) {
+    private sos: SalonownerService,
+    private bookingService: AppointmentService,
+  ) {
 
   }
-  
-  paymentData:any;
+
+  paymentData: any;
 
   ngOnInit() {
-  this.totalPrice=this.sos.totalPrice;
+    this.totalPrice = this.sos.totalPrice;
+    this.selectedService = this.sos.selectedSalonServices;
+    this.selectedSlot = this.sos.selectedSlots;
+    this.salonName = this.sos.salonName;
+    this.email = this.sos.email;
+    this.totalPrice = this.sos.totalPrice;
+    this.city = this.sos.city;
+    this.customerName = this.sos.customerName
 
+
+    console.log(this.selectedService)
+    console.log(this.selectedSlot)
+    console.log(this.salonName)
+    console.log(this.email)
+    console.log(this.totalPrice)
+    console.log(this.selectedService)
+    console.log(this.city)
+    console.log(this.customerName)
   }
 
   sayHello() {
@@ -120,29 +145,30 @@ export class PaymentComponent {
     console.log(event.detail);
     console.log(this.form.name);
     console.log(event.detail.razorpay_order_id);
-    const { razorpayPayemntID, razorpayOrderId, signature} = event.detail;
+    const { razorpayPayemntID, razorpayOrderId, signature } = event.detail;
 
     this.paymentData = {
       // salonId: this.salonId,
-      razorpayOrderId:event.detail.razorpay_order_id,
-      razorpayPaymentId:event.detail.razorpay_payment_id,
-      signature:event.detail.razorpay_signature,
-      customerName:this.form.name,
-      email:this.form.email,
-      phoneNumber:this.form.phone,
-      amount:this.form.amount};
-   
+      razorpayOrderId: event.detail.razorpay_order_id,
+      razorpayPaymentId: event.detail.razorpay_payment_id,
+      signature: event.detail.razorpay_signature,
+      customerName: this.form.name,
+      email: this.form.email,
+      phoneNumber: this.form.phone,
+      amount: this.form.amount
+    };
+
     this.scall.SavePayment(this.paymentData).subscribe(
       () => {
         console.log("Payment data has been saved successfully.");
       },
-      (error: any)  => {
+      (error: any) => {
         console.error("Error saving payment data:", error);
       }
     )
 
     // Create a POST call to the service
-    
+
   }
 }
 // function savePayment(this: any, paymentDetail: any) {

@@ -77,11 +77,12 @@ export class SalonDetailsComponent {
     console.log(this.bookedservices);
     console.log(this.totalPrice);
     console.log(this.salonName);
-
+    console.log(this.email);
     console.log(this.bookedservices[0].serviceName)
     console.log(this.bookedslot[0]);
     this.getAllService.totalPrice=this.totalPrice;
     this.getAllService.salonName=this.salonName;
+    this.getAllService.email=this.email;
     this.getAllService.selectedSalonServices=this.bookedservices;
     this.getAllService.selectedSlots=this.bookedslot;
     // this.getAllService.setSalonServices(this.bookedservices);

@@ -13,6 +13,9 @@ export class SalonownerService {
   selectedSlots: any[] = [];
   salonName:string='';
   totalPrice:number=0;
+  email:string=''
+  customerName=''
+  city=''
   // setSalonServices(services: any[]) {
   //   this.selectedSalonServices = services;
   // }
