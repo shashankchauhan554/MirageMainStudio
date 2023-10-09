@@ -11,6 +11,7 @@ export class UserProfileDashboardComponent implements OnInit {
   //isEditing:boolean = false;
   constructor(private router:Router, private userregistrationservice:UserRegistrationServiceService){}
   userprofiledata:any= { };
+  public getJsonValue: any[] = [];
   ngOnInit(): void {
     const email = localStorage.getItem('userEmail');
     this.userregistrationservice.getUserByEmail(email).subscribe(
@@ -23,7 +24,18 @@ export class UserProfileDashboardComponent implements OnInit {
           console.error('Error fetching profile', error);
         }
       );
+      this.getAllDetails(email);
   }
+
+  getAllDetails(email:any) {
+    console.log(email);
+    this.userregistrationservice.getAllSalonbookings(email).subscribe((data: any) => {
+      this.getJsonValue = data;
+      console.log("hi");
+      console.log(data);
+    });
+  }
+
  /* onEdit(){
     this.isEditing = true;
   }

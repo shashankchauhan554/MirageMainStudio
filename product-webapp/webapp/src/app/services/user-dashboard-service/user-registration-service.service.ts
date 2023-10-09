@@ -27,4 +27,9 @@ export class UserRegistrationServiceService {
 
   }
 
+  getAllSalonbookings(email:any): Observable<any> {
+    const booking = `http://localhost:8060/booking/salon-booking/${email}`;
+    return this.http.get(booking);
+  }
+
 }

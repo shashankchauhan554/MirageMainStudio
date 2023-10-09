@@ -13,6 +13,8 @@ public interface AppointmentService {
 
 
    List <Appointment> getAppointmentBySalonName(String salonName);
+
+    List <Appointment> getAppointmentByCustomerEmail(String customerEmail);
 }
 
 

@@ -10,6 +10,7 @@ public interface  AppointmentRepository extends MongoRepository<Appointment,Stri
     Appointment findBySalonName(String salonName);
 
     List <Appointment> findByEmail(String salonEmail);
+    List <Appointment> findByCustomerEmail(String customerEmail);
 }
 
 

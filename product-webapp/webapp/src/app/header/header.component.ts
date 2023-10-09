@@ -49,7 +49,7 @@ export class HeaderComponent   {
         this.isLoggedIn = true;
       }
       order(){
-        this.router.navigateByUrl('salon');
+        this.router.navigateByUrl('salon-get-salon');
       }
       
       subscribe(){

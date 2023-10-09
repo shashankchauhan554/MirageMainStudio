@@ -47,6 +47,17 @@ public class AppointmentController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Does not exist");
     }
 
+    @GetMapping("/salon-booking/{customerEmail}")
+    public ResponseEntity getByCustomerEmail(@PathVariable String customerEmail){
+
+        List<Appointment> appointment= appointmentService.getAppointmentByCustomerEmail(customerEmail);
+
+        if(appointment!=null){
+            return ResponseEntity.status(HttpStatus.OK).body(appointment);
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Does not exist");
+    }
+
 }
 
 

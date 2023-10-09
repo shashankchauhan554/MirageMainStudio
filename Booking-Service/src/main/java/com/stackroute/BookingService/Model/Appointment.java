@@ -17,6 +17,8 @@ public class Appointment {
     private long id;
     private String appointmentDate;
     private String customerName;
+
+    private String customerEmail;
     private String salonName;
     private String slotTime;
     private String[] servicesReq;

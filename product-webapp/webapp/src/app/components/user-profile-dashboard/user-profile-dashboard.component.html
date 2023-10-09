@@ -55,41 +55,33 @@
                       <!--<button id="edit" (click)="onEdit()">Edit</button> --> 
                 </div>
         </form>
-    <div class="appointment-details">
-        <div class="Appointment-cards">
+    <div class="appointment-details" *ngFor="let item of getJsonValue; let i = index">
+        <div class="Appointment-cards" >
             <div>
-                <h2>15 Sep 23</h2>
-                <h4>17:05-18:00</h4>
+                <h2>Appointment Date</h2>
+                <h4>{{item.appointmentDate}}</h4>
             </div>
             <div>
-                <h5>service</h5>
-                <h3>HAIRCUT</h3>
+                <h2>Appointment Time</h2>
+                <h3>{{item.slotTime}}</h3>
             </div>
             <div>
-                <h4>Stylist</h4>
-                <h3>Stylist Name</h3>
+                <h2>Service</h2>
+                <h3>{{item.servicesReq}}</h3>
             </div>
             <div>
-                <h4>Rating</h4>
-                <span class="material-symbols-rounded">
-                    star
-                </span>
-                <span class="material-symbols-rounded">
-                    star
-                </span>
-                <span class="material-symbols-rounded">
-                    star
-                </span>
-                <span class="material-symbols-rounded">
-                    star
-                </span>
-                <span class="material-symbols-rounded">
-                    star
-                </span>
-
+                <h2>Salon Name</h2>
+                <h3>{{item.salonName}}</h3>
             </div>
+            <div>
+                <h2>Paid Amount</h2>
+                <h3>{{item.totalPrice}} Rs</h3>
+            </div>
+    
         </div>
     </div> 
+
+    
    <!-- <div class="button-holder">
         <button (click)="cancelEdit()">cancel</button>
         <button (click)="saveProfile()">Save</button>

@@ -37,6 +37,12 @@ public class AppointmentServiceImpl implements AppointmentService{
 
         return appointmentRepository.findByEmail(salonName);
     }
+
+    @Override
+    public List<Appointment> getAppointmentByCustomerEmail(String customerEmail) {
+
+        return appointmentRepository.findByCustomerEmail(customerEmail);
+    }
     private long generateAppointmentId() {
         SecureRandom random = new SecureRandom();
         int num = random.nextInt(100000);
