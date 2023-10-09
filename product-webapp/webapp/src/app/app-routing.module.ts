@@ -10,7 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SalonContentComponent } from './components/salon/salon-content/salon-content.component';
 import { SalonHomepageComponent } from './components/salon/salon-homepage/salon-homepage.component';
 import { SalonAddSalonownerComponent } from './components/salon/salon-add-salonowner/salon-add-salonowner.component';
-import { SalonUpdateSalonownerComponent } from './components/salon/salon-update-salonowner/salon-update-salonowner.component';
+import { SalonUpdateSalonownerComponent } from './components/salon/salon-bookings/salon-update-salonowner.component';
 import { SalonGetSalonComponent } from './components/salon/salon-get-salon/salon-get-salon.component';
 import { SalonGetOwnerComponent } from './components/salon/salon-get-owner/salon-get-owner.component';
 import { SalonauthGuard } from './guard/salonauth.gaurd';
@@ -50,10 +50,10 @@ const routes: Routes = [
   {path: 'boxes/salon-update-salon',component: SalonUpdateSalonComponent,canActivate: [SalonauthGuard]},
   {path: 'salon-getbyid-salon',component: SalonGetbysalonidSalonComponent,canActivate: [SalonauthGuard]},
   {path: 'salon-add-salonowner',component: SalonAddSalonownerComponent,canActivate: [SalonauthGuard]},
-  {path: 'salon-update-salonowner',component: SalonUpdateSalonownerComponent,canActivate: [SalonauthGuard]},
+  {path: 'boxes/salon-bookings',component: SalonUpdateSalonownerComponent,canActivate: [SalonauthGuard]},
   {path: 'salon-homepage',component: SalonHomepageComponent,canActivate: [SalonauthGuard]},
   {path: 'boxes/salon-add-owner', component: SalonAddOwnerComponent,canActivate:[SalonauthGuard]},
-  // User side components
+  // Userside components
   {path: 'salon-get-salon',component: SalonGetSalonComponent,canActivate: [SalonauthGuard]},
   { path: 'salon/:id', component: SalonDetailsComponent },
 

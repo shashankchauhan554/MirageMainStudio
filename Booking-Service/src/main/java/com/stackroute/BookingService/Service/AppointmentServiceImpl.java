@@ -33,9 +33,9 @@ public class AppointmentServiceImpl implements AppointmentService{
 
 
     @Override
-    public Appointment getAppointmentBySalonName(String salonName) {
+    public List<Appointment> getAppointmentBySalonName(String salonName) {
 
-        return appointmentRepository.findBySalonName(salonName);
+        return appointmentRepository.findByEmail(salonName);
     }
     private long generateAppointmentId() {
         SecureRandom random = new SecureRandom();
