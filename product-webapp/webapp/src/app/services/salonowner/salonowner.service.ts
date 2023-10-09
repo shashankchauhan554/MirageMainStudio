@@ -53,6 +53,13 @@ export class SalonownerService {
   getAllSalons(): Observable<any> {
     return this.http.get(this.urlv);
   }
+
+  
+  getAllSalonbookings(email:any): Observable<any> {
+    const booking = `http://localhost:8060/booking/salon-name/${email}`;
+    return this.http.get(booking);
+  }
+
   getbyownerid(id: any): Observable<any> {
     const ur1o = `http://localhost:8082/salon/viewall/${id}`;
     return this.http.get<void>(ur1o);

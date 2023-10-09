@@ -1,0 +1,19 @@
+<div class="top">
+  <div class="warp">
+    <div class="example-card" *ngFor="let item of getJsonValue; let i = index">
+      <h2 class="fristh2">Booking #{{ i + 1 }}</h2>
+      <div class="example-carddiv">
+        
+        <div class="example-cardrightdiv">
+          <h2>Appointment Id:{{ item.id}}</h2>
+          <h2>Appointment Date:{{ item.appointmentDate }}</h2>
+          <h2>Appointment Time:{{ item.slotTime }}</h2>
+          <h2>Customer Address:{{ item.city }}</h2>
+          <h2>Email:{{ item.email }}</h2>
+          <h2>Services: {{item.servicesReq}} </h2>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
