@@ -24,7 +24,7 @@ import { UserProfileDashboardComponent } from './components/user-profile-dashboa
 import { BookingFormComponent } from './booking-form/booking-form.component';
 import { BoxesComponent } from './boxes/boxes.component';
 import { SalonDetailsComponent } from './components/salon/salon-details/salon-details.component';
-
+import { userGuard } from './userGaurd/user.gaurd';
 
 
 
@@ -36,12 +36,12 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
 
 
-  {path:"booking-form",component:BookingFormComponent},
-{path:"boxes",component:BoxesComponent},
+  {path:"booking-form",component:BookingFormComponent,canActivate:[userGuard]},
+{path:"boxes",component:BoxesComponent,canActivate:[SalonauthGuard]},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
-  {path: 'payment', component:PaymentComponent},
-  {path:'userdashboard',component:UserProfileDashboardComponent},
+  {path: 'payment', component:PaymentComponent,canActivate:[userGuard]},
+  {path:'userdashboard',component:UserProfileDashboardComponent,canActivate:[userGuard]},
   // {path: 'salon-get-salon',component: SalonGetSalonComponent,canActivate: [SalonauthGuard]},
   {path: 'salon-get-owner',component: SalonGetOwnerComponent,canActivate: [SalonauthGuard],},
   {path: 'boxes/salon-get-category',component: SalonGetSaloncategoryComponent,canActivate: [SalonauthGuard]},
@@ -54,8 +54,8 @@ const routes: Routes = [
   {path: 'salon-homepage',component: SalonHomepageComponent,canActivate: [SalonauthGuard]},
   {path: 'boxes/salon-add-owner', component: SalonAddOwnerComponent,canActivate:[SalonauthGuard]},
   // Userside components
-  {path: 'salon-get-salon',component: SalonGetSalonComponent,canActivate: [SalonauthGuard]},
-  { path: 'salon/:id', component: SalonDetailsComponent },
+  {path: 'salon-get-salon',component: SalonGetSalonComponent, canActivate:[userGuard]},
+  { path: 'salon/:id', component: SalonDetailsComponent,canActivate:[userGuard] },
 
 
   {path:'',component:HomeComponent},

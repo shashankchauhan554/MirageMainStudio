@@ -45,11 +45,27 @@ export class HeaderComponent   {
 
       }
       profile(){
+        const role =localStorage.getItem('userRole');
+        if(role=="CUSTOMER"){
         this.router.navigateByUrl('userdashboard');
+        this.isLoggedIn = true;}
+        else if(role=="OWNER"){
+          this.router.navigateByUrl('boxes/salon-get-category');
         this.isLoggedIn = true;
+          
+        }
       }
       order(){
+        const role =localStorage.getItem('userRole');
+        if(role=="CUSTOMER"){
         this.router.navigateByUrl('salon-get-salon');
+      }
+        else if(role=="OWNER"){
+          this.router.navigateByUrl('boxes');
+        }
+        else{
+          alert("Please First Login")
+        }
       }
       
       subscribe(){
