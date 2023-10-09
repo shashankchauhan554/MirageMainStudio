@@ -32,7 +32,7 @@ import { SalonContentComponent } from './components/salon/salon-content/salon-co
 
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SalonAddSalonownerComponent } from './components/salon/salon-add-salonowner/salon-add-salonowner.component';
-import { SalonUpdateSalonownerComponent } from './components/salon/salon-update-salonowner/salon-update-salonowner.component';
+import { SalonUpdateSalonownerComponent } from './components/salon/salon-bookings/salon-update-salonowner.component';
 import { SalonGetSalonComponent } from './components/salon/salon-get-salon/salon-get-salon.component';
 import { SalonGetOwnerComponent } from './components/salon/salon-get-owner/salon-get-owner.component';
 import { MatMenuModule } from '@angular/material/menu';

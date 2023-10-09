@@ -8,6 +8,8 @@ import java.util.List;
 @Repository
 public interface  AppointmentRepository extends MongoRepository<Appointment,String> {
     Appointment findBySalonName(String salonName);
+
+    List <Appointment> findByEmail(String salonEmail);
 }
 
 

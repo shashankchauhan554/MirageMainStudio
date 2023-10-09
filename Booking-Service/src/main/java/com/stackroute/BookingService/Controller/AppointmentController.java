@@ -39,7 +39,7 @@ public class AppointmentController {
     @GetMapping("/salon-name/{salonName}")
     public ResponseEntity getBySalonName(@PathVariable String salonName){
 
-        Appointment appointment= appointmentService.getAppointmentBySalonName(salonName);
+        List<Appointment> appointment= appointmentService.getAppointmentBySalonName(salonName);
 
         if(appointment!=null){
             return ResponseEntity.status(HttpStatus.OK).body(appointment);
