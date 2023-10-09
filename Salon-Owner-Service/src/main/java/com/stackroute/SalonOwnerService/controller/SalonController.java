@@ -171,5 +171,19 @@ public ResponseEntity<?> viewSalonByEmail(@PathVariable String emailId)  {
         return  new ResponseEntity<List>(service.getSalonByName(Name),HttpStatus.OK);
     }
 //
+@PostMapping("/updateslot/{ownerId}/{slotId}")
+public ResponseEntity<?> updateSlotById(@PathVariable String ownerId, @PathVariable String slotId,@RequestBody Slot updatedSlot) {
+//        System.out.println("Hello, World!");
+    try {
+        boolean result  = service.updateSlotBySlotId(ownerId, slotId,updatedSlot);
+        if (result) {
+            return new ResponseEntity<String>("Slot Updated", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<String>("Slot not found for the given ownerId and slotId", HttpStatus.NOT_FOUND);
+        }
+    } catch (SalonOwnerIdDoesNotExistException e) {
+        return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
+    }
+}
 
 }

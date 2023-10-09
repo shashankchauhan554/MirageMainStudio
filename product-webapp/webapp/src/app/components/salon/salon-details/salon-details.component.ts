@@ -87,7 +87,36 @@ export class SalonDetailsComponent {
     this.getAllService.selectedSlots=this.bookedslot;
     // this.getAllService.setSalonServices(this.bookedservices);
     // this.getAllService.setSlots(this.bookedslot);
-    this.router.navigate(['booking-form'])
+   if(this.bookedslot[0].slotStatus=="Available" && this.bookedslot.length==1){
+    this.updateSlot(this.bookedslot[0])
+   }
+   else{
+    alert("Please Choose Available Slot or else choose only one slot")
+   }
+
+    // this.router.navigate(['booking-form'])
  }
+
+ updateSlot(slot: any) {
+  // console.log(slot);
+  const newServiceData = {
+    slotId: slot.slotId,
+    slotDate: slot.slotDate,
+    slotTime: slot.slotTime,
+    slotStatus: "Booked",
+  };
+  console.log(newServiceData)
+  this.getAllService
+    .updateslot(newServiceData, this.salonId, slot.slotId)
+    .then(() => {
+      console.log('Slot Updated successfully');
+      // window.location.reload();
+      // this.selectedSlot = null;
+      this.router.navigate(['booking-form'])
+    })
+    .catch((error) => {
+      console.error('Error deleting slot:', error);
+    });
+}
 
 }

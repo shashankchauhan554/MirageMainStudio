@@ -252,5 +252,24 @@ public class SalonServiceImpl implements SalonService {
         throw new SalonOwnerIdDoesNotExistException("Salon or Service not found");
     }
 
+    @Override
+    public boolean updateSlotBySlotId(String ownerId, String slotId,Slot updatedSlot) throws SalonOwnerIdDoesNotExistException {
+        Optional<Salon> opt = repository.findById(ownerId);
+        if (opt.isPresent()) {
+            Salon salon = opt.get();
+            List<Slot> slots = salon.getSlots();
+            if (slots != null) {
+                slots.removeIf(slot -> slot.getSlotId().equals(slotId));
+                slots.add(updatedSlot);
+                salon.setSlots(slots);
+                repository.save(salon);
+                return true;
+            }
+        }
+        return false; // Slot or owner not found
+    }
+
+
+
 
 }

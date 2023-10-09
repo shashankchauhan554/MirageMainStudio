@@ -13,6 +13,8 @@ public interface SalonRepository extends ElasticsearchRepository <Salon, String>
     List<Salon> findByCity(String med);
 
     Optional<Salon> findByEmail(String med);
+
+
 //    List<Salon> findByLocation(String location);
 //    List<Salon> findByPriceGreaterThan(int price);
 

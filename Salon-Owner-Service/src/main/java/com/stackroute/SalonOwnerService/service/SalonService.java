@@ -38,6 +38,8 @@ public interface SalonService {
 
     List<Salon> getSalonByName(String Name);
 
+    boolean updateSlotBySlotId(String ownerId, String slotId,Slot updatedSlot) throws SalonOwnerIdDoesNotExistException;
+
 
 
 }
