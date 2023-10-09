@@ -6,7 +6,7 @@ import java.math.BigInteger;
 @Getter
 public class Payment {
     String customerName;
-    String email;
+    String customerEmail;
     String phoneNumber;
     BigInteger amount;
     String razorpayPaymentId;
@@ -18,7 +18,7 @@ public class Payment {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.customerEmail = email;
     }
 
     public void setPhoneNumber(String phoneNumber) {

@@ -9,9 +9,9 @@
     <!-- Content Container -->
     <div class="content-container">
         <!-- Image Container -->
-        <div class="image-container">
+        <!-- <div class="image-container">
             <img src="../../assets/imge.jpg" alt="Payment Image">
-        </div>
+        </div> -->
 
         <!-- Booking Summary -->
         <div class="booking-summary">
@@ -33,20 +33,10 @@
                 </mat-card><br>
 
                 <b>Total Price</b>
-                <mat-card-content>
-                    <mat-card-content>{{totalPrice}}/mat-card-content>
-                </mat-card-content><br>
-
-                <b>City</b>
                 <mat-card>
-                    <mat-card-content>{{city}}</mat-card-content>
-                </mat-card><br>
-
-                <b>Customer Name</b>
-                <mat-card>
-                    <mat-card-content>{{customerName}}</mat-card-content>
-                </mat-card><br>
+                    <mat-card-content>{{totalPrice}}
                 </mat-card-content>
+                </mat-card>
             </div>
         </div>
     </div>
@@ -90,11 +80,20 @@
                 </div>
 
                 <!-- Amount Display (Mat-Card) -->
-                <div class="form-group">
+                <!-- <div >
                     <label for="Amount">Amount</label>
                     <mat-card>
-                        <mat-card-content>{{totalPrice}}</mat-card-content>
+                        <mat-card-content >{{totalPrice}}</mat-card-content>
                     </mat-card><br>
+                </div> -->
+
+                <div class="form-group">
+                    <label for="amount">Amount</label> 
+                    <h1 type="number" class="form-control" name="amount" [(ngModel)]="form.amount" required #amount="ngModel">{{totalPrice}}</h1>
+                    <!-- <mat-card-content class="form-control" name="amount" [(ngModel)]="form.amount" #amount="ngModel">{{totalPrice}}</mat-card-content> -->
+                    <div class="alert alert-danger" role="alert" *ngIf="f.submitted && amount.invalid">
+                        <div *ngIf="amount.errors?.['required']">Amount is required</div>
+                    </div>
                 </div>
 
                 <!-- Pay Button -->

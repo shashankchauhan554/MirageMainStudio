@@ -1,5 +1,5 @@
-<div class="UserDashboardContainer">
-        <div class="Userprof">
+<div class="UserDashboardContainer" >
+        <div class="Userprof" style="margin-top: 5%;">
                 <img src="../../../assets/img/signup.png" alt="Altprofile.png"/>
                 <span><h1>{{userprofiledata.fullName}}</h1></span>
                 <span><h3>{{userprofiledata.email}}</h3></span>
@@ -30,7 +30,7 @@
                      <button (click)="cancelEdit()">cancel</button> 
                 </div>
         </form> -->
-        <form class="UserDetails" *ngIf="userprofiledata">
+        <form style="margin-top: 5%;" class="UserDetails" *ngIf="userprofiledata">
                 <div class="form-group" class="email">      
                   <label for="email">Gender :</label> <br>                            
                   {{userprofiledata.gender}}

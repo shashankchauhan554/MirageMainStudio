@@ -1,4 +1,5 @@
 import { Component, HostListener, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { OrderServiceService } from './order-service.service';
 import { Observable } from 'rxjs';
@@ -25,13 +26,18 @@ export class PaymentComponent {
   customerName = ''
 
 
-  form: any = {};
+  form: any = {
+  
+  };
+
   private scall = inject(PaymentServiceService);
   responseData: any;
   constructor(private http: HttpClient,
     private orderService: OrderServiceService,
     private sos: SalonownerService,
     private bookingService: AppointmentService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
 
   }
@@ -48,7 +54,7 @@ export class PaymentComponent {
     this.city = this.sos.city;
     this.customerName = this.sos.customerName
 
-
+    
     console.log(this.selectedService)
     console.log(this.selectedSlot)
     console.log(this.salonName)
@@ -100,6 +106,9 @@ export class PaymentComponent {
   onSubmit(): void {
     this.paymentId = '';
     this.error = '';
+    this.form.amount= this.totalPrice;
+    console.log(this.form.email);
+    console.log(this.form.amount)
     this.orderService.createOrder(this.form).subscribe(
       data => {
         this.options.key = data.secretId;
@@ -144,6 +153,7 @@ export class PaymentComponent {
   onPaymentSuccess(event: { detail: any; }): void {
     console.log(event.detail);
     console.log(this.form.name);
+    console.log(this.form.email);
     console.log(event.detail.razorpay_order_id);
     const { razorpayPayemntID, razorpayOrderId, signature } = event.detail;
 
@@ -153,7 +163,7 @@ export class PaymentComponent {
       razorpayPaymentId: event.detail.razorpay_payment_id,
       signature: event.detail.razorpay_signature,
       customerName: this.form.name,
-      email: this.form.email,
+      customerEmail: this.form.email,
       phoneNumber: this.form.phone,
       amount: this.form.amount
     };
@@ -161,6 +171,8 @@ export class PaymentComponent {
     this.scall.SavePayment(this.paymentData).subscribe(
       () => {
         console.log("Payment data has been saved successfully.");
+        this.router.navigate(['userdashboard'])
+
       },
       (error: any) => {
         console.error("Error saving payment data:", error);
