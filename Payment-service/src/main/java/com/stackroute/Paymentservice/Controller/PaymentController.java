@@ -17,8 +17,8 @@ public class PaymentController {
     private RazorpayClient client;
     private static final String SECRET_ID1 = "rzp_test_MqMqGKd7l2hvDD";
     private static final String SECRET_KEY1 = "5laESZ2G7i8mkhXx359zuHDd";
-    private static final String SECRET_ID2 = "rzp_test_J4fInjDpTX475d";
-    private static final String SECRET_KEY2 = "r8fNXAB78RmsVfdiQbWGwyjr";
+    private static final String SECRET_ID2 = "rzp_test_CCeEKqR8cPuwAv";
+    private static final String SECRET_KEY2 = "hsLgaivEZsC9sGehtRjjdx4H";
 
     @PostMapping("/createOrder")
     public OrderResponse createOrder(@RequestBody OrderRequest orderRequest) {
