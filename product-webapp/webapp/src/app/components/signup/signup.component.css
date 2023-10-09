@@ -1,5 +1,6 @@
 .userregistrationcontainer{
   display: flex;
+  margin:3em 0;
 }
 .imageconatiner {
   background-color: #F8F8F8;
