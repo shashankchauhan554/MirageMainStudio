@@ -12,7 +12,7 @@ public interface AppointmentService {
     List<Appointment> getAllAppointmentServices();
 
 
-    Appointment getAppointmentBySalonName(String salonName);
+   List <Appointment> getAppointmentBySalonName(String salonName);
 }
 
 
